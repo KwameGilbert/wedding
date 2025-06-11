@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Users, Target, Zap, Award, ChevronRight } from "lucide-react";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 
@@ -328,6 +329,8 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

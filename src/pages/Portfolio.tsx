@@ -12,6 +12,7 @@ import {
   Search,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -395,6 +396,8 @@ const Portfolio = () => {
           </motion.div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

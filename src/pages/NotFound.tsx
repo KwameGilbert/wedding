@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Home, ArrowLeft, Sparkles } from "lucide-react";
 import { Button } from "../components/ui/button";
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const NotFound = () => {
   const location = useLocation();
@@ -123,6 +124,8 @@ const NotFound = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      <Footer />
     </div>
   );
 };
