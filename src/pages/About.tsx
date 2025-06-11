@@ -72,7 +72,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Navigation />
 
       {/* Hero Section */}
@@ -89,7 +89,7 @@ const About = () => {
                 About EEK
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
               We're a team of passionate innovators dedicated to transforming
               ideas into digital realities that drive success and inspire
               growth.
@@ -104,7 +104,7 @@ const About = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-eek-blue-400/30 bg-eek-blue-400/10 backdrop-blur-sm hover:bg-eek-blue-400/20 text-eek-blue-400 font-semibold px-8 py-4 rounded-full"
+                className="border-2 border-eek-blue-500 bg-white hover:bg-eek-blue-50 text-eek-blue-600 font-semibold px-8 py-4 rounded-full"
               >
                 Our Story
               </Button>

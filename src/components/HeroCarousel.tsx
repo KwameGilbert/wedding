@@ -150,7 +150,7 @@ const HeroCarousel = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Background Image Carousel */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -168,7 +168,7 @@ const HeroCarousel = () => {
           <div
             className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].gradient}`}
           />
-          <div className="absolute inset-0 bg-slate-900/40" />
+          <div className="absolute inset-0 bg-white/60" />
         </motion.div>
       </AnimatePresence>
 
@@ -207,7 +207,7 @@ const HeroCarousel = () => {
                 variants={textVariants}
                 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight"
               >
-                <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                   {slides[currentSlide].title}
                 </span>
               </motion.h1>
@@ -216,7 +216,7 @@ const HeroCarousel = () => {
               <motion.p
                 custom={2}
                 variants={textVariants}
-                className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
               >
                 {slides[currentSlide].description}
               </motion.p>
@@ -236,7 +236,7 @@ const HeroCarousel = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-eek-blue-400/30 bg-eek-blue-400/10 backdrop-blur-sm hover:bg-eek-blue-400/20 text-eek-blue-400 font-semibold px-8 py-4 text-lg rounded-full"
+                  className="border-2 border-eek-blue-500 bg-white/80 backdrop-blur-sm hover:bg-eek-blue-50 text-eek-blue-600 font-semibold px-8 py-4 text-lg rounded-full"
                 >
                   Learn More
                 </Button>
@@ -257,8 +257,8 @@ const HeroCarousel = () => {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
-                    ? "bg-eek-blue-400 shadow-lg shadow-eek-blue-400/50"
-                    : "bg-white/30 hover:bg-white/50"
+                    ? "bg-eek-blue-500 shadow-lg shadow-eek-blue-400/50"
+                    : "bg-gray-400/60 hover:bg-gray-500/70"
                 }`}
               />
             ))}
@@ -283,7 +283,7 @@ const HeroCarousel = () => {
       {/* Next Slide Hint */}
       <motion.button
         onClick={nextSlide}
-        className="absolute bottom-4 right-8 text-white/50 hover:text-eek-blue-400 transition-colors duration-300 z-20"
+        className="absolute bottom-4 right-8 text-gray-600/70 hover:text-eek-blue-500 transition-colors duration-300 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
@@ -291,7 +291,7 @@ const HeroCarousel = () => {
       </motion.button>
 
       {/* Progress Bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-white/10 z-20">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gray-300/40 z-20">
         <motion.div
           className="h-full bg-gradient-to-r from-eek-blue-400 to-eek-blue-600"
           initial={{ width: "0%" }}
