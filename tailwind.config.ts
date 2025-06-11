@@ -18,6 +18,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        rochester: ["Rochester", "cursive"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
