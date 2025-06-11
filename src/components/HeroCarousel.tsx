@@ -15,42 +15,42 @@ interface HeroSlide {
 const slides: HeroSlide[] = [
   {
     id: 1,
-    title: "Digital Innovation Experts",
+    title: "Solar Energy Revolution",
     subtitle: "EEK - Engineering Excellence",
     description:
-      "Transform your vision into powerful digital solutions with cutting-edge technology and exceptional design.",
+      "Leading the sustainable energy transition with cutting-edge solar panel technology, smart electrical systems, and innovative software solutions.",
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3",
     gradient: "from-eek-blue-500/20 via-eek-blue-600/20 to-eek-blue-700/20",
   },
   {
     id: 2,
-    title: "Advanced Technology Stack",
-    subtitle: "Modern Development Solutions",
+    title: "Smart Electrical Systems",
+    subtitle: "Advanced Power Solutions",
     description:
-      "Leverage React, TypeScript, and cloud technologies to build scalable applications that drive business growth.",
+      "Intelligent electrical infrastructure designed for maximum efficiency, safety, and reliability in residential and commercial applications.",
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3",
     gradient: "from-eek-blue-400/20 via-eek-blue-500/20 to-eek-blue-600/20",
   },
   {
     id: 3,
-    title: "Enterprise-Grade Solutions",
-    subtitle: "Scalable & Secure",
+    title: "Energy Management Software",
+    subtitle: "Digital Control & Monitoring",
     description:
-      "Build robust applications designed for enterprise scale with industry-leading security and performance standards.",
+      "Comprehensive software platforms for real-time energy monitoring, predictive maintenance, and optimization of solar and electrical systems.",
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
     gradient: "from-eek-blue-600/20 via-eek-blue-700/20 to-eek-blue-800/20",
   },
   {
     id: 4,
-    title: "Future-Ready Applications",
-    subtitle: "Innovation Meets Excellence",
+    title: "Sustainable Future Technology",
+    subtitle: "Innovation for Tomorrow",
     description:
-      "Experience the next generation of digital solutions with AI-powered features and intuitive user interfaces.",
+      "Pioneering next-generation renewable energy solutions with AI-powered optimization and seamless integration capabilities.",
     image:
-      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
     gradient: "from-eek-blue-300/20 via-eek-blue-500/20 to-eek-blue-700/20",
   },
 ];
@@ -150,7 +150,7 @@ const HeroCarousel = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Background Image Carousel */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -168,7 +168,7 @@ const HeroCarousel = () => {
           <div
             className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].gradient}`}
           />
-          <div className="absolute inset-0 bg-white/60" />
+          <div className="absolute inset-0 bg-slate-900/40" />
         </motion.div>
       </AnimatePresence>
 
@@ -196,8 +196,8 @@ const HeroCarousel = () => {
                 className="flex items-center justify-center gap-2 text-eek-blue-400 font-medium tracking-wide"
               >
                 <Sparkles className="w-5 h-5" />
-                <span className="text-sm sm:text-base uppercase">
-                  {slides[currentSlide].subtitle}
+                <span className="text-sm sm:text-base uppercase font-medium">
+                  EEK - Engineering Excellence
                 </span>
               </motion.div>
 
@@ -205,18 +205,24 @@ const HeroCarousel = () => {
               <motion.h1
                 custom={1}
                 variants={textVariants}
-                className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight"
+                className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl leading-tight"
+                style={{
+                  font: "700 60px/60px Georgia, serif",
+                  textDecoration: "line-through",
+                  backgroundClip: "text",
+                  backgroundImage:
+                    "linear-gradient(to right, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39))",
+                  color: "transparent",
+                }}
               >
-                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                  {slides[currentSlide].title}
-                </span>
+                Digital Innovation Experts
               </motion.h1>
 
               {/* Description */}
               <motion.p
                 custom={2}
                 variants={textVariants}
-                className="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
               >
                 {slides[currentSlide].description}
               </motion.p>
@@ -231,14 +237,14 @@ const HeroCarousel = () => {
                   size="lg"
                   className="bg-gradient-to-r from-eek-blue-500 to-eek-blue-600 hover:from-eek-blue-600 hover:to-eek-blue-700 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
                 >
-                  Get Started
+                  Get Solar Quote
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-eek-blue-500 bg-white/80 backdrop-blur-sm hover:bg-eek-blue-50 text-eek-blue-600 font-semibold px-8 py-4 text-lg rounded-full"
+                  className="border-2 border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-8 py-4 text-lg rounded-full"
                 >
-                  Learn More
+                  View Solutions
                 </Button>
               </motion.div>
             </motion.div>
