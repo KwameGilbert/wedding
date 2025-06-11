@@ -86,7 +86,12 @@ const Portfolio = () => {
       image:
         "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
       category: "residential",
-      tags: ["Marine Solar", "Waterproof Systems", "Battery Storage", "Monitoring"],
+      tags: [
+        "Marine Solar",
+        "Waterproof Systems",
+        "Battery Storage",
+        "Monitoring",
+      ],
       stats: { homes: "85", capacity: "1.8MW", protection: "IP67" },
       liveUrl: "#",
       githubUrl: "#",
@@ -150,8 +155,8 @@ const Portfolio = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
-              Explore our successful solar installations, electrical systems, and
-              energy management software projects that are powering the
+              Explore our successful solar installations, electrical systems,
+              and energy management software projects that are powering the
               sustainable future.
             </p>
             <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
@@ -231,7 +236,6 @@ const Portfolio = () => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                layout
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 30 }}
@@ -299,62 +303,6 @@ const Portfolio = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technologies Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-              Technologies & Equipment
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We use industry-leading solar panels, electrical components, and
-              software technologies to deliver optimal performance.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
-          >
-            {[
-              "Tesla Solar",
-              "SunPower",
-              "Enphase",
-              "SolarEdge",
-              "LG Chem",
-              "Fronius",
-              "React/TypeScript",
-              "IoT Sensors",
-              "AWS Cloud",
-              "Machine Learning",
-              "Mobile Apps",
-              "Real-time Analytics",
-            ].map((tech, index) => (
-              <motion.div
-                key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.1 }}
-                className="bg-slate-800/50 border border-eek-blue-400/20 rounded-xl p-4 text-center hover:bg-slate-800/70 transition-all duration-300"
-              >
-                <div className="text-white font-medium text-sm">{tech}</div>
               </motion.div>
             ))}
           </div>
