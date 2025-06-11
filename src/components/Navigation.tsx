@@ -10,10 +10,10 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Contact", href: "/contact" },
+    { name: "Solar Solutions", href: "/services" },
+    { name: "Electrical Systems", href: "/about" },
+    { name: "Software Platform", href: "/portfolio" },
+    { name: "Get Quote", href: "/contact" },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -23,7 +23,7 @@ const Navigation = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -53,8 +53,8 @@ const Navigation = () => {
                 <motion.span
                   className={`font-medium transition-colors duration-300 relative ${
                     location.pathname === item.href
-                      ? "text-eek-blue-600"
-                      : "text-gray-700 hover:text-eek-blue-500"
+                      ? "text-eek-blue-400"
+                      : "text-gray-300 hover:text-eek-blue-400"
                   }`}
                   whileHover={{ y: -2 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ const Navigation = () => {
                 className="bg-gradient-to-r from-eek-blue-500 to-eek-blue-600 hover:from-eek-blue-600 hover:to-eek-blue-700 text-white font-semibold rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300"
                 size="sm"
               >
-                Get Started
+                Free Quote
               </Button>
             </Link>
           </div>
