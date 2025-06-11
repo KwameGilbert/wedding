@@ -5,6 +5,7 @@ import { Home, ArrowLeft, Sparkles } from "lucide-react";
 import { Button } from "../components/ui/button";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import HelpWidget from "../components/HelpWidget";
 
 const NotFound = () => {
   const location = useLocation();
@@ -17,7 +18,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Navigation />
       <div className="min-h-screen flex items-center justify-center px-4 pt-16">
         <motion.div
@@ -52,10 +53,10 @@ const NotFound = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="space-y-4 mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
               Oops! Page not found
             </h2>
-            <p className="text-lg text-gray-700 max-w-md mx-auto leading-relaxed">
+            <p className="text-lg text-gray-300 max-w-md mx-auto leading-relaxed">
               The page you're looking for seems to have vanished into the
               digital void. Let's get you back on track.
             </p>

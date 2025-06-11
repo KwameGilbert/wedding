@@ -10,9 +10,13 @@ import {
   TrendingUp,
   Filter,
   Search,
+  Sun,
+  Battery,
+  BarChart3,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import HelpWidget from "../components/HelpWidget";
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -28,88 +32,88 @@ const Portfolio = () => {
 
   const categories = [
     { id: "all", label: "All Projects" },
-    { id: "web", label: "Web Apps" },
-    { id: "mobile", label: "Mobile" },
-    { id: "ecommerce", label: "E-commerce" },
-    { id: "saas", label: "SaaS" },
+    { id: "residential", label: "Residential Solar" },
+    { id: "commercial", label: "Commercial" },
+    { id: "software", label: "Energy Software" },
+    { id: "electrical", label: "Electrical Systems" },
   ];
 
   const projects = [
     {
       id: 1,
-      title: "TechFlow SaaS Platform",
+      title: "Green Valley Residential Complex",
       description:
-        "A comprehensive project management platform for tech teams with real-time collaboration features.",
+        "Complete solar installation for 150-home residential community with smart energy management system.",
       image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-      category: "saas",
-      tags: ["React", "Node.js", "PostgreSQL", "WebSocket"],
-      stats: { users: "10K+", performance: "99.9%", rating: "4.9/5" },
+        "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
+      category: "residential",
+      tags: ["Solar Panels", "Energy Storage", "Smart Grid", "Monitoring"],
+      stats: { capacity: "2.5MW", homes: "150", savings: "40%" },
       liveUrl: "#",
       githubUrl: "#",
     },
     {
       id: 2,
-      title: "EcoMart E-commerce",
+      title: "SunTech Manufacturing Facility",
       description:
-        "Sustainable marketplace connecting eco-friendly brands with conscious consumers worldwide.",
+        "Large-scale commercial solar installation with advanced electrical infrastructure and real-time monitoring.",
       image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-      category: "ecommerce",
-      tags: ["Next.js", "Stripe", "MongoDB", "Tailwind"],
-      stats: { users: "50K+", sales: "$2M+", conversion: "4.2%" },
+        "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&h=600&fit=crop",
+      category: "commercial",
+      tags: ["Commercial Solar", "Electrical Systems", "IoT", "Analytics"],
+      stats: { capacity: "5MW", reduction: "60%", uptime: "99.9%" },
       liveUrl: "#",
       githubUrl: "#",
     },
     {
       id: 3,
-      title: "FitTracker Mobile App",
+      title: "EcoHomes Smart Energy Platform",
       description:
-        "AI-powered fitness tracking app with personalized workout plans and nutrition guidance.",
+        "Comprehensive energy management software for residential solar systems with mobile app and web dashboard.",
       image:
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
-      category: "mobile",
-      tags: ["React Native", "TensorFlow", "Firebase", "HealthKit"],
-      stats: { downloads: "100K+", rating: "4.8/5", retention: "85%" },
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      category: "software",
+      tags: ["React", "IoT Integration", "Mobile App", "Analytics"],
+      stats: { users: "5K+", systems: "2K+", efficiency: "+25%" },
       liveUrl: "#",
       githubUrl: "#",
     },
     {
       id: 4,
-      title: "DataViz Dashboard",
+      title: "Marina Bay Solar Installation",
       description:
-        "Interactive business intelligence dashboard for real-time data visualization and analytics.",
+        "Waterfront residential solar project with specialized electrical systems for marine environment.",
       image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      category: "web",
-      tags: ["React", "D3.js", "Python", "FastAPI"],
-      stats: { clients: "500+", data: "1TB+", insights: "Real-time" },
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
+      category: "residential",
+      tags: ["Marine Solar", "Waterproof Systems", "Battery Storage", "Monitoring"],
+      stats: { homes: "85", capacity: "1.8MW", protection: "IP67" },
       liveUrl: "#",
       githubUrl: "#",
     },
     {
       id: 5,
-      title: "MedConnect Platform",
+      title: "Industrial Power Management System",
       description:
-        "Telemedicine platform connecting patients with healthcare providers for remote consultations.",
+        "Advanced electrical infrastructure for large manufacturing facility with automated energy optimization.",
       image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
-      category: "web",
-      tags: ["Vue.js", "WebRTC", "HIPAA", "AWS"],
-      stats: { consultations: "25K+", doctors: "1K+", satisfaction: "96%" },
+        "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop",
+      category: "electrical",
+      tags: ["Power Systems", "Automation", "Safety Systems", "Monitoring"],
+      stats: { capacity: "10MW", efficiency: "95%", safety: "Zero incidents" },
       liveUrl: "#",
       githubUrl: "#",
     },
     {
       id: 6,
-      title: "CryptoTrader Pro",
+      title: "SmartGrid Energy Analytics",
       description:
-        "Advanced cryptocurrency trading platform with real-time market data and automated strategies.",
+        "AI-powered energy analytics platform for optimizing solar performance and predicting maintenance needs.",
       image:
-        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop",
-      category: "saas",
-      tags: ["React", "WebSocket", "Redis", "Docker"],
-      stats: { volume: "$50M+", traders: "15K+", uptime: "99.99%" },
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      category: "software",
+      tags: ["AI/ML", "Predictive Analytics", "Cloud Platform", "API"],
+      stats: { predictions: "98%", savings: "$2M+", installations: "1K+" },
       liveUrl: "#",
       githubUrl: "#",
     },
@@ -121,14 +125,14 @@ const Portfolio = () => {
       : projects.filter((project) => project.category === activeFilter);
 
   const achievements = [
-    { number: "150+", label: "Projects Delivered" },
-    { number: "98%", label: "Client Satisfaction" },
-    { number: "$10M+", label: "Revenue Generated" },
-    { number: "50+", label: "Technologies Used" },
+    { number: "2,500+", label: "Solar Installations" },
+    { number: "50MW+", label: "Total Capacity" },
+    { number: "150+", label: "Software Projects" },
+    { number: "99.8%", label: "System Reliability" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Navigation />
 
       {/* Hero Section */}
@@ -142,26 +146,26 @@ const Portfolio = () => {
           >
             <h1 className="text-5xl md:text-7xl font-black mb-6">
               <span className="bg-gradient-to-r from-eek-blue-400 to-eek-blue-600 bg-clip-text text-transparent">
-                Our Portfolio
+                Solar Portfolio
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
-              Discover the innovative solutions we've crafted for clients across
-              industries, showcasing our expertise in modern technology and
-              design.
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+              Explore our successful solar installations, electrical systems, and
+              energy management software projects that are powering the
+              sustainable future.
             </p>
             <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2">
-                <Monitor className="w-5 h-5" />
-                <span>Web Applications</span>
+                <Sun className="w-5 h-5 text-eek-blue-400" />
+                <span>Solar Installations</span>
               </div>
               <div className="flex items-center gap-2">
-                <Smartphone className="w-5 h-5" />
-                <span>Mobile Apps</span>
+                <Zap className="w-5 h-5 text-eek-blue-400" />
+                <span>Electrical Systems</span>
               </div>
               <div className="flex items-center gap-2">
-                <Globe className="w-5 h-5" />
-                <span>SaaS Platforms</span>
+                <Monitor className="w-5 h-5 text-eek-blue-400" />
+                <span>Energy Software</span>
               </div>
             </div>
           </motion.div>
@@ -210,7 +214,7 @@ const Portfolio = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeFilter === category.id
                     ? "bg-gradient-to-r from-eek-blue-500 to-eek-blue-600 text-white shadow-lg"
-                    : "bg-white/80 text-gray-700 hover:bg-gray-100 hover:text-eek-blue-500 border border-gray-200"
+                    : "bg-slate-800/50 text-gray-300 hover:bg-slate-800/70 hover:text-eek-blue-400 border border-eek-blue-400/20"
                 }`}
               >
                 {category.label}
@@ -300,7 +304,7 @@ const Portfolio = () => {
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -315,11 +319,11 @@ const Portfolio = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-              Technologies We Master
+              Technologies & Equipment
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We leverage cutting-edge technologies to build scalable,
-              performant solutions that stand the test of time.
+              We use industry-leading solar panels, electrical components, and
+              software technologies to deliver optimal performance.
             </p>
           </motion.div>
 
@@ -331,18 +335,18 @@ const Portfolio = () => {
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
           >
             {[
-              "React",
-              "Next.js",
-              "Vue.js",
-              "React Native",
-              "Node.js",
-              "Python",
-              "TypeScript",
-              "GraphQL",
-              "AWS",
-              "Docker",
-              "MongoDB",
-              "PostgreSQL",
+              "Tesla Solar",
+              "SunPower",
+              "Enphase",
+              "SolarEdge",
+              "LG Chem",
+              "Fronius",
+              "React/TypeScript",
+              "IoT Sensors",
+              "AWS Cloud",
+              "Machine Learning",
+              "Mobile Apps",
+              "Real-time Analytics",
             ].map((tech, index) => (
               <motion.div
                 key={tech}
@@ -353,7 +357,7 @@ const Portfolio = () => {
                 whileHover={{ scale: 1.1 }}
                 className="bg-slate-800/50 border border-eek-blue-400/20 rounded-xl p-4 text-center hover:bg-slate-800/70 transition-all duration-300"
               >
-                <div className="text-white font-medium">{tech}</div>
+                <div className="text-white font-medium text-sm">{tech}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -370,27 +374,27 @@ const Portfolio = () => {
             viewport={{ once: true }}
             className="bg-gradient-to-r from-eek-blue-500/20 to-eek-blue-600/20 backdrop-blur-sm border border-eek-blue-400/20 rounded-3xl p-12"
           >
-            <Zap className="w-16 h-16 text-eek-blue-400 mx-auto mb-6" />
+            <Sun className="w-16 h-16 text-eek-blue-400 mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
-              Ready to Start Your Project?
+              Ready for Your Solar Project?
             </h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Let's bring your vision to life with innovative technology and
-              exceptional design. Join our portfolio of successful projects.
+              Join our portfolio of successful solar installations. Let's design
+              a custom renewable energy solution for your home or business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-eek-blue-500 to-eek-blue-600 hover:from-eek-blue-600 hover:to-eek-blue-700 text-white font-semibold px-8 py-4 rounded-full shadow-xl"
               >
-                Start Your Project
+                Get Free Quote
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-eek-blue-400/30 bg-eek-blue-400/10 backdrop-blur-sm hover:bg-eek-blue-400/20 text-eek-blue-400 font-semibold px-8 py-4 rounded-full"
+                className="border-2 border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-full"
               >
-                View Case Studies
+                Schedule Site Visit
               </Button>
             </div>
           </motion.div>
@@ -398,6 +402,7 @@ const Portfolio = () => {
       </section>
 
       <Footer />
+      <HelpWidget />
     </div>
   );
 };

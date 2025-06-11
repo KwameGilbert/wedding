@@ -49,7 +49,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-100/95 border-t border-gray-300/50 backdrop-blur-sm">
+    <footer className="bg-slate-900/95 border-t border-eek-blue-400/20 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid lg:grid-cols-6 gap-12 mb-12">
@@ -76,17 +76,17 @@ const Footer = () => {
                 </div>
               </Link>
 
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Engineering digital excellence through innovative solutions. We
-                transform ideas into powerful applications that drive business
-                growth and user engagement.
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Leading the renewable energy revolution with innovative solar
+                solutions, smart electrical systems, and advanced energy
+                management software that powers a sustainable future.
               </p>
 
               {/* Contact Info */}
               <div className="space-y-3 text-sm">
-                <div className="flex items-center gap-3 text-gray-600">
+                <div className="flex items-center gap-3 text-gray-400">
                   <Mail className="w-4 h-4 text-eek-blue-400" />
-                  <span>hello@eek.com</span>
+                  <span>solar@eek.com</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-400">
                   <Phone className="w-4 h-4 text-eek-blue-400" />
@@ -110,7 +110,7 @@ const Footer = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-gray-900 font-bold text-lg mb-4 capitalize">
+                <h3 className="text-white font-bold text-lg mb-4 capitalize">
                   {category}
                 </h3>
                 <ul className="space-y-3">
@@ -118,7 +118,7 @@ const Footer = () => {
                     <li key={link.name}>
                       <Link
                         to={link.href}
-                        className="text-gray-600 hover:text-eek-blue-500 transition-colors duration-300 text-sm"
+                        className="text-gray-400 hover:text-eek-blue-400 transition-colors duration-300 text-sm"
                       >
                         {link.name}
                       </Link>
@@ -137,9 +137,9 @@ const Footer = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-white font-bold text-lg mb-4">Stay Updated</h3>
+            <h3 className="text-white font-bold text-lg mb-4">Solar Updates</h3>
             <p className="text-gray-400 text-sm mb-4">
-              Get the latest updates on our projects and tech insights.
+              Get the latest solar technology news and energy saving tips.
             </p>
             <div className="space-y-3">
               <Input
@@ -169,8 +169,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Copyright */}
             <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} EEK. All rights reserved. Built with
-              passion and innovation.
+              © {new Date().getFullYear()} EEK Energy. All rights reserved.
+              Powering the future with solar innovation.
             </div>
 
             {/* Social Links */}

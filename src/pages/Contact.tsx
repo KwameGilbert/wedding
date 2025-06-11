@@ -8,9 +8,12 @@ import {
   MessageSquare,
   Users,
   Zap,
+  Sun,
+  Calculator,
 } from "lucide-react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import HelpWidget from "../components/HelpWidget";
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -34,9 +37,10 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
-    service: "",
-    budget: "",
+    phone: "",
+    propertyType: "",
+    energyBill: "",
+    roofSize: "",
     message: "",
   });
 
@@ -44,51 +48,59 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: "hello@eek.com",
-      subtitle: "We respond within 24 hours",
+      details: "solar@eek.com",
+      subtitle: "Get a response within 4 hours",
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
       details: "+1 (555) 123-4567",
-      subtitle: "Mon-Fri, 9AM-6PM EST",
+      subtitle: "Mon-Fri, 8AM-7PM EST",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Visit Us",
-      details: "123 Innovation Street",
+      title: "Visit Our Showroom",
+      details: "123 Solar Avenue",
       subtitle: "San Francisco, CA 94105",
     },
     {
       icon: <Clock className="w-6 h-6" />,
       title: "Business Hours",
-      details: "Monday - Friday",
-      subtitle: "9:00 AM - 6:00 PM EST",
+      details: "Monday - Saturday",
+      subtitle: "8:00 AM - 7:00 PM EST",
     },
   ];
 
-  const services = [
-    "Web Development",
-    "Mobile App Development",
-    "UI/UX Design",
-    "Cloud Solutions",
-    "E-commerce",
-    "Consulting",
+  const propertyTypes = [
+    "Single Family Home",
+    "Townhouse",
+    "Condominium",
+    "Apartment Building",
+    "Commercial Building",
+    "Industrial Facility",
     "Other",
   ];
 
-  const budgetRanges = [
-    "$10K - $25K",
-    "$25K - $50K",
-    "$50K - $100K",
-    "$100K - $250K",
-    "$250K+",
+  const energyBillRanges = [
+    "$50 - $100/month",
+    "$100 - $200/month",
+    "$200 - $300/month",
+    "$300 - $500/month",
+    "$500+/month",
+  ];
+
+  const roofSizes = [
+    "Small (under 1,000 sq ft)",
+    "Medium (1,000 - 2,000 sq ft)",
+    "Large (2,000 - 3,000 sq ft)",
+    "Very Large (3,000+ sq ft)",
+    "Not sure",
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Form submitted:", formData);
+    console.log("Solar quote request:", formData);
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -96,7 +108,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Navigation />
 
       {/* Hero Section */}
@@ -110,25 +122,25 @@ const Contact = () => {
           >
             <h1 className="text-5xl md:text-7xl font-black mb-6">
               <span className="bg-gradient-to-r from-eek-blue-400 to-eek-blue-600 bg-clip-text text-transparent">
-                Let's Connect
+                Get Your Solar Quote
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
-              Ready to transform your ideas into digital reality? Get in touch
-              and let's discuss how we can help you achieve your goals.
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+              Ready to switch to clean, renewable energy? Get a personalized
+              solar quote and take the first step towards energy independence.
             </p>
             <div className="flex items-center justify-center gap-8 text-sm text-gray-400">
               <div className="flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-eek-blue-400" />
-                <span>Free Consultation</span>
+                <Calculator className="w-5 h-5 text-eek-blue-400" />
+                <span>Free Quote</span>
               </div>
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-eek-blue-400" />
-                <span>Expert Team</span>
+                <span>Expert Consultation</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-5 h-5 text-eek-blue-400" />
-                <span>Quick Response</span>
+                <Sun className="w-5 h-5 text-eek-blue-400" />
+                <span>Custom Design</span>
               </div>
             </div>
           </motion.div>
@@ -139,28 +151,29 @@ const Contact = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
+            {/* Solar Quote Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-white/90 border-gray-200 backdrop-blur-sm shadow-lg">
+              <Card className="bg-slate-800/50 border-eek-blue-400/20 backdrop-blur-sm">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
-                    Start Your Project
+                  <CardTitle className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
+                    <Sun className="w-8 h-8 text-eek-blue-400" />
+                    Request Solar Quote
                   </CardTitle>
-                  <p className="text-gray-700">
-                    Fill out the form below and we'll get back to you within 24
-                    hours.
+                  <p className="text-gray-300">
+                    Get a personalized solar quote in under 24 hours. Our
+                    experts will design a system tailored to your energy needs.
                   </p>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name" className="text-gray-900">
+                        <Label htmlFor="name" className="text-white">
                           Full Name *
                         </Label>
                         <Input
@@ -169,7 +182,7 @@ const Contact = () => {
                           onChange={(e) =>
                             handleInputChange("name", e.target.value)
                           }
-                          className="bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-eek-blue-500 focus:ring-1 focus:ring-eek-blue-500"
+                          className="bg-slate-700/50 border-eek-blue-400/30 text-white placeholder-gray-400 focus:border-eek-blue-400"
                           placeholder="Your full name"
                           required
                         />
@@ -186,65 +199,69 @@ const Contact = () => {
                             handleInputChange("email", e.target.value)
                           }
                           className="bg-slate-700/50 border-eek-blue-400/30 text-white placeholder-gray-400 focus:border-eek-blue-400"
-                          placeholder="your.email@company.com"
+                          placeholder="your.email@example.com"
                           required
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="company" className="text-white">
-                        Company Name
+                      <Label htmlFor="phone" className="text-white">
+                        Phone Number *
                       </Label>
                       <Input
-                        id="company"
-                        value={formData.company}
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
                         onChange={(e) =>
-                          handleInputChange("company", e.target.value)
+                          handleInputChange("phone", e.target.value)
                         }
                         className="bg-slate-700/50 border-eek-blue-400/30 text-white placeholder-gray-400 focus:border-eek-blue-400"
-                        placeholder="Your company name"
+                        placeholder="+1 (555) 123-4567"
+                        required
                       />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label className="text-white">Service Needed *</Label>
+                        <Label className="text-white">Property Type *</Label>
                         <Select
-                          value={formData.service}
+                          value={formData.propertyType}
                           onValueChange={(value) =>
-                            handleInputChange("service", value)
+                            handleInputChange("propertyType", value)
                           }
                         >
                           <SelectTrigger className="bg-slate-700/50 border-eek-blue-400/30 text-white">
-                            <SelectValue placeholder="Select a service" />
+                            <SelectValue placeholder="Select property type" />
                           </SelectTrigger>
                           <SelectContent className="bg-slate-800 border-eek-blue-400/30">
-                            {services.map((service) => (
+                            {propertyTypes.map((type) => (
                               <SelectItem
-                                key={service}
-                                value={service}
+                                key={type}
+                                value={type}
                                 className="text-white hover:bg-eek-blue-500/20"
                               >
-                                {service}
+                                {type}
                               </SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label className="text-white">Project Budget</Label>
+                        <Label className="text-white">
+                          Monthly Energy Bill
+                        </Label>
                         <Select
-                          value={formData.budget}
+                          value={formData.energyBill}
                           onValueChange={(value) =>
-                            handleInputChange("budget", value)
+                            handleInputChange("energyBill", value)
                           }
                         >
                           <SelectTrigger className="bg-slate-700/50 border-eek-blue-400/30 text-white">
-                            <SelectValue placeholder="Select budget range" />
+                            <SelectValue placeholder="Select bill range" />
                           </SelectTrigger>
                           <SelectContent className="bg-slate-800 border-eek-blue-400/30">
-                            {budgetRanges.map((range) => (
+                            {energyBillRanges.map((range) => (
                               <SelectItem
                                 key={range}
                                 value={range}
@@ -259,8 +276,33 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
+                      <Label className="text-white">Roof Size (approx.)</Label>
+                      <Select
+                        value={formData.roofSize}
+                        onValueChange={(value) =>
+                          handleInputChange("roofSize", value)
+                        }
+                      >
+                        <SelectTrigger className="bg-slate-700/50 border-eek-blue-400/30 text-white">
+                          <SelectValue placeholder="Select roof size" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-slate-800 border-eek-blue-400/30">
+                          {roofSizes.map((size) => (
+                            <SelectItem
+                              key={size}
+                              value={size}
+                              className="text-white hover:bg-eek-blue-500/20"
+                            >
+                              {size}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
                       <Label htmlFor="message" className="text-white">
-                        Project Details *
+                        Additional Details
                       </Label>
                       <Textarea
                         id="message"
@@ -269,8 +311,7 @@ const Contact = () => {
                           handleInputChange("message", e.target.value)
                         }
                         className="bg-slate-700/50 border-eek-blue-400/30 text-white placeholder-gray-400 focus:border-eek-blue-400 min-h-[120px]"
-                        placeholder="Tell us about your project requirements, goals, and timeline..."
-                        required
+                        placeholder="Tell us about your energy goals, any specific requirements, timeline, or questions about solar installation..."
                       />
                     </div>
 
@@ -279,8 +320,8 @@ const Contact = () => {
                       size="lg"
                       className="w-full bg-gradient-to-r from-eek-blue-500 to-eek-blue-600 hover:from-eek-blue-600 hover:to-eek-blue-700 text-white font-semibold py-3 rounded-full shadow-xl"
                     >
-                      <Send className="w-5 h-5 mr-2" />
-                      Send Message
+                      <Calculator className="w-5 h-5 mr-2" />
+                      Get My Solar Quote
                     </Button>
                   </form>
                 </CardContent>
@@ -300,9 +341,9 @@ const Contact = () => {
                   Get in Touch
                 </h2>
                 <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  We're here to help bring your vision to life. Reach out to us
-                  through any of the channels below, and our team will respond
-                  promptly.
+                  Our solar experts are ready to help you harness the power of
+                  the sun. Contact us today for a free consultation and custom
+                  solar solution.
                 </p>
               </div>
 
@@ -339,23 +380,34 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
+              {/* Solar Benefits */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="relative h-64 bg-slate-800/50 border border-eek-blue-400/20 rounded-2xl overflow-hidden"
+                className="bg-gradient-to-br from-eek-blue-500/20 to-eek-blue-600/20 backdrop-blur-sm border border-eek-blue-400/20 rounded-2xl p-6"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-eek-blue-500/20 to-eek-blue-600/20 backdrop-blur-sm flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-eek-blue-400 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      Visit Our Office
-                    </h3>
-                    <p className="text-gray-300">
-                      Schedule a meeting at our San Francisco headquarters
-                    </p>
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                  <Sun className="w-6 h-6 text-eek-blue-400" />
+                  Why Choose Solar?
+                </h3>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <div className="w-2 h-2 bg-eek-blue-400 rounded-full"></div>
+                    <span>Save 50-90% on energy bills</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <div className="w-2 h-2 bg-eek-blue-400 rounded-full"></div>
+                    <span>25-year warranty</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <div className="w-2 h-2 bg-eek-blue-400 rounded-full"></div>
+                    <span>Increase home value</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <div className="w-2 h-2 bg-eek-blue-400 rounded-full"></div>
+                    <span>Federal tax credits</span>
                   </div>
                 </div>
               </motion.div>
@@ -375,34 +427,34 @@ const Contact = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-              Frequently Asked Questions
+              Solar FAQ
             </h2>
             <p className="text-xl text-gray-300">
-              Quick answers to common questions about our services and process.
+              Common questions about solar installation and our services.
             </p>
           </motion.div>
 
           <div className="space-y-6">
             {[
               {
-                question: "How long does a typical project take?",
+                question: "How much can I save with solar panels?",
                 answer:
-                  "Project timelines vary based on complexity and scope. Simple websites typically take 4-6 weeks, while complex applications can take 3-6 months. We provide detailed timelines during our initial consultation.",
+                  "Most homeowners save 50-90% on their electricity bills. The exact savings depend on your location, roof size, energy usage, and local utility rates. Our solar calculator provides personalized estimates.",
               },
               {
-                question: "Do you provide ongoing support and maintenance?",
+                question: "How long does solar installation take?",
                 answer:
-                  "Yes, we offer comprehensive support and maintenance packages to ensure your application stays updated, secure, and optimized for performance.",
+                  "Typical residential installations take 1-3 days. The entire process from consultation to activation usually takes 4-8 weeks, including permits and utility interconnection.",
               },
               {
-                question: "What is your development process?",
+                question: "What maintenance do solar panels require?",
                 answer:
-                  "We follow an agile development methodology with regular check-ins, transparent communication, and iterative delivery to ensure your project meets expectations.",
+                  "Solar panels require minimal maintenance. We recommend annual inspections and occasional cleaning. Our monitoring system alerts you to any performance issues, and we provide comprehensive maintenance packages.",
               },
               {
-                question: "Can you work with our existing team?",
+                question: "Do solar panels work during cloudy days?",
                 answer:
-                  "Absolutely! We can integrate seamlessly with your existing team, provide consulting services, or take full ownership of development based on your needs.",
+                  "Yes! Solar panels still generate electricity on cloudy days, though at reduced efficiency. Modern panels can produce 10-25% of their peak output even in overcast conditions.",
               },
             ].map((faq, index) => (
               <motion.div
@@ -429,6 +481,7 @@ const Contact = () => {
       </section>
 
       <Footer />
+      <HelpWidget />
     </div>
   );
 };
