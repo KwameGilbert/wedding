@@ -15,43 +15,43 @@ interface HeroSlide {
 const slides: HeroSlide[] = [
   {
     id: 1,
-    title: "Create Amazing Experiences",
-    subtitle: "Next-Gen Design Platform",
+    title: "Digital Innovation Experts",
+    subtitle: "EEK - Engineering Excellence",
     description:
-      "Build stunning applications with modern tools and seamless animations that captivate your audience.",
+      "Transform your vision into powerful digital solutions with cutting-edge technology and exceptional design.",
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3",
-    gradient: "from-purple-600/20 via-blue-600/20 to-teal-500/20",
+    gradient: "from-eek-blue-500/20 via-eek-blue-600/20 to-eek-blue-700/20",
   },
   {
     id: 2,
-    title: "Powered by Innovation",
-    subtitle: "Advanced Technology Stack",
+    title: "Advanced Technology Stack",
+    subtitle: "Modern Development Solutions",
     description:
-      "Leverage cutting-edge React, TypeScript, and Framer Motion to deliver exceptional user experiences.",
+      "Leverage React, TypeScript, and cloud technologies to build scalable applications that drive business growth.",
     image:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3",
-    gradient: "from-blue-600/20 via-indigo-600/20 to-purple-500/20",
+    gradient: "from-eek-blue-400/20 via-eek-blue-500/20 to-eek-blue-600/20",
   },
   {
     id: 3,
-    title: "Scale Without Limits",
-    subtitle: "Enterprise Ready Solutions",
+    title: "Enterprise-Grade Solutions",
+    subtitle: "Scalable & Secure",
     description:
-      "Build applications that grow with your business, from startup to enterprise scale with confidence.",
+      "Build robust applications designed for enterprise scale with industry-leading security and performance standards.",
     image:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
-    gradient: "from-teal-600/20 via-green-600/20 to-emerald-500/20",
+    gradient: "from-eek-blue-600/20 via-eek-blue-700/20 to-eek-blue-800/20",
   },
   {
     id: 4,
-    title: "Experience the Future",
-    subtitle: "Revolutionary Interface Design",
+    title: "Future-Ready Applications",
+    subtitle: "Innovation Meets Excellence",
     description:
-      "Step into tomorrow with interfaces that adapt, respond, and evolve with your users' needs.",
+      "Experience the next generation of digital solutions with AI-powered features and intuitive user interfaces.",
     image:
       "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
-    gradient: "from-orange-500/20 via-pink-500/20 to-purple-600/20",
+    gradient: "from-eek-blue-300/20 via-eek-blue-500/20 to-eek-blue-700/20",
   },
 ];
 
@@ -193,7 +193,7 @@ const HeroCarousel = () => {
               <motion.div
                 custom={0}
                 variants={textVariants}
-                className="flex items-center justify-center gap-2 text-emerald-400 font-medium tracking-wide"
+                className="flex items-center justify-center gap-2 text-eek-blue-400 font-medium tracking-wide"
               >
                 <Sparkles className="w-5 h-5" />
                 <span className="text-sm sm:text-base uppercase">
@@ -229,14 +229,14 @@ const HeroCarousel = () => {
               >
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-eek-blue-500 to-eek-blue-600 hover:from-eek-blue-600 hover:to-eek-blue-700 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
                 >
                   Get Started
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-8 py-4 text-lg rounded-full"
+                  className="border-2 border-eek-blue-400/30 bg-eek-blue-400/10 backdrop-blur-sm hover:bg-eek-blue-400/20 text-eek-blue-400 font-semibold px-8 py-4 text-lg rounded-full"
                 >
                   Learn More
                 </Button>
@@ -257,7 +257,7 @@ const HeroCarousel = () => {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
-                    ? "bg-emerald-400 shadow-lg shadow-emerald-400/50"
+                    ? "bg-eek-blue-400 shadow-lg shadow-eek-blue-400/50"
                     : "bg-white/30 hover:bg-white/50"
                 }`}
               />
@@ -269,7 +269,7 @@ const HeroCarousel = () => {
             onClick={toggleAutoPlay}
             className={`p-2 rounded-full transition-all duration-300 ${
               isAutoPlay
-                ? "bg-emerald-500/20 text-emerald-400"
+                ? "bg-eek-blue-500/20 text-eek-blue-400"
                 : "bg-white/10 text-white/70 hover:text-white"
             }`}
           >
@@ -283,7 +283,7 @@ const HeroCarousel = () => {
       {/* Next Slide Hint */}
       <motion.button
         onClick={nextSlide}
-        className="absolute bottom-4 right-8 text-white/50 hover:text-emerald-400 transition-colors duration-300 z-20"
+        className="absolute bottom-4 right-8 text-white/50 hover:text-eek-blue-400 transition-colors duration-300 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
@@ -293,7 +293,7 @@ const HeroCarousel = () => {
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-white/10 z-20">
         <motion.div
-          className="h-full bg-gradient-to-r from-emerald-400 to-teal-400"
+          className="h-full bg-gradient-to-r from-eek-blue-400 to-eek-blue-600"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ duration: 5, ease: "linear" }}
