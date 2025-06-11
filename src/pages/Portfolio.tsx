@@ -227,10 +227,7 @@ const Portfolio = () => {
       {/* Projects Grid */}
       <section className="pb-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -360,7 +357,7 @@ const Portfolio = () => {
                 <div className="text-white font-medium text-sm">{tech}</div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
