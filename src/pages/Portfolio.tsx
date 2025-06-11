@@ -128,7 +128,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Navigation />
 
       {/* Hero Section */}
@@ -145,7 +145,7 @@ const Portfolio = () => {
                 Our Portfolio
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
               Discover the innovative solutions we've crafted for clients across
               industries, showcasing our expertise in modern technology and
               design.
@@ -210,7 +210,7 @@ const Portfolio = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeFilter === category.id
                     ? "bg-gradient-to-r from-eek-blue-500 to-eek-blue-600 text-white shadow-lg"
-                    : "bg-slate-800/50 text-gray-300 hover:bg-slate-800/70 hover:text-eek-blue-400"
+                    : "bg-white/80 text-gray-700 hover:bg-gray-100 hover:text-eek-blue-500 border border-gray-200"
                 }`}
               >
                 {category.label}

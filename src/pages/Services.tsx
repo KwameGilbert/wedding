@@ -136,7 +136,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Navigation />
 
       {/* Hero Section */}
@@ -153,7 +153,7 @@ const Services = () => {
                 Our Services
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
               From concept to deployment, we provide comprehensive digital
               solutions that transform your ideas into powerful, scalable
               applications.
@@ -183,26 +183,26 @@ const Services = () => {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="bg-slate-800/50 border-eek-blue-400/20 backdrop-blur-sm hover:bg-slate-800/70 transition-all duration-300 h-full overflow-hidden">
+                <Card className="bg-white/80 border-gray-200 backdrop-blur-sm hover:bg-white/90 shadow-md hover:shadow-lg transition-all duration-300 h-full overflow-hidden">
                   <CardHeader>
                     <div
                       className={`w-20 h-20 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform duration-300`}
                     >
                       {service.icon}
                     </div>
-                    <CardTitle className="text-2xl font-bold text-white mb-2">
+                    <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
                       {service.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300 leading-relaxed mb-6">
+                    <p className="text-gray-700 leading-relaxed mb-6">
                       {service.description}
                     </p>
                     <div className="space-y-2">
                       {service.features.map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
-                          className="flex items-center gap-2 text-sm text-gray-400"
+                          className="flex items-center gap-2 text-sm text-gray-600"
                         >
                           <CheckCircle className="w-4 h-4 text-eek-blue-400 flex-shrink-0" />
                           {feature}
@@ -234,10 +234,10 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
               Our Process
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               A proven methodology that ensures successful project delivery from
               initial concept to final deployment.
             </p>

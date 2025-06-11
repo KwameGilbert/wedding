@@ -129,7 +129,9 @@ const About = () => {
                 <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-eek-blue-400 to-eek-blue-600 bg-clip-text text-transparent mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-400 font-medium">{stat.label}</div>
+                <div className="text-gray-600 font-medium">
+                  {achievement.label}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -146,10 +148,10 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
                 At EEK, we believe technology should empower, not complicate.
                 Our mission is to create digital solutions that are not only
                 powerful and scalable, but also intuitive and delightful to use.
@@ -217,15 +219,15 @@ const About = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-slate-800/50 border-eek-blue-400/20 backdrop-blur-sm hover:bg-slate-800/70 transition-all duration-300 h-full">
+                <Card className="bg-white/80 border-gray-200 backdrop-blur-sm hover:bg-white/90 shadow-md hover:shadow-lg transition-all duration-300 h-full">
                   <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 bg-gradient-to-br from-eek-blue-400 to-eek-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto text-white">
                       {value.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {value.title}
                     </h3>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-gray-700 leading-relaxed">
                       {value.description}
                     </p>
                   </CardContent>
