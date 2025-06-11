@@ -64,7 +64,7 @@ const Navigation = () => {
                   {item.name}
                   {location.pathname === item.href && (
                     <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-eek-blue-600 rounded-full"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-eek-blue-400 rounded-full"
                       layoutId="activeTab"
                       initial={false}
                       transition={{
@@ -94,7 +94,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-gray-700 hover:text-eek-blue-500 transition-colors duration-300"
+            className="md:hidden text-gray-300 hover:text-eek-blue-400 transition-colors duration-300"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6" />
@@ -114,7 +114,7 @@ const Navigation = () => {
             : { height: 0, opacity: 0 }
         }
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-200/50"
+        className="md:hidden overflow-hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10"
       >
         <div className="px-4 py-6 space-y-4">
           {navItems.map((item, index) => (
@@ -122,8 +122,8 @@ const Navigation = () => {
               <motion.span
                 className={`block font-medium py-2 transition-colors duration-300 ${
                   location.pathname === item.href
-                    ? "text-eek-blue-600"
-                    : "text-gray-700 hover:text-eek-blue-500"
+                    ? "text-eek-blue-400"
+                    : "text-gray-300 hover:text-eek-blue-400"
                 }`}
                 initial={{ x: -20, opacity: 0 }}
                 animate={

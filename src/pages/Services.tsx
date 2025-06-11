@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import HelpWidget from "../components/HelpWidget";
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -401,6 +402,7 @@ const Services = () => {
       </section>
 
       <Footer />
+      <HelpWidget />
     </div>
   );
 };

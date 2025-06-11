@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import HelpWidget from "../components/HelpWidget";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 
@@ -343,6 +344,7 @@ const About = () => {
       </section>
 
       <Footer />
+      <HelpWidget />
     </div>
   );
 };

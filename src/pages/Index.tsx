@@ -1,6 +1,7 @@
 import HeroCarousel from "../components/HeroCarousel";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import HelpWidget from "../components/HelpWidget";
 
 const Index = () => {
   return (
@@ -8,6 +9,7 @@ const Index = () => {
       <Navigation />
       <HeroCarousel />
       <Footer />
+      <HelpWidget />
     </div>
   );
 };

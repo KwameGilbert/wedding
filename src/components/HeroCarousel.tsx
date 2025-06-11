@@ -263,8 +263,8 @@ const HeroCarousel = () => {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
-                    ? "bg-eek-blue-500 shadow-lg shadow-eek-blue-400/50"
-                    : "bg-gray-400/60 hover:bg-gray-500/70"
+                    ? "bg-eek-blue-400 shadow-lg shadow-eek-blue-400/50"
+                    : "bg-white/30 hover:bg-white/50"
                 }`}
               />
             ))}
@@ -289,7 +289,7 @@ const HeroCarousel = () => {
       {/* Next Slide Hint */}
       <motion.button
         onClick={nextSlide}
-        className="absolute bottom-4 right-8 text-gray-600/70 hover:text-eek-blue-500 transition-colors duration-300 z-20"
+        className="absolute bottom-4 right-8 text-white/50 hover:text-eek-blue-400 transition-colors duration-300 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
@@ -297,7 +297,7 @@ const HeroCarousel = () => {
       </motion.button>
 
       {/* Progress Bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gray-300/40 z-20">
+      <div className="absolute top-0 left-0 w-full h-1 bg-white/10 z-20">
         <motion.div
           className="h-full bg-gradient-to-r from-eek-blue-400 to-eek-blue-600"
           initial={{ width: "0%" }}
