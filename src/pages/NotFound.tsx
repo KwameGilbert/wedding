@@ -17,7 +17,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Navigation />
       <div className="min-h-screen flex items-center justify-center px-4 pt-16">
         <motion.div
@@ -52,10 +52,10 @@ const NotFound = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="space-y-4 mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
               Oops! Page not found
             </h2>
-            <p className="text-lg text-gray-300 max-w-md mx-auto leading-relaxed">
+            <p className="text-lg text-gray-700 max-w-md mx-auto leading-relaxed">
               The page you're looking for seems to have vanished into the
               digital void. Let's get you back on track.
             </p>
@@ -80,7 +80,7 @@ const NotFound = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white/20 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-full"
+              className="border-2 border-eek-blue-500 bg-white hover:bg-eek-blue-50 text-eek-blue-600 font-semibold px-8 py-4 rounded-full"
               onClick={() => window.history.back()}
             >
               <ArrowLeft className="w-5 h-5 mr-2" />

@@ -49,7 +49,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-slate-900/95 border-t border-eek-blue-400/20 backdrop-blur-sm">
+    <footer className="bg-gray-100/95 border-t border-gray-300/50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid lg:grid-cols-6 gap-12 mb-12">
@@ -76,7 +76,7 @@ const Footer = () => {
                 </div>
               </Link>
 
-              <p className="text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-700 leading-relaxed mb-6">
                 Engineering digital excellence through innovative solutions. We
                 transform ideas into powerful applications that drive business
                 growth and user engagement.
@@ -84,7 +84,7 @@ const Footer = () => {
 
               {/* Contact Info */}
               <div className="space-y-3 text-sm">
-                <div className="flex items-center gap-3 text-gray-400">
+                <div className="flex items-center gap-3 text-gray-600">
                   <Mail className="w-4 h-4 text-eek-blue-400" />
                   <span>hello@eek.com</span>
                 </div>
@@ -110,7 +110,7 @@ const Footer = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-white font-bold text-lg mb-4 capitalize">
+                <h3 className="text-gray-900 font-bold text-lg mb-4 capitalize">
                   {category}
                 </h3>
                 <ul className="space-y-3">
@@ -118,7 +118,7 @@ const Footer = () => {
                     <li key={link.name}>
                       <Link
                         to={link.href}
-                        className="text-gray-400 hover:text-eek-blue-400 transition-colors duration-300 text-sm"
+                        className="text-gray-600 hover:text-eek-blue-500 transition-colors duration-300 text-sm"
                       >
                         {link.name}
                       </Link>

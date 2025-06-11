@@ -96,7 +96,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Navigation />
 
       {/* Hero Section */}
@@ -113,7 +113,7 @@ const Contact = () => {
                 Let's Connect
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
               Ready to transform your ideas into digital reality? Get in touch
               and let's discuss how we can help you achieve your goals.
             </p>
@@ -146,12 +146,12 @@ const Contact = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-slate-800/50 border-eek-blue-400/20 backdrop-blur-sm">
+              <Card className="bg-white/90 border-gray-200 backdrop-blur-sm shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-white mb-2">
+                  <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
                     Start Your Project
                   </CardTitle>
-                  <p className="text-gray-300">
+                  <p className="text-gray-700">
                     Fill out the form below and we'll get back to you within 24
                     hours.
                   </p>
@@ -160,7 +160,7 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name" className="text-white">
+                        <Label htmlFor="name" className="text-gray-900">
                           Full Name *
                         </Label>
                         <Input
@@ -169,7 +169,7 @@ const Contact = () => {
                           onChange={(e) =>
                             handleInputChange("name", e.target.value)
                           }
-                          className="bg-slate-700/50 border-eek-blue-400/30 text-white placeholder-gray-400 focus:border-eek-blue-400"
+                          className="bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-eek-blue-500 focus:ring-1 focus:ring-eek-blue-500"
                           placeholder="Your full name"
                           required
                         />
