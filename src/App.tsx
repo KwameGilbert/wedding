@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
+import Wedding from "./pages/Wedding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
