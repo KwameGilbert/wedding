@@ -70,8 +70,13 @@ const Wedding = () => {
       <WeddingNavigation />
 
       {/* Wedding Hero Section */}
-      <section id="home-section">
+      <section id="home-section" className="relative">
         <WeddingHero />
+
+        {/* Countdown Timer - Positioned to span hero and next section */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-full max-w-4xl px-4 z-20">
+          <CountdownTimer />
+        </div>
       </section>
 
       {/* Groom & Bride Section */}
