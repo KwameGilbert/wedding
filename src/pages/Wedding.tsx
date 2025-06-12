@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import WeddingHero from "../components/WeddingHero";
 import WeddingNavigation from "../components/WeddingNavigation";
 import CountdownTimer from "../components/CountdownTimer";
+import TimelineItem from "../components/TimelineItem";
 import { Button } from "../components/ui/button";
 import {
   Card,
