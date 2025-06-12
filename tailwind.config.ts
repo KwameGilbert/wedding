@@ -65,33 +65,33 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // EEK Brand Colors
-        eek: {
-          blue: {
-            50: "#eff9ff",
-            100: "#daf2ff",
-            200: "#bee9ff",
-            300: "#91dbff",
-            400: "#5dc5ff",
-            500: "#1ea2db", // Primary EEK Blue
-            600: "#0284c7",
-            700: "#0369a1",
-            800: "#075985",
-            900: "#0c4a6e",
-            950: "#082f49",
+        // Wedding Brand Colors
+        wedding: {
+          pink: {
+            50: "#fdf2f8",
+            100: "#fce7f3",
+            200: "#fbcfe8",
+            300: "#f9a8d4", // Light pink for accents
+            400: "#f472b6",
+            500: "#ec4899", // Primary wedding pink
+            600: "#db2777",
+            700: "#be185d",
+            800: "#9d174d",
+            900: "#831843",
+            950: "#500724",
           },
-          dark: {
-            50: "#f8fafc",
-            100: "#f1f5f9",
-            200: "#e2e8f0",
-            300: "#cbd5e1",
-            400: "#94a3b8",
-            500: "#64748b",
-            600: "#475569",
-            700: "#334155",
-            800: "#1e293b",
-            900: "#0f172a",
-            950: "#020617",
+          purple: {
+            50: "#faf5ff",
+            100: "#f3e8ff",
+            200: "#e9d5ff",
+            300: "#d8b4fe",
+            400: "#c084fc",
+            500: "#a855f7", // Primary wedding purple
+            600: "#9333ea",
+            700: "#7c3aed",
+            800: "#6b21a8",
+            900: "#581c87",
+            950: "#3b0764",
           },
         },
       },
