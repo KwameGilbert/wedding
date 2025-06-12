@@ -82,67 +82,61 @@ const Wedding = () => {
       </section>
 
       {/* Groom & Bride Section */}
-      <motion.section
-        id="groom-bride-section"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="pt-32 pb-20 px-4 bg-white"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h2
-              className="text-4xl md:text-5xl font-rochester text-pink-700 mb-4"
+      <section id="groom-bride-section" className="pt-32 pb-20 px-4 bg-white">
+        <div className="max-w-[1100px] mx-auto">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-4 pb-1 border-b border-dashed"
+              style={{
+                color: "rgb(210, 145, 188)",
+                borderColor: "rgb(210, 145, 188)",
+              }}
             >
-              Meet the Happy Couple
+              About Bride & Groom
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight mb-4"
+              style={{ color: "rgb(210, 145, 188)" }}
+            >
+              Bride & Groom
             </motion.h2>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <div className="w-48 h-48 mx-auto mb-6 bg-gradient-to-br from-pink-200 to-purple-200 rounded-full flex items-center justify-center">
-                <Heart className="w-16 h-16 text-pink-600" />
-              </div>
-              <h3 className="text-3xl font-rochester text-pink-700 mb-4">
-                Leonardo
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                A passionate photographer who captures life's beautiful moments.
-                Leonardo loves adventure, good coffee, and making people smile.
-              </p>
-            </motion.div>
+          {/* Profiles */}
+          <div className="space-y-16 lg:space-y-24">
+            {/* Leonardo - Groom */}
+            <BrideGroomProfile
+              name="Leonardo Agustus"
+              description="A passionate photographer who captures life's most beautiful moments. Behind the lens, Leonardo finds poetry in everyday scenes and has a gift for making people feel comfortable and radiant. When he's not creating visual stories, you'll find him exploring new coffee shops, planning outdoor adventures, or sketching architectural details in his notebook. His warm smile and adventurous spirit light up every room he enters."
+              image="https://preview.colorlib.com/theme/twohearts/images/groom.jpg"
+              isGroom={true}
+              index={0}
+            />
 
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <div className="w-48 h-48 mx-auto mb-6 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full flex items-center justify-center">
-                <Heart className="w-16 h-16 text-purple-600" />
-              </div>
-              <h3 className="text-3xl font-rochester text-pink-700 mb-4">
-                Marianna
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                A talented artist and designer who brings creativity to
-                everything she touches. Marianna loves painting, dancing, and
-                spreading joy wherever she goes.
-              </p>
-            </motion.div>
+            {/* Marianna - Bride */}
+            <BrideGroomProfile
+              name="Marianna Reyes"
+              description="A talented artist and designer whose creativity flows through everything she touches. Marianna has an eye for beauty in the smallest details and a heart that radiates warmth to everyone around her. She spends her days painting watercolor landscapes, designing beautiful spaces, and teaching art to children in her community. Her infectious laughter and gentle spirit make her the kind of person who turns strangers into friends within minutes."
+              image="https://preview.colorlib.com/theme/twohearts/images/bride.jpg"
+              isGroom={false}
+              index={1}
+            />
           </div>
         </div>
-      </motion.section>
-
+      </section>
       {/* Our Story Section - Timeline */}
       <section
         id="lovestory-section"
