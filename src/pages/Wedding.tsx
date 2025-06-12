@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import WeddingHero from "../components/WeddingHero";
+import WeddingNavigation from "../components/WeddingNavigation";
 import { Button } from "../components/ui/button";
 import {
   Card,
