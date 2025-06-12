@@ -75,6 +75,7 @@ const Wedding = () => {
 
       {/* Wedding Details Section */}
       <motion.section
+        id="when-where-section"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
