@@ -65,19 +65,13 @@ const Wedding = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
-      {/* Wedding Hero Section */}
-      <WeddingHero />
+      {/* Wedding Navigation */}
+      <WeddingNavigation />
 
-      {/* Navigation Back to Main Site */}
-      <div className="absolute top-4 left-4 z-50">
-        <Button
-          variant="outline"
-          className="bg-white/80 backdrop-blur-sm border-pink-200 text-pink-700 hover:bg-pink-50"
-          onClick={() => window.history.back()}
-        >
-          ← Back to Main Site
-        </Button>
-      </div>
+      {/* Wedding Hero Section */}
+      <section id="home-section">
+        <WeddingHero />
+      </section>
 
       {/* Wedding Details Section */}
       <motion.section
