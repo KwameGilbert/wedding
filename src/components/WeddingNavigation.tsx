@@ -153,18 +153,6 @@ const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Back to Main Site Link */}
-      <div className="absolute top-4 right-4 lg:right-6">
-        <Button
-          variant="ghost"
-          size="sm"
-          className="text-pink-600 hover:text-pink-700 hover:bg-pink-50"
-          onClick={() => window.history.back()}
-        >
-          ← Back to Main Site
-        </Button>
-      </div>
     </motion.nav>
   );
 };
