@@ -73,6 +73,159 @@ const Wedding = () => {
         <WeddingHero />
       </section>
 
+      {/* Groom & Bride Section */}
+      <motion.section
+        id="groom-bride-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-20 px-4 bg-white"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.h2
+              className="text-4xl md:text-5xl font-rochester text-pink-700 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Meet the Happy Couple
+            </motion.h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="w-48 h-48 mx-auto mb-6 bg-gradient-to-br from-pink-200 to-purple-200 rounded-full flex items-center justify-center">
+                <Heart className="w-16 h-16 text-pink-600" />
+              </div>
+              <h3 className="text-3xl font-rochester text-pink-700 mb-4">
+                Leonardo
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                A passionate photographer who captures life's beautiful moments.
+                Leonardo loves adventure, good coffee, and making people smile.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <div className="w-48 h-48 mx-auto mb-6 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full flex items-center justify-center">
+                <Heart className="w-16 h-16 text-purple-600" />
+              </div>
+              <h3 className="text-3xl font-rochester text-pink-700 mb-4">
+                Marianna
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                A talented artist and designer who brings creativity to
+                everything she touches. Marianna loves painting, dancing, and
+                spreading joy wherever she goes.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Our Story Section */}
+      <motion.section
+        id="lovestory-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-20 px-4 bg-gradient-to-r from-pink-50 to-purple-50"
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h2
+            className="text-4xl md:text-5xl font-rochester text-pink-700 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Our Love Story
+          </motion.h2>
+
+          <motion.div
+            className="space-y-8 text-lg text-gray-600"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <p>
+              It all started on a rainy afternoon in a cozy coffee shop
+              downtown. Leonardo was there capturing the perfect shot of
+              raindrops on the window, while Marianna was sketching the bustling
+              street scene outside.
+            </p>
+            <p>
+              When their eyes met across the crowded café, time seemed to stand
+              still. A simple "Is this seat taken?" led to hours of
+              conversation, shared dreams, and the beginning of a beautiful love
+              story.
+            </p>
+            <p>
+              Three years later, during a sunset walk on the beach where they
+              had their first date, Leonardo got down on one knee and asked
+              Marianna to be his forever. Through tears of joy, she said yes!
+            </p>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Gallery Section */}
+      <motion.section
+        id="gallery-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-20 px-4 bg-white"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.h2
+              className="text-4xl md:text-5xl font-rochester text-pink-700 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Our Memories
+            </motion.h2>
+            <motion.p
+              className="text-lg text-gray-600"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Moments captured, memories treasured
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[...Array(8)].map((_, index) => (
+              <motion.div
+                key={index}
+                className="aspect-square bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg flex items-center justify-center hover:scale-105 transition-transform duration-300"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Camera className="w-8 h-8 text-pink-400" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* Wedding Details Section */}
       <motion.section
         id="when-where-section"
