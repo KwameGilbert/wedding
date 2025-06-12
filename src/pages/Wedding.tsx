@@ -86,7 +86,7 @@ const Wedding = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="py-20 px-4 bg-white"
+        className="pt-32 pb-20 px-4 bg-white"
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
