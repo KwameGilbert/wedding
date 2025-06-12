@@ -135,6 +135,7 @@ const Wedding = () => {
 
       {/* RSVP Section */}
       <motion.section
+        id="rsvp-section"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
