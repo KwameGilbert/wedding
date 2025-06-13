@@ -282,65 +282,10 @@ const Wedding = () => {
         </div>
       </motion.section>
 
-      {/* Wedding Details Section */}
-      <motion.section
-        id="when-where-section"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="py-20 px-4"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h2
-              className="text-4xl md:text-5xl font-rochester text-pink-700 mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Our Wedding Details
-            </motion.h2>
-            <motion.p
-              className="text-lg text-gray-600 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Join us as we celebrate the beginning of our forever together
-            </motion.p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full border-pink-200 hover:shadow-lg transition-shadow duration-300 group">
-                  <CardHeader className="text-center">
-                    <div className="mx-auto w-16 h-16 bg-gradient-to-br from-pink-100 to-purple-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="w-8 h-8 text-pink-600" />
-                    </div>
-                    <CardTitle className="text-pink-700 font-rochester text-2xl">
-                      {feature.title}
-                    </CardTitle>
-                    <CardDescription className="text-lg font-semibold text-gray-700">
-                      {feature.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-gray-600">{feature.details}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      {/* When & Where Section */}
+      <section id="when-where-section">
+        <WhenWhereSection />
+      </section>
 
       {/* Greetings Section */}
       <motion.section
