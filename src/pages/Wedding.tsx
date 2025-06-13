@@ -6,6 +6,7 @@ import TimelineItem from "../components/TimelineItem";
 import BrideGroomProfile from "../components/BrideGroomProfile";
 import WeddingPartyCarousel from "../components/WeddingPartyCarousel";
 import RSVPForm from "../components/RSVPForm";
+import WhenWhereSection from "../components/WhenWhereSection";
 import { Button } from "../components/ui/button";
 import {
   Card,
