@@ -30,45 +30,6 @@ const Wedding = () => {
     },
   };
 
-  const features = [
-    {
-      icon: Calendar,
-      title: "Save the Date",
-      description: "June 15, 2024",
-      details: "Mark your calendars for our special day!",
-    },
-    {
-      icon: MapPin,
-      title: "Venue",
-      description: "Garden Villa Resort",
-      details: "123 Romantic Lane, Love City",
-    },
-    {
-      icon: Clock,
-      title: "Ceremony Time",
-      description: "4:00 PM",
-      details: "Reception to follow at 6:00 PM",
-    },
-    {
-      icon: Gift,
-      title: "Registry",
-      description: "Gift Registry",
-      details: "Find our wishlist online",
-    },
-    {
-      icon: Camera,
-      title: "Gallery",
-      description: "Photo Sharing",
-      details: "Share your photos with us",
-    },
-    {
-      icon: Heart,
-      title: "RSVP",
-      description: "Please Respond",
-      details: "By May 1, 2024",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
       {/* Wedding Navigation */}
