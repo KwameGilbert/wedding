@@ -7,6 +7,7 @@ import BrideGroomProfile from "../components/BrideGroomProfile";
 import WeddingPartyCarousel from "../components/WeddingPartyCarousel";
 import RSVPForm from "../components/RSVPForm";
 import WhenWhereSection from "../components/WhenWhereSection";
+import Gallery from "../components/Gallery";
 import { Button } from "../components/ui/button";
 import {
   Card,
