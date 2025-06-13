@@ -1,160 +1,88 @@
-import { motion } from "framer-motion";
-import { Menu, X, Heart } from "lucide-react";
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
-interface WeddingNavigationProps {
-  className?: string;
-}
+const navItems = [
+  { name: "Home", href: "#home-section" },
+  { name: "Groom & Bride", href: "#groom-bride-section" },
+  { name: "Our Story", href: "#lovestory-section" },
+  { name: "Greetings", href: "#greeting-section" },
+  { name: "Bridesmaid & Groomsmen", href: "#people-section" },
+  { name: "When & Where", href: "#when-where-section" },
+  { name: "RSVP", href: "#rsvp-section" },
+  { name: "Gallery", href: "#gallery-section" },
+];
 
-const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navItems = [
-    { name: "Home", href: "#home-section" },
-    { name: "Groom & Bride", href: "#groom-bride-section" },
-    { name: "Our Story", href: "#lovestory-section" },
-    { name: "Greetings", href: "#greeting-section" },
-    { name: "Bridesmaid & Groomsmen", href: "#people-section" },
-    { name: "When & Where", href: "#when-where-section" },
-    { name: "RSVP", href: "#rsvp-section" },
-    { name: "Gallery", href: "#gallery-section" },
-  ];
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const handleNavClick = (href: string) => {
-    setIsMenuOpen(false);
-    // Smooth scroll to section
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
+    <motion.header
+      initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-200/30 shadow-sm ${className}`}
+      className="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md shadow-md"
     >
-      <div className="max-w-[1100px] mx-auto px-4 w-full">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo/Brand */}
-          <motion.a
-            href="#home-section"
-            className="text-white text-xl font-bold uppercase tracking-wider transition-colors duration-300 hover:text-pink-500 whitespace-nowrap"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#home-section");
-            }}
-          >
-            <div className="flex items-center gap-2">
-              <Heart className="w-6 h-6 text-pink-500 fill-pink-500" />
-              <span className="text-pink-700">TwoHearts</span>
-            </div>
-          </motion.a>
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <motion.h1
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-white font-bold text-xl tracking-wide"
+        >
+          TWOHEARTS
+        </motion.h1>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center flex-grow">
-            <ul className="flex flex-wrap ml-auto space-x-0">
-              {navItems.map((item, index) => (
-                <li key={item.name}>
-                  <motion.a
-                    href={item.href}
-                    className="relative block px-3 py-3 text-sm font-semibold text-pink-700 uppercase tracking-wide transition-colors duration-300 hover:text-pink-500"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ y: -2 }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(item.href);
-                    }}
-                  >
-                    <span className="relative pb-0.5">{item.name}</span>
-                  </motion.a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={toggleMenu}
-            className="lg:hidden border-pink-300 bg-pink-50/50 text-pink-700 hover:bg-pink-100"
-            aria-controls="mobile-nav"
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation"
-          >
-            {isMenuOpen ? (
-              <X className="w-4 h-4" />
-            ) : (
-              <Menu className="w-4 h-4" />
-            )}
-            <span className="ml-2 text-sm uppercase tracking-widest">Menu</span>
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={
-          isMenuOpen
-            ? { height: "auto", opacity: 1 }
-            : { height: 0, opacity: 0 }
-        }
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="lg:hidden overflow-hidden bg-white/98 backdrop-blur-md border-t border-pink-200/30"
-        id="mobile-nav"
-      >
-        <div className="max-w-[1100px] mx-auto px-4 py-6 space-y-2">
-          {navItems.map((item, index) => (
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex space-x-6">
+          {navItems.map((item, idx) => (
             <motion.a
               key={item.name}
               href={item.href}
-              className="block py-3 px-2 text-sm font-semibold text-pink-700 uppercase tracking-wide transition-colors duration-300 hover:text-pink-500 hover:bg-pink-50 rounded-md"
-              initial={{ x: -20, opacity: 0 }}
-              animate={
-                isMenuOpen ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }
-              }
-              transition={{ delay: index * 0.1 }}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(item.href);
-              }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="text-white font-semibold text-sm hover:text-pink-300 transition"
             >
               {item.name}
             </motion.a>
           ))}
+        </nav>
 
-          {/* Mobile RSVP Button */}
-          <motion.div
-            initial={{ x: -20, opacity: 0 }}
-            animate={isMenuOpen ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
-            transition={{ delay: navItems.length * 0.1 }}
-            className="pt-4"
-          >
-            <Button
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold rounded-full"
-              onClick={() => {
-                handleNavClick("#rsvp-section");
-              }}
-            >
-              <Heart className="w-4 h-4 mr-2" />
-              RSVP Now
-            </Button>
-          </motion.div>
+        {/* Mobile Toggle Button */}
+        <div className="md:hidden text-white">
+          {open ? (
+            <X size={24} onClick={() => setOpen(false)} />
+          ) : (
+            <Menu size={24} onClick={() => setOpen(true)} />
+          )}
         </div>
-      </motion.div>
-    </motion.nav>
-  );
-};
+      </div>
 
-export default WeddingNavigation;
+      {/* Mobile Nav Menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-black/90 text-white flex flex-col items-center space-y-5 py-6"
+          >
+            {navItems.map((item, idx) => (
+              <motion.a
+                     key={item.name}
+              href={item.href}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => setOpen(false)}
+                className="text-white font-medium hover:text-pink-300 transition"
+              >
+                {item.name}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
+  );
+}

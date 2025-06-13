@@ -81,7 +81,7 @@ const WeddingHero = ({
 
   return (
     <section
-      className={`relative h-[524px] bg-cover bg-center bg-no-repeat overflow-hidden ${className}`}
+      className={`relative h-screen bg-cover bg-center bg-no-repeat overflow-hidden ${className}`}
       style={{
         backgroundImage: `url("${backgroundImage}")`,
         backgroundPosition: "50% 0%",
