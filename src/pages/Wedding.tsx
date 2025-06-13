@@ -5,6 +5,7 @@ import CountdownTimer from "../components/CountdownTimer";
 import TimelineItem from "../components/TimelineItem";
 import BrideGroomProfile from "../components/BrideGroomProfile";
 import WeddingPartyCarousel from "../components/WeddingPartyCarousel";
+import RSVPForm from "../components/RSVPForm";
 import { Button } from "../components/ui/button";
 import {
   Card,
