@@ -16,7 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Heart, Gift, Camera } from "lucide-react";
+import { Heart, Gift } from "lucide-react";
 
 const Wedding = () => {
   const sectionVariants = {
