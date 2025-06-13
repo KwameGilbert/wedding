@@ -4,6 +4,7 @@ import WeddingNavigation from "../components/WeddingNavigation";
 import CountdownTimer from "../components/CountdownTimer";
 import TimelineItem from "../components/TimelineItem";
 import BrideGroomProfile from "../components/BrideGroomProfile";
+import WeddingPartyCarousel from "../components/WeddingPartyCarousel";
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -90,46 +91,46 @@ const Wedding = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12 lg:mb-16"
           >
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-4 pb-1 border-b border-dashed"
+              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed"
               style={{
                 color: "rgb(210, 145, 188)",
                 borderColor: "rgb(210, 145, 188)",
               }}
             >
-              About Bride & Groom
+              About Bride &amp; Groom
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight mb-4"
+              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight"
               style={{ color: "rgb(210, 145, 188)" }}
             >
-              Bride & Groom
+              Bride &amp; Groom
             </motion.h2>
           </motion.div>
 
           {/* Profiles */}
-          <div className="space-y-16 lg:space-y-24">
-            {/* Leonardo - Groom */}
+          <div className="space-y-12 lg:space-y-20">
+            {/* Groom Profile */}
             <BrideGroomProfile
               name="Leonardo Agustus"
-              description="A passionate photographer who captures life's most beautiful moments. Behind the lens, Leonardo finds poetry in everyday scenes and has a gift for making people feel comfortable and radiant. When he's not creating visual stories, you'll find him exploring new coffee shops, planning outdoor adventures, or sketching architectural details in his notebook. His warm smile and adventurous spirit light up every room he enters."
+              description="A passionate photographer and adventure seeker, Leonardo captures life's most precious moments through his lens. When he's not behind the camera, you'll find him exploring new places, brewing the perfect cup of coffee, or planning the next surprise for Marianna. His infectious smile and warm heart make everyone around him feel like family."
               image="https://preview.colorlib.com/theme/twohearts/images/groom.jpg"
               isGroom={true}
               index={0}
             />
 
-            {/* Marianna - Bride */}
+            {/* Bride Profile */}
             <BrideGroomProfile
               name="Marianna Reyes"
-              description="A talented artist and designer whose creativity flows through everything she touches. Marianna has an eye for beauty in the smallest details and a heart that radiates warmth to everyone around her. She spends her days painting watercolor landscapes, designing beautiful spaces, and teaching art to children in her community. Her infectious laughter and gentle spirit make her the kind of person who turns strangers into friends within minutes."
+              description="A talented artist and creative soul, Marianna brings beauty and inspiration to everything she touches. Whether she's painting a masterpiece, designing something magical, or dancing to her favorite song, her creativity knows no bounds. Her kindness, grace, and radiant spirit light up every room she enters, making the world a more beautiful place."
               image="https://preview.colorlib.com/theme/twohearts/images/bride.jpg"
               isGroom={false}
               index={1}
