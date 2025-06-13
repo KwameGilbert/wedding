@@ -200,14 +200,7 @@ const Wedding = () => {
         </div>
       </section>
       {/* Gallery Section */}
-      <motion.section
-        id="gallery-section"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="py-20 px-4 bg-white"
-      >
+      <section id="gallery-section" className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <motion.h2
@@ -224,25 +217,13 @@ const Wedding = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Moments captured, memories treasured
+              Moments captured, memories treasured - Click any photo to view
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[...Array(8)].map((_, index) => (
-              <motion.div
-                key={index}
-                className="aspect-square bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg flex items-center justify-center hover:scale-105 transition-transform duration-300"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Camera className="w-8 h-8 text-pink-400" />
-              </motion.div>
-            ))}
-          </div>
+          <Gallery />
         </div>
-      </motion.section>
+      </section>
 
       {/* When & Where Section */}
       <section id="when-where-section">
