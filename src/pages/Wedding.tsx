@@ -385,86 +385,50 @@ const Wedding = () => {
       </motion.section>
 
       {/* Bridesmaid & Groomsmen Section */}
-      <motion.section
-        id="people-section"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="py-20 px-4 bg-gradient-to-r from-purple-50 to-pink-50"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h2
-              className="text-4xl md:text-5xl font-rochester text-pink-700 mb-4"
+      <section id="people-section" className="py-20 px-4 bg-white">
+        <div className="max-w-[1100px] mx-auto">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12 lg:mb-16"
+          >
+            <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed"
+              style={{
+                color: "rgb(210, 145, 188)",
+                borderColor: "rgb(210, 145, 188)",
+              }}
             >
-              Our Wedding Party
-            </motion.h2>
-            <motion.p
-              className="text-lg text-gray-600"
-              initial={{ opacity: 0, y: 20 }}
+              Bridesmaid &amp; Groomsmen
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight"
+              style={{ color: "rgb(210, 145, 188)" }}
             >
-              The special people standing by our side
-            </motion.p>
-          </div>
+              Family &amp; Friends
+            </motion.h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Bridesmaids */}
-            <div>
-              <h3 className="text-2xl font-rochester text-pink-600 mb-8 text-center">
-                Bridesmaids
-              </h3>
-              <div className="grid grid-cols-2 gap-6">
-                {["Sarah", "Emma", "Lisa", "Anna"].map((name, index) => (
-                  <motion.div
-                    key={name}
-                    className="text-center"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <div className="w-24 h-24 mx-auto mb-3 bg-gradient-to-br from-pink-200 to-purple-200 rounded-full flex items-center justify-center">
-                      <Heart className="w-8 h-8 text-pink-600" />
-                    </div>
-                    <h4 className="font-semibold text-gray-700">{name}</h4>
-                    <p className="text-sm text-gray-500">Bridesmaid</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Groomsmen */}
-            <div>
-              <h3 className="text-2xl font-rochester text-pink-600 mb-8 text-center">
-                Groomsmen
-              </h3>
-              <div className="grid grid-cols-2 gap-6">
-                {["Michael", "David", "James", "Robert"].map((name, index) => (
-                  <motion.div
-                    key={name}
-                    className="text-center"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <div className="w-24 h-24 mx-auto mb-3 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full flex items-center justify-center">
-                      <Heart className="w-8 h-8 text-blue-600" />
-                    </div>
-                    <h4 className="font-semibold text-gray-700">{name}</h4>
-                    <p className="text-sm text-gray-500">Groomsman</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* Wedding Party Carousel */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <WeddingPartyCarousel />
+          </motion.div>
         </div>
-      </motion.section>
-
+      </section>
       {/* RSVP Section */}
       <motion.section
         id="rsvp-section"
