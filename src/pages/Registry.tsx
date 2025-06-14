@@ -287,7 +287,9 @@ const Registry = () => {
 
             <div className="text-right">
               <p className="text-sm text-gray-600">Wedding Date</p>
-              <p className="font-semibold text-pink-600">June 15, 2024</p>
+              <p className="font-semibold text-wedding-terracotta-600">
+                June 15, 2024
+              </p>
             </div>
           </div>
         </div>
