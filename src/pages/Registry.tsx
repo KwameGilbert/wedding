@@ -307,7 +307,7 @@ const Registry = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "backOut" }}
-            className="w-20 h-20 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6"
+            className="w-20 h-20 bg-gradient-to-br from-wedding-terracotta-400 to-wedding-olive-500 rounded-full flex items-center justify-center mx-auto mb-6"
           >
             <Gift className="w-10 h-10 text-white" />
           </motion.div>
