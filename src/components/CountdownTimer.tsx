@@ -80,22 +80,22 @@ const CountdownTimer = ({
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className={`relative w-full bg-pink-300 rounded shadow-lg flex ${className}`}
+      className={`relative w-full bg-wedding-terracotta-400 rounded shadow-lg flex ${className}`}
       style={{
-        backgroundColor: "rgb(210, 145, 188)",
+        backgroundColor: "rgb(212, 116, 79)",
         boxShadow: "rgba(0, 0, 0, 0.15) 0px 10px 32px -19px",
       }}
     >
       {/* Save the Day Section */}
       <motion.div
         variants={itemVariants}
-        className="w-1/5 bg-pink-400 flex items-center justify-center py-4 text-white text-center"
+        className="w-1/5 bg-pink-400 flex items-center justify-center py-2 text-white text-center"
         style={{ backgroundColor: "rgb(203, 127, 177)" }}
       >
         <h3 className="font-rochester text-lg sm:text-xl md:text-3xl leading-tight text-center w-full px-2">
           <span>Save</span>
           <br />
-          <span>the Date</span>
+          <span>the Day</span>
         </h3>
       </motion.div>
 
