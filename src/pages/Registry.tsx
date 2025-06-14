@@ -265,7 +265,7 @@ const Registry = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-pink-200/30 sticky top-0 z-40">
+      <header className="bg-wedding-cream-100/80 backdrop-blur-sm border-b border-wedding-terracotta-200/30 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/">
