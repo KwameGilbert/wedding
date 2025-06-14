@@ -92,16 +92,16 @@ const TimelineItem = ({
 
         {/* Content */}
         <div className={isRight ? "lg:text-left" : "lg:text-right"}>
-          <span className="block text-white text-sm font-black uppercase tracking-wider mb-2 lg:mb-2">
+          <span className="block text-wedding-cream-50 text-sm font-black uppercase tracking-wider mb-2 lg:mb-2">
             {date}
           </span>
-          <h3 className="text-white font-rochester text-2xl lg:text-4xl leading-tight mb-2 lg:mb-4">
+          <h3 className="text-wedding-cream-50 font-rochester text-2xl lg:text-4xl leading-tight mb-2 lg:mb-4">
             {title}
           </h3>
         </div>
 
         <div className={isRight ? "lg:text-left" : "lg:text-right"}>
-          <p className="text-white/90 leading-relaxed text-sm lg:text-base">
+          <p className="text-wedding-cream-100/90 leading-relaxed text-sm lg:text-base">
             {description}
           </p>
         </div>
