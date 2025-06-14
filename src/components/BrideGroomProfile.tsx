@@ -126,8 +126,7 @@ const BrideGroomProfile = ({
                 delay: index * 0.3 + 0.8 + i * 0.1,
                 ease: "backOut",
               }}
-              className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: "rgb(210, 145, 188)" }}
+              className="w-2 h-2 rounded-full bg-wedding-olive-500"
             />
           ))}
         </div>
