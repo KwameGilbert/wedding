@@ -271,7 +271,7 @@ const Registry = () => {
             <Link to="/">
               <Button
                 variant="ghost"
-                className="text-pink-600 hover:text-pink-700 hover:bg-pink-50"
+                className="text-wedding-terracotta-600 hover:text-wedding-terracotta-700 hover:bg-wedding-cream-200"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Wedding
