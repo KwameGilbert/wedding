@@ -65,33 +65,46 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Wedding Brand Colors
+        // Wedding Brand Colors - Earthy Natural Palette
         wedding: {
-          pink: {
-            50: "#fdf2f8",
-            100: "#fce7f3",
-            200: "#fbcfe8",
-            300: "#f9a8d4", // Light pink for accents
-            400: "#f472b6",
-            500: "#ec4899", // Primary wedding pink
-            600: "#db2777",
-            700: "#be185d",
-            800: "#9d174d",
-            900: "#831843",
-            950: "#500724",
+          cream: {
+            50: "#fdfcfa",
+            100: "#faf7f2",
+            200: "#f5f0e8", // Light cream background
+            300: "#ede4d3",
+            400: "#e1d4bf",
+            500: "#d4c4a8", // Primary cream
+            600: "#c4af91",
+            700: "#a8926f",
+            800: "#8b7355",
+            900: "#6b5940",
+            950: "#4a3d2a",
           },
-          purple: {
-            50: "#faf5ff",
-            100: "#f3e8ff",
-            200: "#e9d5ff",
-            300: "#d8b4fe",
-            400: "#c084fc",
-            500: "#a855f7", // Primary wedding purple
-            600: "#9333ea",
-            700: "#7c3aed",
-            800: "#6b21a8",
-            900: "#581c87",
-            950: "#3b0764",
+          terracotta: {
+            50: "#fdf6f3",
+            100: "#fbeae4",
+            200: "#f7d4c4",
+            300: "#f1b499", // Light terracotta
+            400: "#ea8a66",
+            500: "#d4744f", // Primary terracotta from image
+            600: "#c4633f",
+            700: "#a34f35",
+            800: "#85432f",
+            900: "#6d3a2a",
+            950: "#3a1d15",
+          },
+          olive: {
+            50: "#f7f8f4",
+            100: "#eef0e7",
+            200: "#dde2d0",
+            300: "#c4ccb1", // Light olive for backgrounds
+            400: "#a8b18e",
+            500: "#8a9670", // Primary olive green for accents
+            600: "#6d7856",
+            700: "#565d46",
+            800: "#464c3b",
+            900: "#3a4032",
+            950: "#1e2219",
           },
         },
       },
