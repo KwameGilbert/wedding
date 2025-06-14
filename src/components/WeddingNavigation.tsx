@@ -89,7 +89,7 @@ const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
             variant="outline"
             size="sm"
             onClick={toggleMenu}
-            className="lg:hidden border-pink-300 bg-pink-50/50 text-pink-700 hover:bg-pink-100"
+            className="lg:hidden border-wedding-terracotta-300 bg-wedding-cream-200/50 text-wedding-terracotta-600 hover:bg-wedding-cream-300"
             aria-controls="mobile-nav"
             aria-expanded={isMenuOpen}
             aria-label="Toggle navigation"
