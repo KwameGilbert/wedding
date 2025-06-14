@@ -453,7 +453,7 @@ const Registry = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-bold text-pink-600">
+                      <span className="text-2xl font-bold text-wedding-terracotta-600">
                         ${item.price}
                       </span>
                       <span className="text-sm text-gray-500">
@@ -462,7 +462,7 @@ const Registry = () => {
                     </div>
                     {!item.isPurchased && (
                       <Button
-                        className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white"
+                        className="w-full bg-gradient-to-r from-wedding-terracotta-500 to-wedding-olive-600 hover:from-wedding-terracotta-600 hover:to-wedding-olive-700 text-wedding-cream-50"
                         onClick={() => window.open(item.storeUrl, "_blank")}
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
