@@ -75,7 +75,7 @@ const TimelineItem = ({
             : "lg:float-left lg:text-right lg:mr-auto lg:pr-16"
         } w-full lg:w-[43%] p-6 lg:p-12 lg:pt-12 lg:pb-12`}
         style={{
-          backgroundColor: "rgb(210, 145, 188)",
+          backgroundColor: "rgb(212, 116, 79)",
           boxShadow: "rgba(0, 0, 0, 0.36) 0px 10px 32px -19px",
         }}
       >
