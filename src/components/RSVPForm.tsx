@@ -11,8 +11,9 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    guests: "",
-    message: "",
+    phone: "",
+    hasPartner: "",
+    partnerName: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -70,19 +71,16 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
         transition={{ duration: 0.6 }}
         className={`text-center ${className}`}
       >
-        <div className="bg-white rounded-lg p-8 shadow-lg max-w-md mx-auto">
+        <div className="bg-wedding-cream-100 rounded-lg p-8 shadow-lg max-w-md mx-auto">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "backOut" }}
-            className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            className="w-16 h-16 bg-wedding-olive-200 rounded-full flex items-center justify-center mx-auto mb-4"
           >
-            <Heart className="w-8 h-8 text-pink-600 fill-pink-600" />
+            <span className="text-2xl">🍃</span>
           </motion.div>
-          <h3
-            className="text-2xl font-rochester mb-4"
-            style={{ color: "rgb(210, 145, 188)" }}
-          >
+          <h3 className="text-2xl font-rochester mb-4 text-wedding-terracotta-600">
             Thank You!
           </h3>
           <p className="text-gray-600">
@@ -135,16 +133,11 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
               <input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Your Full Name"
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full h-12 px-3 py-2 bg-transparent text-gray-700 font-semibold text-base leading-6 border-0 border-b transition-all duration-150 ease-in-out focus:outline-none focus:ring-0"
-                style={{
-                  borderBottomColor: "rgba(210, 145, 188, 0.5)",
-                  borderBottomWidth: "0.666667px",
-                  borderBottomStyle: "solid",
-                }}
+                className="w-full h-12 px-3 py-2 bg-transparent text-gray-700 font-semibold text-base leading-6 border-0 border-b transition-all duration-150 ease-in-out focus:outline-none focus:ring-0 border-wedding-terracotta-300 focus:border-wedding-terracotta-500"
               />
             </motion.div>
 
@@ -153,63 +146,82 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
               <input
                 type="email"
                 name="email"
-                placeholder="Your email"
+                placeholder="Your Email Address"
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full h-12 px-3 py-2 bg-transparent text-gray-700 font-semibold text-base leading-6 border-0 border-b transition-all duration-150 ease-in-out focus:outline-none focus:ring-0"
-                style={{
-                  borderBottomColor: "rgba(210, 145, 188, 0.5)",
-                  borderBottomWidth: "0.666667px",
-                  borderBottomStyle: "solid",
-                }}
+                className="w-full h-12 px-3 py-2 bg-transparent text-gray-700 font-semibold text-base leading-6 border-0 border-b transition-all duration-150 ease-in-out focus:outline-none focus:ring-0 border-wedding-terracotta-300 focus:border-wedding-terracotta-500"
               />
             </motion.div>
 
-            {/* Guest Count Dropdown */}
+            {/* Phone Field */}
             <motion.div variants={itemVariants}>
-              <div className="relative">
-                <select
-                  name="guests"
-                  value={formData.guests}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full h-12 px-3 py-2 bg-transparent text-gray-700 font-semibold text-base leading-6 border-0 border-b transition-all duration-150 ease-in-out focus:outline-none focus:ring-0 appearance-none cursor-pointer"
-                  style={{
-                    borderBottomColor: "rgba(210, 145, 188, 0.5)",
-                    borderBottomWidth: "0.666667px",
-                    borderBottomStyle: "solid",
-                  }}
-                >
-                  <option value="">Number of Guests</option>
-                  <option value="1">1 Guest</option>
-                  <option value="2">2 Guests</option>
-                  <option value="3">3 Guests</option>
-                  <option value="4">4 Guests</option>
-                  <option value="5">5 Guests</option>
-                </select>
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                  <span style={{ color: "rgb(210, 145, 188)" }}>▼</span>
-                </div>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Your Phone Number"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                className="w-full h-12 px-3 py-2 bg-transparent text-gray-700 font-semibold text-base leading-6 border-0 border-b transition-all duration-150 ease-in-out focus:outline-none focus:ring-0 border-wedding-terracotta-300 focus:border-wedding-terracotta-500"
+              />
+            </motion.div>
+
+            {/* Partner Question */}
+            <motion.div variants={itemVariants}>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">
+                Are you coming with a partner?
+              </label>
+              <div className="flex gap-6">
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="hasPartner"
+                    value="yes"
+                    checked={formData.hasPartner === "yes"}
+                    onChange={handleInputChange}
+                    className="mr-2 text-wedding-terracotta-500 focus:ring-wedding-terracotta-400"
+                  />
+                  <span className="text-wedding-terracotta-600 font-medium">
+                    Yes
+                  </span>
+                </label>
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="hasPartner"
+                    value="no"
+                    checked={formData.hasPartner === "no"}
+                    onChange={handleInputChange}
+                    className="mr-2 text-wedding-terracotta-500 focus:ring-wedding-terracotta-400"
+                  />
+                  <span className="text-wedding-terracotta-600 font-medium">
+                    No
+                  </span>
+                </label>
               </div>
             </motion.div>
 
-            {/* Message Field */}
-            <motion.div variants={itemVariants}>
-              <textarea
-                name="message"
-                placeholder="Message (optional)"
-                value={formData.message}
-                onChange={handleInputChange}
-                rows={3}
-                className="w-full px-3 py-2 bg-transparent text-gray-700 font-semibold text-base leading-6 border-0 border-b transition-all duration-150 ease-in-out focus:outline-none focus:ring-0 resize-vertical"
-                style={{
-                  borderBottomColor: "rgba(210, 145, 188, 0.5)",
-                  borderBottomWidth: "0.666667px",
-                  borderBottomStyle: "solid",
-                }}
-              />
-            </motion.div>
+            {/* Partner Name Field - Show only if "yes" is selected */}
+            {formData.hasPartner === "yes" && (
+              <motion.div
+                variants={itemVariants}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <input
+                  type="text"
+                  name="partnerName"
+                  placeholder="Partner's Full Name"
+                  value={formData.partnerName}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full h-12 px-3 py-2 bg-transparent text-gray-700 font-semibold text-base leading-6 border-0 border-b transition-all duration-150 ease-in-out focus:outline-none focus:ring-0 border-wedding-terracotta-300 focus:border-wedding-terracotta-500"
+                />
+              </motion.div>
+            )}
 
             {/* Submit Button */}
             <motion.div variants={itemVariants} className="pt-8">
@@ -223,12 +235,13 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                    <div className="w-4 h-4 border-2 border-wedding-cream-50 border-t-transparent rounded-full animate-spin mr-2" />
                     Sending...
                   </>
                 ) : (
                   <>
-                    <Send className="w-4 h-4 mr-2" />I am attending
+                    <Send className="w-4 h-4 mr-2" />
+                    Confirm Attendance
                   </>
                 )}
               </Button>
@@ -255,7 +268,7 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
                 }}
                 className="text-8xl mb-4 opacity-20"
               >
-                💕
+                🍃
               </motion.div>
               <motion.p
                 initial={{ opacity: 0 }}
