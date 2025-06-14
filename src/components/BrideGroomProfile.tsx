@@ -97,8 +97,7 @@ const BrideGroomProfile = ({
           transition={{ duration: 0.6, delay: index * 0.3 + 0.4 }}
           className={`font-rochester text-3xl lg:text-5xl leading-tight mb-4 ${
             isGroom ? "lg:text-right" : "lg:text-left"
-          } text-center lg:text-left`}
-          style={{ color: "rgb(210, 145, 188)" }}
+          } text-center lg:text-left text-wedding-terracotta-600`}
         >
           {name}
         </motion.h2>
