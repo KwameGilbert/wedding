@@ -121,7 +121,7 @@ const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
             <motion.a
               key={item.name}
               href={item.href}
-              className="block py-3 px-2 text-sm font-semibold text-pink-700 uppercase tracking-wide transition-colors duration-300 hover:text-pink-500 hover:bg-pink-50 rounded-md"
+              className="block py-3 px-2 text-sm font-semibold text-wedding-terracotta-600 uppercase tracking-wide transition-colors duration-300 hover:text-wedding-terracotta-500 hover:bg-wedding-cream-200 rounded-md"
               initial={{ x: -20, opacity: 0 }}
               animate={
                 isMenuOpen ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }
