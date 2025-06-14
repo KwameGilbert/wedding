@@ -89,8 +89,8 @@ const CountdownTimer = ({
       {/* Save the Day Section */}
       <motion.div
         variants={itemVariants}
-        className="w-1/5 bg-pink-400 flex items-center justify-center py-2 text-white text-center"
-        style={{ backgroundColor: "rgb(203, 127, 177)" }}
+        className="w-1/5 bg-wedding-olive-500 flex items-center justify-center py-2 text-wedding-cream-50 text-center"
+        style={{ backgroundColor: "rgb(138, 150, 112)" }}
       >
         <h3 className="font-rochester text-lg sm:text-xl md:text-3xl leading-tight text-center w-full px-2">
           <span>Save</span>
