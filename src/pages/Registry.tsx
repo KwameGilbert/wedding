@@ -316,8 +316,7 @@ const Registry = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-3xl lg:text-4xl font-rochester mb-4"
-            style={{ color: "rgb(210, 145, 188)" }}
+            className="text-3xl lg:text-4xl font-rochester mb-4 text-wedding-terracotta-500"
           >
             Help Us Start Our New Journey
           </motion.h2>
