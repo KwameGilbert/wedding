@@ -359,7 +359,6 @@ const Registry = () => {
               {purchasedItems} of {totalItems} items purchased
             </p>
           </motion.div>
-          </motion.div>
         </div>
       </motion.section>
 
