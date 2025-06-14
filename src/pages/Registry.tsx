@@ -337,27 +337,28 @@ const Registry = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            <div className="bg-wedding-cream-100 rounded-lg p-6 shadow-lg max-w-md mx-auto">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-gray-600">
-                  Registry Progress
-                </span>
-                <span className="text-sm font-medium text-wedding-terracotta-600">
-                  {completionPercentage}%
-                </span>
-              </div>
-              <div className="w-full bg-wedding-terracotta-100 rounded-full h-3">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${completionPercentage}%` }}
-                  transition={{ duration: 1, delay: 1.2 }}
-                  className="bg-gradient-to-r from-wedding-terracotta-400 to-wedding-olive-500 h-3 rounded-full"
-                />
+            className="bg-wedding-cream-100 rounded-lg p-6 shadow-lg max-w-md mx-auto"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-gray-600">
+                Registry Progress
+              </span>
+              <span className="text-sm font-medium text-wedding-terracotta-600">
+                {completionPercentage}%
+              </span>
+            </div>
+            <div className="w-full bg-wedding-terracotta-100 rounded-full h-3">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${completionPercentage}%` }}
+                transition={{ duration: 1, delay: 1.2 }}
+                className="bg-gradient-to-r from-wedding-terracotta-400 to-wedding-olive-500 h-3 rounded-full"
               />
             </div>
             <p className="text-xs text-gray-500 mt-2">
               {purchasedItems} of {totalItems} items purchased
             </p>
+          </motion.div>
           </motion.div>
         </div>
       </motion.section>
