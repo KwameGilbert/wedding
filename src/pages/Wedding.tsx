@@ -84,8 +84,8 @@ const Wedding = () => {
           <div className="space-y-12 lg:space-y-20">
             {/* Groom Profile */}
             <BrideGroomProfile
-              name="Leonardo Agustus"
-              description="A passionate photographer and adventure seeker, Leonardo captures life's most precious moments through his lens. When he's not behind the camera, you'll find him exploring new places, brewing the perfect cup of coffee, or planning the next surprise for Marianna. His infectious smile and warm heart make everyone around him feel like family."
+              name="Rudolf Agustus"
+              description="A passionate photographer and adventure seeker, Rudolf captures life's most precious moments through his lens. When he's not behind the camera, you'll find him exploring new places, brewing the perfect cup of coffee, or planning the next surprise for Jemima. His infectious smile and warm heart make everyone around him feel like family."
               image="https://preview.colorlib.com/theme/twohearts/images/groom.jpg"
               isGroom={true}
               index={0}
@@ -93,8 +93,8 @@ const Wedding = () => {
 
             {/* Bride Profile */}
             <BrideGroomProfile
-              name="Marianna Reyes"
-              description="A talented artist and creative soul, Marianna brings beauty and inspiration to everything she touches. Whether she's painting a masterpiece, designing something magical, or dancing to her favorite song, her creativity knows no bounds. Her kindness, grace, and radiant spirit light up every room she enters, making the world a more beautiful place."
+              name="Jemima Reyes"
+              description="A talented artist and creative soul, Jemima brings beauty and inspiration to everything she touches. Whether she's painting a masterpiece, designing something magical, or dancing to her favorite song, her creativity knows no bounds. Her kindness, grace, and radiant spirit light up every room she enters, making the world a more beautiful place."
               image="https://preview.colorlib.com/theme/twohearts/images/bride.jpg"
               isGroom={false}
               index={1}
