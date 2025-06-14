@@ -147,12 +147,12 @@ const WeddingHero = ({
         </motion.div>
       </div>
 
-      {/* Floating Hearts Animation */}
+      {/* Floating Leaves Animation */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute text-pink-200/30"
+            className="absolute text-wedding-olive-400/40"
             style={{
               left: `${20 + i * 15}%`,
               top: `${30 + (i % 3) * 20}%`,
@@ -160,17 +160,17 @@ const WeddingHero = ({
             animate={{
               y: [0, -20, 0],
               x: [0, 10, 0],
-              rotate: [0, 10, 0],
+              rotate: [0, 15, 0],
               scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: 3 + i * 0.5,
+              duration: 4 + i * 0.5,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.5,
+              delay: i * 0.7,
             }}
           >
-            <Heart className="w-4 h-4 fill-current" />
+            <span className="text-2xl">🍃</span>
           </motion.div>
         ))}
       </div>
