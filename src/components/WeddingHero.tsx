@@ -121,7 +121,7 @@ const WeddingHero = ({
             {/* Names */}
             <motion.h1
               variants={namesVariants}
-              className="text-white text-center font-rochester text-6xl sm:text-7xl md:text-8xl lg:text-[102.4px] leading-tight mb-2"
+              className="text-wedding-terracotta-500 text-center font-rochester text-6xl sm:text-7xl md:text-8xl lg:text-[102.4px] leading-tight mb-2"
               style={{
                 fontFamily: "Rochester, cursive",
                 lineHeight: "1.5",
@@ -133,7 +133,7 @@ const WeddingHero = ({
             {/* Subtitle Badge */}
             <motion.span
               variants={subtitleVariants}
-              className="inline-block bg-white text-pink-300 px-4 py-2 rounded-sm text-sm font-black tracking-[7px] uppercase relative"
+              className="inline-block bg-wedding-cream-100 text-wedding-terracotta-600 px-4 py-2 rounded-sm text-sm font-black tracking-[7px] uppercase relative"
               style={{
                 fontSize: "14px",
                 fontWeight: "900",
