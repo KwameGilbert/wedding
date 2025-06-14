@@ -112,8 +112,7 @@ const EventDetails = ({
         >
           <a
             href={`tel:${phone}`}
-            className="transition-colors duration-300 hover:opacity-80"
-            style={{ color: "rgb(210, 145, 188)" }}
+            className="transition-colors duration-300 hover:opacity-80 text-wedding-terracotta-600"
           >
             <Phone className="w-4 h-4 inline mr-1" />
             {phone}
