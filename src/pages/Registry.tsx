@@ -279,13 +279,10 @@ const Registry = () => {
             </Link>
 
             <div className="text-center">
-              <h1
-                className="text-2xl lg:text-3xl font-rochester"
-                style={{ color: "rgb(210, 145, 188)" }}
-              >
+              <h1 className="text-2xl lg:text-3xl font-rochester text-wedding-terracotta-500">
                 Wedding Registry
               </h1>
-              <p className="text-sm text-gray-600">Leonardo & Marianna</p>
+              <p className="text-sm text-gray-600">Rudolf & Jemima</p>
             </div>
 
             <div className="text-right">
