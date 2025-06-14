@@ -67,7 +67,7 @@ const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
                 <li key={item.name}>
                   <motion.a
                     href={item.href}
-                    className="relative block px-3 py-3 text-sm font-semibold text-pink-700 uppercase tracking-wide transition-colors duration-300 hover:text-pink-500"
+                    className="relative block px-3 py-3 text-sm font-semibold text-wedding-terracotta-600 uppercase tracking-wide transition-colors duration-300 hover:text-wedding-terracotta-500"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
