@@ -69,8 +69,7 @@ const Wedding = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight"
-              style={{ color: "rgb(210, 145, 188)" }}
+              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight text-wedding-terracotta-500"
             >
               Bride &amp; Groom
             </motion.h2>
