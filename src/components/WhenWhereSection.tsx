@@ -130,11 +130,7 @@ const EventDetails = ({
             href={mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:opacity-80"
-            style={{
-              color: "rgb(210, 145, 188)",
-              borderBottom: "0.666667px solid rgb(240, 217, 232)",
-            }}
+            className="inline-block px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:opacity-80 text-wedding-terracotta-600 border-b border-wedding-terracotta-300"
           >
             See Map
           </a>
