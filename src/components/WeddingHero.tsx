@@ -11,8 +11,8 @@ interface WeddingHeroProps {
 
 const WeddingHero = ({
   backgroundImage = "https://preview.colorlib.com/theme/twohearts/images/bg_1.jpg",
-  groomName = "Leonardo",
-  brideName = "Marianna",
+  groomName = "Rudolf",
+  brideName = "Jemima",
   subtitle = "Are Getting Married",
   className = "",
 }: WeddingHeroProps) => {
