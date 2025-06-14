@@ -144,12 +144,12 @@ const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
             className="pt-4"
           >
             <Button
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold rounded-full"
+              className="w-full bg-gradient-to-r from-wedding-terracotta-500 to-wedding-olive-600 hover:from-wedding-terracotta-600 hover:to-wedding-olive-700 text-wedding-cream-50 font-semibold rounded-full"
               onClick={() => {
                 handleNavClick("#rsvp-section");
               }}
             >
-              <Heart className="w-4 h-4 mr-2" />
+              <span className="w-4 h-4 mr-2">🍃</span>
               RSVP Now
             </Button>
           </motion.div>
