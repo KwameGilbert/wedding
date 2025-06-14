@@ -376,8 +376,8 @@ const Registry = () => {
               variant={selectedCategory === null ? "default" : "outline"}
               className={`${
                 selectedCategory === null
-                  ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
-                  : "border-pink-300 text-pink-700 hover:bg-pink-50"
+                  ? "bg-gradient-to-r from-wedding-terracotta-500 to-wedding-olive-600 text-wedding-cream-50"
+                  : "border-wedding-terracotta-300 text-wedding-terracotta-700 hover:bg-wedding-cream-200"
               }`}
             >
               <ShoppingBag className="w-4 h-4 mr-2" />
