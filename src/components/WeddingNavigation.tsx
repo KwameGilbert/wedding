@@ -44,7 +44,7 @@ const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
           {/* Logo/Brand */}
           <motion.a
             href="#home-section"
-            className="text-white text-xl font-bold uppercase tracking-wider transition-colors duration-300 hover:text-pink-500 whitespace-nowrap"
+            className="text-wedding-terracotta-500 text-xl font-bold uppercase tracking-wider transition-colors duration-300 hover:text-wedding-terracotta-600 whitespace-nowrap"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
             onClick={(e) => {
@@ -53,8 +53,10 @@ const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
             }}
           >
             <div className="flex items-center gap-2">
-              <Heart className="w-6 h-6 text-pink-500 fill-pink-500" />
-              <span className="text-pink-700">TwoHearts</span>
+              <span className="text-3xl font-script">🍃</span>
+              <span className="text-wedding-terracotta-600 font-rochester">
+                R&J
+              </span>
             </div>
           </motion.a>
 
