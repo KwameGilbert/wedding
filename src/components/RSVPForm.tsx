@@ -216,10 +216,8 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full lg:w-auto px-6 py-4 text-white font-normal text-base leading-6 uppercase tracking-wide rounded transition-all duration-150 ease-in-out hover:shadow-lg focus:outline-none focus:ring-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full lg:w-auto px-6 py-4 text-wedding-cream-50 font-normal text-base leading-6 uppercase tracking-wide rounded transition-all duration-150 ease-in-out hover:shadow-lg focus:outline-none focus:ring-0 disabled:opacity-50 disabled:cursor-not-allowed bg-wedding-terracotta-500 border-wedding-terracotta-500 hover:bg-wedding-terracotta-600"
                 style={{
-                  backgroundColor: "rgb(210, 145, 188)",
-                  borderColor: "rgb(210, 145, 188)",
                   boxShadow: "rgba(0, 0, 0, 0.09) 0px 24px 36px -11px",
                 }}
               >
