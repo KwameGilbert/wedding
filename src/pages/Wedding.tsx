@@ -154,7 +154,7 @@ const Wedding = () => {
               <TimelineItem
                 date="June 10, 2017"
                 title="First We Meet"
-                description="It was a rainy afternoon in a cozy downtown coffee shop. Leonardo was capturing the perfect shot of raindrops on windows while Marianna sketched the bustling street scene. When their eyes met across the crowded café, time stood still."
+                description="It was a rainy afternoon in a cozy downtown coffee shop. Rudolf was capturing the perfect shot of raindrops on windows while Jemima sketched the bustling street scene. When their eyes met across the crowded café, time stood still."
                 image="https://preview.colorlib.com/theme/twohearts/images/couple-1.jpg"
                 isRight={false}
                 index={0}
@@ -172,7 +172,7 @@ const Wedding = () => {
               <TimelineItem
                 date="August 20, 2017"
                 title="In A Relationship"
-                description="Under the stars on a warm summer night, we officially became a couple. It was during a romantic picnic where Leonardo had prepared all of Marianna's favorite foods, and she surprised him with a sketch of their first meeting."
+                description="Under the stars on a warm summer night, we officially became a couple. It was during a romantic picnic where Rudolf had prepared all of Jemima's favorite foods, and she surprised him with a sketch of their first meeting."
                 image="https://preview.colorlib.com/theme/twohearts/images/couple-3.jpg"
                 isRight={false}
                 index={2}
@@ -181,7 +181,7 @@ const Wedding = () => {
               <TimelineItem
                 date="May 10, 2023"
                 title="We're Engaged"
-                description="On the same beach where we had our first date, during a breathtaking sunset, Leonardo got down on one knee. With tears of joy and overwhelming love, Marianna said yes to forever. Our love story was ready for its next beautiful chapter."
+                description="On the same beach where we had our first date, during a breathtaking sunset, Rudolf got down on one knee. With tears of joy and overwhelming love, Jemima said yes to forever. Our love story was ready for its next beautiful chapter."
                 image="https://preview.colorlib.com/theme/twohearts/images/couple-4.jpg"
                 isRight={true}
                 index={3}
