@@ -113,7 +113,7 @@ const WeddingNavigation = ({ className = "" }: WeddingNavigationProps) => {
             : { height: 0, opacity: 0 }
         }
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="lg:hidden overflow-hidden bg-white/98 backdrop-blur-md border-t border-pink-200/30"
+        className="lg:hidden overflow-hidden bg-wedding-cream-100/98 backdrop-blur-md border-t border-wedding-terracotta-200/30"
         id="mobile-nav"
       >
         <div className="max-w-[1100px] mx-auto px-4 py-6 space-y-2">
