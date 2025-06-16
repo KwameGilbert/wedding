@@ -14,7 +14,7 @@ interface TimeLeft {
 }
 
 const CountdownTimer = ({
-  targetDate = "2024-06-15T16:00:00", // June 15, 2024 at 4:00 PM
+  targetDate = "2026-03-15T16:00:00", // June 15, 2024 at 4:00 PM
   className = "",
 }: CountdownTimerProps) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({

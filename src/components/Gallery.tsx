@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
 import GalleryModal from "./GalleryModal";
@@ -17,8 +17,11 @@ interface GalleryProps {
 const Gallery = ({ className = "" }: GalleryProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
 
-  // Wedding photo gallery
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const visibleCount = 1; // Show 1 image at a time by default
+
   const galleryImages: GalleryImage[] = [
     {
       id: 1,
@@ -103,73 +106,83 @@ const Gallery = ({ className = "" }: GalleryProps) => {
     setIsModalOpen(false);
   };
 
-  const navigateToImage = (index: number) => {
-    setCurrentImageIndex(index);
+  const nextSlide = () => {
+    setStartIndex((prev) => (prev + 1) % galleryImages.length);
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: (i: number) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    }),
+  const prevSlide = () => {
+    setStartIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
+    );
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000); // auto-slide every 3s
+    return () => clearInterval(interval);
+  }, []);
+
+  const sliderVariants = {
+    enter: { opacity: 0, x: 100 },
+    center: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -100 },
   };
 
   return (
     <>
-      <div className={className}>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {galleryImages.map((image, index) => (
-            <motion.div
-              key={image.id}
-              custom={index}
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
-              onClick={() => openModal(index)}
-            >
-              {/* Image */}
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+      <div className={`relative overflow-hidden w-full ${className}`}>
+        <div className="flex justify-center items-center gap-4 mb-4">
+          <button
+            onClick={prevSlide}
+            className="bg-wedding-terracotta-800/30 text-white px-3 py-1 rounded-full"
+          >
+            ◀
+          </button>
+          <button
+            onClick={nextSlide}
+            className="bg-black/30 text-white px-3 py-1 rounded-full"
+          >
+            ▶
+          </button>
+        </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-white/20 backdrop-blur-sm rounded-full p-3"
-                >
-                  <Eye className="w-6 h-6 text-white" />
-                </motion.div>
-              </div>
+        <div className="relative w-full h-[400px] overflow-hidden">
+          <motion.div
+            key={galleryImages[startIndex].id}
+            className="absolute inset-0"
+            variants={sliderVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.6 }}
+            onClick={() => openModal(startIndex)}
+          >
+            <img
+              src={galleryImages[startIndex].src}
+              alt={galleryImages[startIndex].alt}
+              className="w-full h-full object-cover rounded-lg cursor-pointer"
+            />
 
-              {/* Image Number */}
-              <div className="absolute top-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {index + 1}
+            <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                <Eye className="w-6 h-6 text-white" />
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            <div className="absolute bottom-4 left-4 bg-black/60 text-white text-sm px-3 py-1 rounded">
+              {galleryImages[startIndex].caption}
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Gallery Modal */}
       <GalleryModal
         images={galleryImages}
         isOpen={isModalOpen}
         currentIndex={currentImageIndex}
         onClose={closeModal}
-        onNavigate={navigateToImage}
+        onNavigate={setCurrentImageIndex}
       />
     </>
   );

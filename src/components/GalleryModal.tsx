@@ -100,7 +100,7 @@ const GalleryModal = ({
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2, delay: 0.1 }}
             onClick={onClose}
-            className="absolute top-4 right-4 z-60 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200"
+            className="absolute top-4 left-4 z-60 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200"
           >
             <X className="w-6 h-6" />
           </motion.button>

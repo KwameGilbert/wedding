@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import WeddingHero from "../components/WeddingHero";
-import WeddingNavigation from "../components/WeddingNavigation";
+import WeddingNavigation from "../components/Navbar";
 import CountdownTimer from "../components/CountdownTimer";
 import TimelineItem from "../components/TimelineItem";
 import BrideGroomProfile from "../components/BrideGroomProfile";
@@ -17,6 +17,7 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { Heart, Gift } from "lucide-react";
+import RSV from "@/components/RSV";
 
 const Wedding = () => {
   const sectionVariants = {
@@ -284,11 +285,7 @@ const Wedding = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed"
-              style={{
-                color: "rgb(210, 145, 188)",
-                borderColor: "rgb(210, 145, 188)",
-              }}
+              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-wedding-terracotta-600 border-wedding-terracotta-400"
             >
               Bridesmaid &amp; Groomsmen
             </motion.span>
@@ -296,8 +293,7 @@ const Wedding = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight"
-              style={{ color: "rgb(210, 145, 188)" }}
+               className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight mb-4 text-wedding-terracotta-500"
             >
               Family &amp; Friends
             </motion.h2>
@@ -317,13 +313,15 @@ const Wedding = () => {
       {/* RSVP Section */}
       <section
         id="rsvp-section"
-        className="py-20 bg-gradient-to-r from-pink-100 via-purple-50 to-pink-100"
+        className="py-20 bg-gradient-to-r from-wedding-cream-100 via-purple-50 to-wedding-cream-100"
       >
         <RSVPForm />
       </section>
 
+      <RSV />
+
       {/* Footer */}
-      <footer className="py-12 bg-gradient-to-r from-pink-200 to-purple-200">
+      <footer className="py-12 bg-gradient-to-r from-wedding-cream-300 to-wedding-olive-400">
         <div className="max-w-4xl mx-auto text-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -331,9 +329,9 @@ const Wedding = () => {
             transition={{ duration: 0.8 }}
             className="space-y-4"
           >
-            <Heart className="w-8 h-8 text-pink-600 mx-auto" />
+            <Heart className="w-8 h-8 text-wedding-terracotta-600 mx-auto" />
             <h3 className="text-2xl font-rochester text-pink-700">
-              Leonardo &amp; Marianna
+              Rudolf &amp; Jemima
             </h3>
             <p className="text-gray-600">
               Thank you for being part of our love story

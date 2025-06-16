@@ -13,7 +13,7 @@ const NotFound = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-wedding-cream-100 via-white to-purple-50 flex items-center justify-center relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1),transparent_50%)]" />
@@ -31,7 +31,7 @@ const NotFound = () => {
           className="mb-8"
         >
           <motion.h1
-            className="text-8xl sm:text-9xl lg:text-[12rem] font-bold bg-gradient-to-r from-wedding-pink-400 via-wedding-purple-500 to-wedding-pink-400 bg-clip-text text-transparent leading-none"
+            className="text-8xl sm:text-9xl lg:text-[12rem] font-bold bg-gradient-to-r from-wedding-olive-400 via-wedding-purple-500 to-wedding-olive-400 bg-clip-text text-transparent leading-none"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -81,7 +81,7 @@ const NotFound = () => {
           <Link to="/">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-wedding-pink-500 to-wedding-purple-600 hover:from-wedding-pink-600 hover:to-wedding-purple-700 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-wedding-olive-500 to-wedding-purple-600 hover:from-wedding-olive-600 hover:to-wedding-purple-700 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
             >
               <Home className="w-5 h-5 mr-2" />
               Back to Wedding

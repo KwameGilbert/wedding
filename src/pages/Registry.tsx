@@ -496,7 +496,7 @@ const Registry = () => {
               joy and gratitude in our hearts.
             </p>
             <p className="text-sm text-gray-500">
-              With love, Leonardo & Marianna
+              With love,  Rudolf &amp; Jemima
             </p>
           </motion.div>
         </div>

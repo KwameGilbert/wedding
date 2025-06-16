@@ -81,7 +81,7 @@ const WeddingHero = ({
 
   return (
     <section
-      className={`relative h-[524px] bg-cover bg-center bg-no-repeat overflow-hidden ${className}`}
+      className={`relative h-screen bg-cover bg-center bg-no-repeat overflow-hidden ${className}`}
       style={{
         backgroundImage: `url("${backgroundImage}")`,
         backgroundPosition: "50% 0%",
@@ -104,9 +104,9 @@ const WeddingHero = ({
               variants={heartVariants}
               className="relative mx-auto mb-4 w-[120px] h-[120px] bg-wedding-terracotta-400 rounded-full flex items-center justify-center z-0"
             >
-              <Heart className="w-12 h-12 text-wedding-cream-100 fill-wedding-cream-100" />
+            <img src="/logo.png" alt="" />
               <motion.div
-                className="absolute inset-0 bg-wedding-terracotta-400 rounded-full"
+                className="absolute inset-0 bg-wedding-terracotta-400/20 rounded-full"
                 animate={{
                   scale: [1, 1.1, 1],
                 }}
