@@ -56,7 +56,7 @@ const TimelineItem = ({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="absolute left-1/2 transform -translate-x-1/2 w-[120px] h-[120px] rounded-full bg-cover bg-center bg-no-repeat z-10 border-4 border-white shadow-lg"
+        className="absolute md:left-1/2 right-0  transform -translate-x-1/2 md:w-[120px] w-[70px] h-[70px] md:h-[120px] rounded-full bg-cover bg-center bg-no-repeat z-10 border-4 border-white shadow-lg"
         style={{
           backgroundImage: `url("${image}")`,
           top: "0px",
