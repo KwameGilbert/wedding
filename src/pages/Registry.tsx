@@ -19,6 +19,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
+import WeddingGiftPage from "./Trial";
 
 interface RegistryItem {
   id: number;
@@ -318,7 +319,7 @@ const Registry = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-3xl lg:text-4xl font-rochester mb-4 text-wedding-terracotta-500"
           >
-            Help Us Start Our New Journey
+           Contribute to Our Wedding Gift Fund
           </motion.h2>
 
           <motion.p
@@ -327,155 +328,14 @@ const Registry = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"
           >
-            Your presence at our wedding is the greatest gift of all. For those
-            who have asked, we've created this registry to help us build our
-            life together.
+            Your presence is the real gift, but if you’d like to contribute, we’ve made it simple below.
           </motion.p>
-
-          {/* Progress */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="bg-wedding-cream-100 rounded-lg p-6 shadow-lg max-w-md mx-auto"
-          >
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-600">
-                Registry Progress
-              </span>
-              <span className="text-sm font-medium text-wedding-terracotta-600">
-                {completionPercentage}%
-              </span>
-            </div>
-            <div className="w-full bg-wedding-terracotta-100 rounded-full h-3">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: `${completionPercentage}%` }}
-                transition={{ duration: 1, delay: 1.2 }}
-                className="bg-gradient-to-r from-wedding-terracotta-400 to-wedding-olive-500 h-3 rounded-full"
-              />
-            </div>
-            <p className="text-xs text-gray-500 mt-2">
-              {purchasedItems} of {totalItems} items purchased
-            </p>
-          </motion.div>
         </div>
       </motion.section>
 
-      {/* Category Filter */}
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="px-4 mb-12"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              onClick={() => setSelectedCategory(null)}
-              variant={selectedCategory === null ? "default" : "outline"}
-              className={`${
-                selectedCategory === null
-                  ? "bg-gradient-to-r from-wedding-terracotta-500 to-wedding-olive-600 text-wedding-cream-50"
-                  : "border-wedding-terracotta-300 text-wedding-terracotta-700 hover:bg-wedding-cream-200"
-              }`}
-            >
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              All Items
-            </Button>
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                variant={
-                  selectedCategory === category.id ? "default" : "outline"
-                }
-                className={`${
-                  selectedCategory === category.id
-                    ? `bg-gradient-to-r from-wedding-terracotta-500 to-wedding-olive-600 text-wedding-cream-50`
-                    : "border-wedding-terracotta-300 text-wedding-terracotta-700 hover:bg-wedding-cream-200"
-                }`}
-              >
-                <category.icon className="w-4 h-4 mr-2" />
-                {category.name}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Registry Items */}
-      <motion.section
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="px-4 pb-20"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item, index) => (
-              <motion.div key={item.id} variants={itemVariants} custom={index}>
-                <Card
-                  className={`h-full transition-all duration-300 hover:shadow-lg ${
-                    item.isPurchased
-                      ? "opacity-75 bg-gray-50"
-                      : "hover:scale-105"
-                  }`}
-                >
-                  <div className="relative">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-48 object-cover rounded-t-lg"
-                    />
-                    {item.isPurchased && (
-                      <div className="absolute inset-0 bg-green-500/90 rounded-t-lg flex items-center justify-center">
-                        <div className="text-white text-center">
-                          <Heart className="w-8 h-8 mx-auto mb-2 fill-white" />
-                          <p className="font-semibold">Thank you!</p>
-                          <p className="text-sm">Already purchased</p>
-                        </div>
-                      </div>
-                    )}
-                    {item.priority === "high" && !item.isPurchased && (
-                      <div className="absolute top-2 left-2 bg-pink-500 text-white text-xs px-2 py-1 rounded-full">
-                        Most Wanted
-                      </div>
-                    )}
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg text-gray-800">
-                      {item.name}
-                    </CardTitle>
-                    <CardDescription className="text-sm text-gray-600">
-                      {item.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl font-bold text-wedding-terracotta-600">
-                        ${item.price}
-                      </span>
-                      <span className="text-sm text-gray-500">
-                        {item.store}
-                      </span>
-                    </div>
-                    {!item.isPurchased && (
-                      <Button
-                        className="w-full bg-gradient-to-r from-wedding-terracotta-500 to-wedding-olive-600 hover:from-wedding-terracotta-600 hover:to-wedding-olive-700 text-wedding-cream-50"
-                        onClick={() => window.open(item.storeUrl, "_blank")}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Purchase at {item.store}
-                      </Button>
-                    )}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+ 
+<WeddingGiftPage/>
+ 
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-pink-200 to-purple-200 py-12">
