@@ -66,45 +66,45 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         // Wedding Brand Colors - Earthy Natural Palette
-        wedding: {
+      wedding: {
           cream: {
-            50: "#fdfcfa",
-            100: "#faf7f2",
-            200: "#f5f0e8", // Light cream background
-            300: "#ede4d3",
-            400: "#e1d4bf",
-            500: "#d4c4a8", // Primary cream
-            600: "#c4af91",
-            700: "#a8926f",
-            800: "#8b7355",
-            900: "#6b5940",
-            950: "#4a3d2a",
+            50: "#ffffff",
+            100: "#fefefe",
+            200: "#fdfdfd", // Light white background
+            300: "#fafafa",
+            400: "#f5f5f5",
+            500: "#f0f0f0", // Primary white
+            600: "#e5e5e5",
+            700: "#d4d4d4",
+            800: "#a3a3a3",
+            900: "#737373",
+            950: "#525252",
           },
           terracotta: {
-            50: "#fdf6f3",
-            100: "#fbeae4",
-            200: "#f7d4c4",
-            300: "#f1b499", // Light terracotta
-            400: "#ea8a66",
-            500: "#d4744f", // Primary terracotta from image
-            600: "#c4633f",
-            700: "#a34f35",
-            800: "#85432f",
-            900: "#6d3a2a",
-            950: "#3a1d15",
+            50: "#f0f4ff",
+            100: "#e0e7ff",
+            200: "#c7d2fe",
+            300: "#a5b4fc", // Light navy
+            400: "#818cf8",
+            500: "#1e3a8a", // Primary navy blue
+            600: "#1e40af",
+            700: "#1d4ed8",
+            800: "#1e3a8a",
+            900: "#1e293b",
+            950: "#0f172a",
           },
           olive: {
-            50: "#f7f8f4",
-            100: "#eef0e7",
-            200: "#dde2d0",
-            300: "#c4ccb1", // Light olive for backgrounds
-            400: "#a8b18e",
-            500: "#8a9670", // Primary olive green for accents
-            600: "#6d7856",
-            700: "#565d46",
-            800: "#464c3b",
-            900: "#3a4032",
-            950: "#1e2219",
+            50: "#fffbeb",
+            100: "#fef3c7",
+            200: "#fed18a",
+            300: "#fbbf24", // Light gold for backgrounds
+            400: "#f59e0b",
+            500: "#d97706", // Primary gold for accents
+            600: "#b45309",
+            700: "#92400e",
+            800: "#78350f",
+            900: "#451a03",
+            950: "#1c0a00",
           },
         },
       },

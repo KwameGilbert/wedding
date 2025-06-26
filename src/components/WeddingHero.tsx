@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
 
 interface WeddingHeroProps {
   backgroundImage?: string;
@@ -88,7 +87,7 @@ const WeddingHero = ({
       }}
     >
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-purple-900/40 to-pink-500/57 opacity-40" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-wedding-terracotta-900/40 to-wedding-olive-500/57 opacity-40" />
 
       {/* Content Container */}
       <div className="relative z-10 h-full max-w-[1100px] mx-auto px-4">
@@ -104,12 +103,10 @@ const WeddingHero = ({
               variants={heartVariants}
               className="relative mx-auto mb-4 w-[120px] h-[120px] bg-wedding-terracotta-400 rounded-full flex items-center justify-center z-0"
             >
-            <img src="/logo.png" alt="" />
-              <motion.div
-                className="absolute inset-0 bg-wedding-terracotta-400/20 rounded-full"
-                animate={{
-                  scale: [1, 1.1, 1],
-                }}
+               <img src="/logo.png" alt="" className="w-16 h-16 object-contain" />
+                <motion.div
+                className="absolute inset-0 bg-wedding-terracotta-400/30 rounded-full"
+                animate={{ scale: [1, 1.1, 1] }}
                 transition={{
                   duration: 2,
                   repeat: Infinity,

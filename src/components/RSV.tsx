@@ -30,14 +30,16 @@ const RSV = (probs:any) => {
         className="py-20 bg-gradient-to-r from-pink-100 via-purple-50 to-pink-100"
       >
         <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.h2
-            className="text-4xl md:text-5xl font-rochester text-pink-700 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+           <motion.h2
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="font-rochester text-4xl md:text-5xl leading-tight text-wedding-terracotta-500"
+                      >
             Will You Join Us?
           </motion.h2>
+                   
+              
 
           <motion.p
             className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto"

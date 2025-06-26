@@ -29,7 +29,7 @@ const Story = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-block text-sm font-black uppercase tracking-wider text-white border-b border-dashed border-pink-300 pb-1 mb-2"
+                className="inline-block text-sm font-black uppercase tracking-wider text-[#000182] border-b border-dashed border-pink-300 pb-1 mb-2"
                 style={{ borderColor: "rgb(210, 145, 188)" }}
               >
                 Love Story
@@ -38,7 +38,7 @@ const Story = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-white font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight mb-4"
+                className="text-[#000182] font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight mb-4"
               >
                 Timeline of Love
               </motion.h2>

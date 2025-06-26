@@ -14,7 +14,7 @@ interface TimeLeft {
 }
 
 const CountdownTimer = ({
-  targetDate = "2026-03-15T16:00:00", // June 15, 2024 at 4:00 PM
+  targetDate = "2024-06-15T16:00:00", // June 15, 2024 at 4:00 PM
   className = "",
 }: CountdownTimerProps) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -80,17 +80,12 @@ const CountdownTimer = ({
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className={`relative w-full bg-wedding-terracotta-400 rounded shadow-lg flex ${className}`}
-      style={{
-        backgroundColor: "rgb(212, 116, 79)",
-        boxShadow: "rgba(0, 0, 0, 0.15) 0px 10px 32px -19px",
-      }}
+      className={`relative w-full bg-wedding-terracotta-500 rounded shadow-lg flex ${className}`}
     >
       {/* Save the Day Section */}
       <motion.div
         variants={itemVariants}
         className="w-1/5 bg-wedding-olive-500 flex items-center justify-center py-2 text-wedding-cream-50 text-center"
-        style={{ backgroundColor: "rgb(138, 150, 112)" }}
       >
         <h3 className="font-rochester text-lg sm:text-xl md:text-3xl leading-tight text-center w-full px-2">
           <span>Save</span>
@@ -169,7 +164,7 @@ const CountdownTimer = ({
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="w-4 h-4 text-pink-200"
+          className="w-4 h-4 text-wedding-olive-300"
         >
           ❤️
         </motion.div>
@@ -187,7 +182,7 @@ const CountdownTimer = ({
             ease: "easeInOut",
             delay: 1,
           }}
-          className="w-4 h-4 text-pink-200"
+          className="w-4 h-4 text-wedding-olive-300"
         >
           💕
         </motion.div>

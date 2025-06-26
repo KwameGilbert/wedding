@@ -75,7 +75,7 @@ const TimelineItem = ({
             : "lg:float-left lg:text-right lg:mr-auto lg:pr-16"
         } w-full lg:w-[43%] p-6 lg:p-12 lg:pt-12 lg:pb-12`}
         style={{
-          backgroundColor: "rgb(212, 116, 79)",
+          backgroundColor: "#050058",
           boxShadow: "rgba(0, 0, 0, 0.36) 0px 10px 32px -19px",
         }}
       >
@@ -92,16 +92,16 @@ const TimelineItem = ({
 
         {/* Content */}
         <div className={isRight ? "lg:text-left" : "lg:text-right"}>
-          <span className="block text-wedding-cream-50 text-sm font-black uppercase tracking-wider mb-2 lg:mb-2">
+          <span className="block text-[#CE9B01] text-sm font-black uppercase tracking-wider mb-2 lg:mb-2">
             {date}
           </span>
-          <h3 className="text-wedding-cream-50 font-rochester text-2xl lg:text-4xl leading-tight mb-2 lg:mb-4">
+          <h3 className="text-[#CE9B01] font-rochester text-2xl lg:text-4xl leading-tight mb-2 lg:mb-4">
             {title}
           </h3>
         </div>
 
         <div className={isRight ? "lg:text-left" : "lg:text-right"}>
-          <p className="text-wedding-cream-100/90 leading-relaxed text-sm lg:text-base">
+          <p className="text-[#CE9B01]/90 leading-relaxed text-sm lg:text-base">
             {description}
           </p>
         </div>
