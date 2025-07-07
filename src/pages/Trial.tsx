@@ -4,7 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "@/components/ui/button";
 
 // Stripe public key (replace with your real one if live)
-const stripePromise = loadStripe("pk_test_51RcDRFDFwupjLMTzSj07C39Av2fZBScPF0ixT0ClpytXwtGbMmdKubWmTIqJccfyzjNBqQPk4D1ZcQSta2qcODjn000E9onrnX");
+const stripePromise = loadStripe("pk_live_51RdwnBBlvVAS14Vo6IGapyDw2Txs8M8U32FVeuP4qkhEfokmAiVXpILQbeEB7FNw6NJ1sZ4ApWUvWIfvn2jzunin00nCuIq1aO");
 
 const presetAmounts = [25, 50, 75, 100, 150, 200];
 
@@ -24,7 +24,7 @@ const WeddingGiftPage = () => {
     setLoading(true);
     const stripe = await stripePromise;
 
-    const session = await fetch("http://localhost:5000/create-checkout-session", {
+    const session = await fetch("https://stripe-server-rudulfwedding.onrender.com/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
