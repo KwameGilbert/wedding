@@ -111,7 +111,7 @@ const WeddingCarousel = () => {
               transition={{ duration: 0.4 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="border-[8px] border-wedding-terracotta-500">
+              <div className="border-b-[8px] border-wedding-terracotta-500">
                 <img
                   src={member.image}
                   alt={member.name}
