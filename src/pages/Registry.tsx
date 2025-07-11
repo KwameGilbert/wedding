@@ -1,24 +1,10 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  ArrowLeft,
-  Heart,
-  Gift,
-  Home,
-  Utensils,
-  Baby,
-} from "lucide-react";
+import { ArrowLeft, Heart, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import WeddingGiftPage from "./Trial";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-
-
 
 const Registry = () => {
-
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50">
       {/* Header */}
@@ -75,7 +61,7 @@ const Registry = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-3xl lg:text-4xl font-rochester mb-4 text-wedding-terracotta-500"
           >
-           Contribute to Our Wedding Gift Fund
+            Contribute to Our Wedding Gift Fund
           </motion.h2>
 
           <motion.p
@@ -84,14 +70,13 @@ const Registry = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"
           >
-            Your presence is the real gift, but if you’d like to contribute, we’ve made it simple below.
+            Your presence is the real gift, but if you’d like to contribute,
+            we’ve made it simple below.
           </motion.p>
         </div>
       </motion.section>
 
- 
-<WeddingGiftPage/>
- 
+      <WeddingGiftPage />
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-pink-200 to-purple-200 py-12">
@@ -112,7 +97,7 @@ const Registry = () => {
               joy and gratitude in our hearts.
             </p>
             <p className="text-sm text-gray-500">
-              With love,  Rudolf &amp; Jemima
+              With love, Rudolf &amp; Jemima
             </p>
           </motion.div>
         </div>
