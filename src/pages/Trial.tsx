@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { Button } from "@/components/ui/button";
 
-// Stripe public key – use test key during development
-const stripePromise = loadStripe("pk_live_51RdwnBBlvVAS14Vo6IGapyDw2Txs8M8U32FVeuP4qkhEfokmAiVXpILQbeEB7FNw6NJ1sZ4ApWUvWIfvn2jzunin00nCuIq1aO");
+// ✅ Load Stripe once outside the component
+const stripePromise = loadStripe("pk_test_51RdwnBBlvVAS14VoijTJ2Wy9KeDqIrxLEeSwArL7z2UHgCS7LbczMWBIDArdkvi8o3zmgofRhRZZhA9gzmyWyLqn00Z1dUB52L");
 
 const presetAmounts = [25, 50, 75, 100, 150, 200];
 
@@ -18,6 +18,19 @@ const WeddingGiftPage = () => {
 
   const amountToPay = selectedAmount || Number(customAmount);
 
+  // ✅ Manually inject Stripe.js if loadStripe fails (as a fallback)
+  useEffect(() => {
+    const scriptId = "stripe-js";
+
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://js.stripe.com/v3";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   const handleStripePayment = async () => {
     if (!amountToPay || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       alert("Please enter a valid amount and email.");
@@ -25,10 +38,12 @@ const WeddingGiftPage = () => {
     }
 
     setLoading(true);
+
     try {
-      const stripe = await stripePromise;
+      const stripe: Stripe | null = await stripePromise;
+
       if (!stripe) {
-        alert("Stripe failed to initialize.");
+        alert("Stripe failed to initialize. Try refreshing or disabling blockers.");
         setLoading(false);
         return;
       }
@@ -37,7 +52,7 @@ const WeddingGiftPage = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: Math.round(amountToPay * 100), // convert to cents
+          amount: Math.round(amountToPay * 100),
           email,
           name,
           note,
@@ -46,7 +61,7 @@ const WeddingGiftPage = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to create checkout session.");
+        throw new Error("Failed to create Stripe session");
       }
 
       const { id: sessionId } = await response.json();
@@ -54,12 +69,12 @@ const WeddingGiftPage = () => {
       const result = await stripe.redirectToCheckout({ sessionId });
 
       if (result?.error) {
-        console.error("Stripe redirect error:", result.error);
+        console.error("Stripe error:", result.error.message);
         alert(result.error.message);
       }
-    } catch (error: any) {
-      console.error("Payment error:", error);
-      alert("An error occurred while processing your payment.");
+    } catch (err: any) {
+      console.error("Payment error:", err);
+      alert("An error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -120,7 +135,6 @@ const WeddingGiftPage = () => {
           className="w-full border border-gray-300 rounded-md py-3 px-4 mb-6 h-24 resize-none placeholder-gray-500"
         />
 
-        {/* Submit Button */}
         <Button
           onClick={handleStripePayment}
           disabled={loading || !amountToPay || !email}
