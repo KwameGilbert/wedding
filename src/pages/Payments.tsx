@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
-
 // ✅ Replace with your Stripe **public key**
-const stripePromise = loadStripe("pk_live_51RdwnBBlvVAS14Vo6IGapyDw2Txs8M8U32FVeuP4qkhEfokmAiVXpILQbeEB7FNw6NJ1sZ4ApWUvWIfvn2jzunin00nCuIq1aO");
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const presetAmounts = [25, 50, 75, 100, 150, 200];
 
