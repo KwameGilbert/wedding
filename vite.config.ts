@@ -9,7 +9,11 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+     headers: {
+      "Content-Security-Policy": ""
+    }
   },
+  
   plugins: [
     react(),
     mode === 'development' && componentTagger(),
