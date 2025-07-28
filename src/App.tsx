@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import RegistryContributionPage from "./pages/Trial";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
+import Payments from "./pages/Payments";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Wedding />} />
+          <Route path="/payments" element={<Payments />} />
           <Route path="/registry" element={<Registry />} />
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />

@@ -2,16 +2,14 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "@/components/ui/button";
-import {CheckoutProvider} from '@stripe/react-stripe-js';
 import { useNavigate } from "react-router-dom";
 
-// Stripe public key (replace with your real one if live)
+// ✅ Replace with your Stripe **public key**
 const stripePromise = loadStripe("pk_live_51RdwnBBlvVAS14Vo6IGapyDw2Txs8M8U32FVeuP4qkhEfokmAiVXpILQbeEB7FNw6NJ1sZ4ApWUvWIfvn2jzunin00nCuIq1aO");
 
 const presetAmounts = [25, 50, 75, 100, 150, 200];
 
 const WeddingGiftPage = () => {
-  const navigate = useNavigate()
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState("");
   const [note, setNote] = useState("");
@@ -21,103 +19,50 @@ const WeddingGiftPage = () => {
 
   const amountToPay = selectedAmount || Number(customAmount);
 
-  // const handleStripePayment = async () => {
-  //   if (!amountToPay || !email.includes("@")) return;
-  //   setLoading(true);
-  //   const stripe = await stripePromise;
-  //   const session = await fetch("https://stripe-server-rudulfwedding.onrender.com/create-checkout-session", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       amount: Math.round(amountToPay * 100), // Stripe expects cents
-  //       email,
-  //       name,
-  //       note,
-  //       currency: "eur",
-  //     }),
-  //   }).then((res) => res.json());
-
-  //   const result = await stripe?.redirectToCheckout({
-  //     sessionId: session.id,
-  //   });
-
-  //   if (result?.error) {
-  //     alert(result.error.message);
-  //   }
-
-  //   setLoading(false);
-  // };
-
   const handleStripePayment = async () => {
     if (!amountToPay || !email.includes("@")) return;
     try {
-    setLoading(true);
-    const stripe = await stripePromise;
-    const session = await fetch("https://stripe-server-rudulfwedding.onrender.com/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        amount: Math.round(amountToPay * 100), // Stripe expects cents
-        email,
-        name,
-        note,
-        currency: "eur",
-      }),
-    })
+      setLoading(true);
+      const stripe = await stripePromise;
 
-    const resData = await session.json();
-    if (!session.ok) {
-      throw new Error(resData.error || "Failed to create checkout session");
-    }
+      const sessionRes = await fetch(
+        "https://stripe-server-rudulfwedding.onrender.com/create-checkout-session",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount: Math.round(amountToPay * 100),
+            email,
+            name,
+            note,
+            currency: "eur",
+          }),
+        }
+      );
 
-    const result = await stripe?.redirectToCheckout({
-      sessionId: resData.id,
-    });
+      const session = await sessionRes.json();
 
-    if (result?.error) {
-      alert(result.error.message);
-    }
+      if (!sessionRes.ok) {
+        throw new Error(session.error || "Failed to create checkout session");
+      }
 
+      const result = await stripe?.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (result?.error) {
+        alert(result.error.message);
+      }
     } catch (error) {
-      console.log(error,"Error form payments handler")
-      if (error?.message) {
+      console.error("Error from payment handler:", error);
       alert(error.message);
-
+    } finally {
+      setLoading(false);
     }
-    }finally{
-    setLoading(false);
-    }
-  }
-    
-    // if (!amountToPay || !email.includes("@")) return;
-    // setLoading(true);
-    // const stripe = await stripePromise;
-    // const session = await fetch("https://stripe-server-rudulfwedding.onrender.com/create-checkout-session", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     amount: Math.round(amountToPay * 100), // Stripe expects cents
-    //     email,
-    //     name,
-    //     note,
-    //     currency: "eur",
-    //   }),
-    // }).then((res) => res.json());
+  };
 
-    // const result = await stripe?.redirectToCheckout({
-    //   sessionId: session.id,
-    // });
-
-    
-
-
-  // };
   return (
     <div className="bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50 flex flex-col items-center justify-start px-4 relative">
       <div className="max-w-md w-full text-center">
@@ -131,13 +76,17 @@ const WeddingGiftPage = () => {
                 setCustomAmount("");
               }}
               className={`py-3 rounded-md border text-[#2e2e2e] text-sm font-medium shadow-sm ${
-                selectedAmount === amt ? "bg-gray-200 border-gray-400" : "bg-white border-gray-300"
+                selectedAmount === amt
+                  ? "bg-gray-200 border-gray-400"
+                  : "bg-white border-gray-300"
               }`}
             >
               €{amt}
             </button>
           ))}
         </div>
+
+        {/* Custom Amount */}
         <input
           type="number"
           placeholder="Or enter an amount"
@@ -149,7 +98,7 @@ const WeddingGiftPage = () => {
           className="w-full border border-gray-300 rounded-md py-3 px-4 mb-4 text-center placeholder-gray-500"
         />
 
-        {/* Name, Email & Note */}
+        {/* User Info */}
         <input
           type="text"
           placeholder="Your Name (optional)"
@@ -171,10 +120,10 @@ const WeddingGiftPage = () => {
           className="w-full border border-gray-300 rounded-md py-3 px-4 mb-6 h-24 resize-none placeholder-gray-500"
         />
 
-        {/* Stripe Button */}
+        {/* Pay Button */}
         {amountToPay > 0 && email.includes("@") && (
           <Button
-            onClick={()=>navigate("/payments")}
+            onClick={handleStripePayment}
             disabled={loading}
             className="w-full py-3 rounded-md text-white font-semibold transition-all text-base bg-[#4a4a4a] hover:bg-[#3c3c3c]"
           >
@@ -185,14 +134,13 @@ const WeddingGiftPage = () => {
         <p className="text-sm text-[#7c7c7c] mt-3">
           You’ll be redirected to a secure Stripe checkout page.
         </p>
-
         <p className="text-[#2e2e2e] mt-12 text-sm leading-relaxed text-center">
           Thank you for being part of our celebration. <br />
           We can’t wait to share this new chapter with you!
         </p>
       </div>
 
-      {/* Floating Leaves Animation */}
+      {/* Floating Leaves */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(6)].map((_, i) => (
           <motion.div
