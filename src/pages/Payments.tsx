@@ -57,7 +57,7 @@ const WeddingGiftPage = () => {
       }
     } catch (error) {
       console.error("Error from payment handler:", error);
-      alert(error.message);
+      // alert(error.message);
     } finally {
       setLoading(false);
     }
