@@ -65,41 +65,41 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Wedding Brand Colors - Earthy Natural Palette
+        // Professional Color Palette - Navy Blue, Gold & White
       wedding: {
-          cream: {
+          white: {
             50: "#ffffff",
             100: "#fefefe",
-            200: "#fdfdfd", // Light white background
+            200: "#fdfdfd",
             300: "#fafafa",
-            400: "#f5f5f5",
-            500: "#f0f0f0", // Primary white
+            400: "#f7f7f7",
+            500: "#f5f5f5", // Primary white/cream
             600: "#e5e5e5",
             700: "#d4d4d4",
             800: "#a3a3a3",
             900: "#737373",
             950: "#525252",
           },
-          terracotta: {
+          navy: {
             50: "#f0f4ff",
             100: "#e0e7ff",
             200: "#c7d2fe",
-            300: "#a5b4fc", // Light navy
+            300: "#a5b4fc",
             400: "#818cf8",
             500: "#1e3a8a", // Primary navy blue
             600: "#1e40af",
             700: "#1d4ed8",
-            800: "#1e3a8a",
-            900: "#1e293b",
-            950: "#0f172a",
+            800: "#1e293b",
+            900: "#0f172a",
+            950: "#020617",
           },
-          olive: {
+          gold: {
             50: "#fffbeb",
             100: "#fef3c7",
             200: "#fed18a",
-            300: "#fbbf24", // Light gold for backgrounds
+            300: "#fbbf24",
             400: "#f59e0b",
-            500: "#d97706", // Primary gold for accents
+            500: "#d97706", // Primary gold
             600: "#b45309",
             700: "#92400e",
             800: "#78350f",
