@@ -43,6 +43,7 @@ const WeddingGiftPage = () => {
       );
 
       const session = await sessionRes.json();
+      console.log(session)
 
       if (!sessionRes.ok) {
         throw new Error(session.error || "Failed to create checkout session");
