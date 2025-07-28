@@ -42,7 +42,7 @@ const WeddingGiftPage = () => {
       );
 
       const session = await sessionRes.json();
-      console.log(session)
+      console.log(session, "This is session")
 
       if (!sessionRes.ok) {
         throw new Error(session.error || "Failed to create checkout session");
@@ -53,7 +53,7 @@ const WeddingGiftPage = () => {
       });
 
       if (result?.error) {
-        alert(result.error.message);
+        alert(result?.error?.message??"error occured");
       }
     } catch (error) {
       console.error("Error from payment handler:", error);
