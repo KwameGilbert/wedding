@@ -1,17 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
 import { Button } from "@/components/ui/button";
-import {CheckoutProvider} from '@stripe/react-stripe-js';
 import { useNavigate } from "react-router-dom";
-
-// Stripe public key (replace with your real one if live)
-const stripePromise = loadStripe("pk_live_51RdwnBBlvVAS14Vo6IGapyDw2Txs8M8U32FVeuP4qkhEfokmAiVXpILQbeEB7FNw6NJ1sZ4ApWUvWIfvn2jzunin00nCuIq1aO");
 
 const presetAmounts = [25, 50, 75, 100, 150, 200];
 
 const WeddingGiftPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState("");
   const [note, setNote] = useState("");
@@ -21,103 +16,45 @@ const WeddingGiftPage = () => {
 
   const amountToPay = selectedAmount || Number(customAmount);
 
-  // const handleStripePayment = async () => {
-  //   if (!amountToPay || !email.includes("@")) return;
-  //   setLoading(true);
-  //   const stripe = await stripePromise;
-  //   const session = await fetch("https://stripe-server-rudulfwedding.onrender.com/create-checkout-session", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       amount: Math.round(amountToPay * 100), // Stripe expects cents
-  //       email,
-  //       name,
-  //       note,
-  //       currency: "eur",
-  //     }),
-  //   }).then((res) => res.json());
+  const handlePayment = async () => {
+    if (!amountToPay || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Please enter a valid amount and email.");
+      return;
+    }
 
-  //   const result = await stripe?.redirectToCheckout({
-  //     sessionId: session.id,
-  //   });
-
-  //   if (result?.error) {
-  //     alert(result.error.message);
-  //   }
-
-  //   setLoading(false);
-  // };
-
-  const handleStripePayment = async () => {
-    if (!amountToPay || !email.includes("@")) return;
-    try {
     setLoading(true);
-    const stripe = await stripePromise;
-    const session = await fetch("https://stripe-server-rudulfwedding.onrender.com/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        amount: Math.round(amountToPay * 100), // Stripe expects cents
-        email,
-        name,
-        note,
-        currency: "eur",
-      }),
-    })
 
-    const resData = await session.json();
-    if (!session.ok) {
-      throw new Error(resData.error || "Failed to create checkout session");
+    try {
+      const response = await fetch(
+        "https://stripe-payment-t4f2.onrender.com/api/create-checkout-session/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            amount: amountToPay,
+            email,
+            name,
+            note,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        const error = await response.text();
+        throw new Error(`Backend error: ${error}`);
+      }
+
+      window.location.href = data.data.url;
+    } catch (err) {
+      console.error(err);
+      alert("Payment failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
+  };
 
-    const result = await stripe?.redirectToCheckout({
-      sessionId: resData.id,
-    });
-
-    if (result?.error) {
-      alert(result.error.message);
-    }
-
-    } catch (error) {
-      console.log(error,"Error form payments handler")
-      if (error?.message) {
-      alert(error.message);
-
-    }
-    }finally{
-    setLoading(false);
-    }
-  }
-    
-    // if (!amountToPay || !email.includes("@")) return;
-    // setLoading(true);
-    // const stripe = await stripePromise;
-    // const session = await fetch("https://stripe-server-rudulfwedding.onrender.com/create-checkout-session", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     amount: Math.round(amountToPay * 100), // Stripe expects cents
-    //     email,
-    //     name,
-    //     note,
-    //     currency: "eur",
-    //   }),
-    // }).then((res) => res.json());
-
-    // const result = await stripe?.redirectToCheckout({
-    //   sessionId: session.id,
-    // });
-
-    
-
-
-  // };
   return (
     <div className="bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50 flex flex-col items-center justify-start px-4 relative">
       <div className="max-w-md w-full text-center">
@@ -131,7 +68,9 @@ const WeddingGiftPage = () => {
                 setCustomAmount("");
               }}
               className={`py-3 rounded-md border text-[#2e2e2e] text-sm font-medium shadow-sm ${
-                selectedAmount === amt ? "bg-gray-200 border-gray-400" : "bg-white border-gray-300"
+                selectedAmount === amt
+                  ? "bg-gray-200 border-gray-400"
+                  : "bg-white border-gray-300"
               }`}
             >
               €{amt}
@@ -171,16 +110,13 @@ const WeddingGiftPage = () => {
           className="w-full border border-gray-300 rounded-md py-3 px-4 mb-6 h-24 resize-none placeholder-gray-500"
         />
 
-        {/* Stripe Button */}
-        {amountToPay > 0 && email.includes("@") && (
-          <Button
-            onClick={()=>navigate("/payments")}
-            disabled={loading}
-            className="w-full py-3 rounded-md text-white font-semibold transition-all text-base bg-[#4a4a4a] hover:bg-[#3c3c3c]"
-          >
-            {loading ? "Redirecting..." : `Pay €${amountToPay}`}
-          </Button>
-        )}
+        <Button
+          disabled={loading}
+          onClick={handlePayment}
+          className="w-full bg-black text-white font-semibold py-3 rounded-md hover:bg-gray-900 transition"
+        >
+          {loading ? "Redirecting..." : `Pay €${amountToPay || ""}`}
+        </Button>
 
         <p className="text-sm text-[#7c7c7c] mt-3">
           You’ll be redirected to a secure Stripe checkout page.
