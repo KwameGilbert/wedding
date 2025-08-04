@@ -3,6 +3,7 @@ import { ArrowLeft, Heart, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import WeddingGiftPage from "./Payments";
+import StripeGift from "./StripeGift";
 // import WeddingGiftPage from "./Trial";
 
 const Registry = () => {
@@ -44,7 +45,7 @@ const Registry = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="py-16 px-4"
+        className="py-5 px-4"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -77,7 +78,7 @@ const Registry = () => {
         </div>
       </motion.section>
 
-      <WeddingGiftPage />
+      <StripeGift/>
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-pink-200 to-purple-200 py-12">

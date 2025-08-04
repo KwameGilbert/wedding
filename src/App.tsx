@@ -6,11 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Wedding from "./pages/Wedding";
 import Registry from "./pages/Registry";
 import NotFound from "./pages/NotFound";
-import RegistryContributionPage from "./pages/Trial";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
-import Payments from "./pages/Payments";
-import StripeGift from "./pages/StripeGift";
 
 const queryClient = new QueryClient();
 
@@ -22,13 +19,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Wedding />} />
-          <Route path="/payments" element={<Payments />} />
           <Route path="/registry" element={<Registry />} />
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-          <Route path="/stripeGift" element={<StripeGift />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

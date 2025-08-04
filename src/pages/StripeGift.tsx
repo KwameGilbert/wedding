@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button"; // Make sure you have a UI button component or replace with <button>
@@ -22,16 +21,19 @@ const StripeGift = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://stripe-payment-t4f2.onrender.com/api/create-checkout-session/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amount: amountToPay,
-          email,
-          name,
-          note,
-        }),
-      });
+      const response = await fetch(
+        "https://stripe-payment-t4f2.onrender.com/api/create-checkout-session/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            amount: amountToPay,
+            email,
+            name,
+            note,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -46,17 +48,19 @@ const StripeGift = () => {
     }
   };
 
-  const presetAmounts = [10, 25, 50, 100, 200];
+  const presetAmounts = [25, 50, 75, 100, 150, 200];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fffdf8] to-[#f7f5ee] flex items-center justify-center px-4">
       <motion.div
-        className="w-full max-w-md bg-white rounded-xl shadow-lg p-6 relative"
+        className="max-w-md w-full text-center relative"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-center text-2xl font-bold mb-6 text-gray-700">Send a Wedding Gift 💝</h2>
+        <h2 className="text-center text-2xl font-bold mb-6 text-gray-700">
+          Send a Wedding Gift 💝
+        </h2>
 
         <div className="grid grid-cols-3 gap-2 mb-4">
           {presetAmounts.map((amt) => (
@@ -68,7 +72,9 @@ const StripeGift = () => {
               }}
               whileTap={{ scale: 0.95 }}
               className={`py-2 rounded-md text-sm font-medium border ${
-                selectedAmount === amt ? "bg-gray-200 border-gray-500" : "bg-white border-gray-300"
+                selectedAmount === amt
+                  ? "bg-gray-200 border-gray-500"
+                  : "bg-white border-gray-300"
               }`}
             >
               €{amt}
@@ -120,6 +126,11 @@ const StripeGift = () => {
           You’ll be redirected to a secure Stripe page.
         </p>
 
+        <p className="text-[#2e2e2e] mt-12 text-sm leading-relaxed text-center">
+          Thank you for being part of our celebration. <br />
+          We can’t wait to share this new chapter with you!
+        </p>
+
         {/* Floating animation (optional) */}
         <motion.div
           className="absolute top-[-10px] right-[-10px] text-2xl"
@@ -128,7 +139,60 @@ const StripeGift = () => {
         >
           🍃
         </motion.div>
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {[...Array(13)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-wedding-olive-400/40"
+          style={{
+            left: `${20 + i * 15}%`,
+            top: `${30 + (i % 3) * 20}%`,
+          }}
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 10, 0],
+            rotate: [0, 15, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 4 + i * 0.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.7,
+          }}
+        >
+          <span className="text-2xl">🍃</span>
+        </motion.div>
+      ))}
+    </div>
       </motion.div>
+
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-wedding-olive-400/40"
+          style={{
+            left: `${20 + i * 15}%`,
+            top: `${30 + (i % 3) * 20}%`,
+          }}
+          animate={{
+            y: [0, -20, 0],
+            x: [0, 10, 0],
+            rotate: [0, 15, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 4 + i * 0.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.7,
+          }}
+        >
+          <span className="text-2xl">🍃</span>
+        </motion.div>
+      ))}
+    </div>
     </div>
   );
 };
