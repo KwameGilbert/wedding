@@ -23,6 +23,11 @@ const WeddingGiftPage = () => {
     try {
       setLoading(true);
       const stripe = await stripePromise;
+      console.log({ amount: Math.round(amountToPay * 100),
+            email,
+            name,
+            note,
+            currency: "eur",})
 
       const sessionRes = await fetch(
         "https://stripe-server-rudulfwedding.onrender.com/create-checkout-session",

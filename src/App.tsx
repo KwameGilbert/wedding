@@ -10,6 +10,7 @@ import RegistryContributionPage from "./pages/Trial";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Payments from "./pages/Payments";
+import StripeGift from "./pages/StripeGift";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/cancel" element={<Cancel />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
+          <Route path="/stripeGift" element={<StripeGift />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
