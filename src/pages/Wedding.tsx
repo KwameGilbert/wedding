@@ -3,13 +3,12 @@ import WeddingHero from "../components/WeddingHero";
 import WeddingNavigation from "../components/Navbar";
 import CountdownTimer from "../components/CountdownTimer";
 import BrideGroomProfile from "../components/BrideGroomProfile";
-import WeddingPartyCarousel from "../components/WeddingPartyCarousel";
 import RSVPForm from "../components/RSVPForm";
 import WhenWhereSection from "../components/WhenWhereSection";
-import Gallery from "../components/Gallery";
 import RSV from "@/components/RSV";
-import Story from "@/components/Story";
 import Footer from "@/components/Footer";
+import HeroCarousel from "@/components/Drawer";
+import Gift from "@/components/Gifticon";
 
 const Wedding = () => {
   const sectionVariants = {
@@ -28,6 +27,8 @@ const Wedding = () => {
     <div className="min-h-screen bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50">
       {/* Wedding Navigation */}
       <WeddingNavigation />
+
+      {/* <HeroCarousel/> */}
 
       {/* Wedding Hero Section */}
       <section id="home-section" className="relative">
@@ -74,7 +75,7 @@ const Wedding = () => {
             <BrideGroomProfile
               name="Rudolf Agustus"
               description="A passionate photographer and adventure seeker, Rudolf captures life's most precious moments through his lens. When he's not behind the camera, you'll find him exploring new places, brewing the perfect cup of coffee, or planning the next surprise for Jemima. His infectious smile and warm heart make everyone around him feel like family."
-              image="https://preview.colorlib.com/theme/twohearts/images/groom.jpg"
+              image="src/assets/hero7.jpeg"
               isGroom={true}
               index={0}
             />
@@ -83,49 +84,16 @@ const Wedding = () => {
             <BrideGroomProfile
               name="Jemima Reyes"
               description="A talented artist and creative soul, Jemima brings beauty and inspiration to everything she touches. Whether she's painting a masterpiece, designing something magical, or dancing to her favorite song, her creativity knows no bounds. Her kindness, grace, and radiant spirit light up every room she enters, making the world a more beautiful place."
-              image="https://preview.colorlib.com/theme/twohearts/images/bride.jpg"
+              image="src/assets/hero3.jpeg"
               isGroom={false}
               index={1}
             />
           </div>
         </div>
       </section>
-      {/* Our Story Section - Timeline */}
-      <Story />
 
-      {/* Gallery Section */}
-      <section id="gallery-section" className="py-10 px-4 bg-white">
-        <section id="groom-bride-section" className="pt-32 pb-20 px-4 bg-white">
-          <div className="max-w-[1100px] mx-auto">
-            {/* Section Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-12 lg:mb-16"
-            >
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-wedding-terracotta-600 border-wedding-terracotta-400"
-              >
-                Moments captured, memories treasured - Click any photo to view
-              </motion.span>
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight text-wedding-terracotta-500"
-              >
-                Our Memories
-              </motion.h2>
-            </motion.div>
-            <Gallery />
-          </div>
-        </section>
-      </section>
+      
+   
 
       {/* When & Where Section */}
       <section id="when-where-section">
@@ -170,52 +138,13 @@ const Wedding = () => {
             <p className="text-wedding-olive-600 font-semibold">
               With all our love,
               <br />
-              Leonardo & Marianna
+              Rudulf & Jemima
             </p>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Bridesmaid & Groomsmen Section */}
-      <section id="people-section" className="py-20 px-4 bg-white">
-        <div className="max-w-[1100px] mx-auto">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12 lg:mb-16"
-          >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-wedding-terracotta-600 border-wedding-terracotta-400"
-            >
-              Bridesmaid &amp; Groomsmen
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight mb-4 text-wedding-terracotta-500"
-            >
-              Family &amp; Friends
-            </motion.h2>
-          </motion.div>
-
-          {/* Wedding Party Carousel */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <WeddingPartyCarousel />
-          </motion.div>
-        </div>
-      </section>
+  
 
       {/* RSVP Section */}
       <section
@@ -229,6 +158,8 @@ const Wedding = () => {
 
       {/* Footer */}
       <Footer />
+
+      <Gift />
     </div>
   );
 };

@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface WeddingHeroProps {
-  backgroundImage?: string;
+  images?: string[];
   groomName?: string;
   brideName?: string;
   subtitle?: string;
@@ -9,142 +10,111 @@ interface WeddingHeroProps {
 }
 
 const WeddingHero = ({
-  backgroundImage = "https://preview.colorlib.com/theme/twohearts/images/bg_1.jpg",
+  images = [
+    "src/assets/hero1.jpeg",
+    "src/assets/hero2.jpeg",
+    "src/assets/hero3.jpeg",
+     "src/assets/hero4.jpeg",
+    "src/assets/hero5.jpeg",
+    "src/assets/hero6.jpeg",
+    "src/assets/hero7.jpeg",
+    "src/assets/hero8.jpeg",
+    "src/assets/hero9.jpeg",
+    "src/assets/hero10.jpeg",
+  ],
   groomName = "Rudolf",
   brideName = "Jemima",
   subtitle = "Are Getting Married",
   className = "",
 }: WeddingHeroProps) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1.2,
-        staggerChildren: 0.3,
-      },
-    },
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const contentVariants = {
-    hidden: { y: 50, opacity: 0, scale: 0.9 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-  };
-
-  const heartVariants = {
-    hidden: { scale: 0, rotate: -180 },
-    visible: {
-      scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 1,
-        ease: "backOut",
-        delay: 0.5,
-      },
-    },
-  };
-
-  const namesVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-        delay: 0.8,
-      },
-    },
-  };
-
-  const subtitleVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        delay: 1.1,
-      },
-    },
-  };
+  // Auto-change every 6s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
     <section
       className={`relative h-screen bg-cover bg-center bg-no-repeat overflow-hidden ${className}`}
-      style={{
-        backgroundImage: `url("${backgroundImage}")`,
-        backgroundPosition: "50% 0%",
-      }}
     >
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-wedding-terracotta-900/40 to-wedding-olive-500/57 opacity-40" />
-
-      {/* Content Container */}
-      <div className="relative z-10 h-full max-w-[1100px] mx-auto px-4">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex items-center justify-center h-full"
-        >
-          <div className="text-center w-full">
-            {/* Heart Icon Circle */}
-            <motion.div
-              variants={heartVariants}
-              className="relative mx-auto mb-4 w-[120px] h-[120px] bg-wedding-terracotta-400 rounded-full flex items-center justify-center z-0"
-            >
-               <img src="/logo.png" alt="" className="w-16 h-16 object-contain" />
-                <motion.div
-                className="absolute inset-0 bg-wedding-terracotta-400/30 rounded-full"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-            </motion.div>
-
-            {/* Names */}
-            <motion.h1
-              variants={namesVariants}
-              className="text-wedding-terracotta-500 text-center font-rochester text-6xl sm:text-7xl md:text-8xl lg:text-[102.4px] leading-tight mb-2"
-              style={{
-                fontFamily: "Rochester, cursive",
-                lineHeight: "1.5",
-              }}
-            >
-              {groomName} &amp; {brideName}
-            </motion.h1>
-
-            {/* Subtitle Badge */}
-            <motion.span
-              variants={subtitleVariants}
-              className="inline-block bg-wedding-cream-100 text-wedding-terracotta-600 px-4 py-2 rounded-sm text-sm font-black tracking-[7px] uppercase relative"
-              style={{
-                fontSize: "14px",
-                fontWeight: "900",
-                letterSpacing: "7px",
-                lineHeight: "25.2px",
-              }}
-            >
-              {subtitle}
-            </motion.span>
-          </div>
-        </motion.div>
+      {/* Carousel Backgrounds */}
+      <div className="absolute inset-0 w-full h-full">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            className="absolute inset-0 w-full h-full"
+            style={{
+              backgroundImage: `url(${images[currentIndex]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          />
+        </AnimatePresence>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-wedding-terracotta-900/40 to-wedding-olive-500/60" />
       </div>
 
-      {/* Floating Leaves Animation */}
+      {/* Content */}
+      <div className="relative z-10 h-full max-w-[1100px] mx-auto px-4 flex items-center justify-center">
+        <div className="text-center">
+          {/* Heart Icon */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 1, ease: "backOut", delay: 0.3 }}
+            className="relative mx-auto mb-4 w-[120px] h-[120px]  rounded-full flex items-center justify-center"
+          >
+            <img
+              src="/logo.png"
+              alt="heart"
+              className="w-16 h-16 object-contain"
+            />
+            <motion.div
+              className="absolute inset-0 bg-wedding-terracotta-400/30 rounded-full"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.div>
+
+          {/* Names */}
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+            className="text-wedding-terracotta-500 font-rochester text-6xl sm:text-7xl md:text-8xl lg:text-[102.4px] mb-2"
+            style={{
+              fontFamily: "Rochester, cursive",
+              lineHeight: "1.5",
+            }}
+          >
+            {groomName} &amp; {brideName}
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.span
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
+            className="inline-block bg-wedding-cream-100 text-wedding-terracotta-600 px-4 py-2 rounded-sm text-sm font-black tracking-[7px] uppercase"
+          >
+            {subtitle}
+          </motion.span>
+        </div>
+      </div>
+
+      {/* Floating Leaves */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(6)].map((_, i) => (
           <motion.div

@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import HeroCarousel from "@/components/Drawer";
+
+
 
 const navItems = [
   { name: "Home", href: "#home-section" },
   { name: "Groom & Bride", href: "#groom-bride-section" },
-  { name: "Our Story", href: "#lovestory-section" },
   { name: "Greetings", href: "#greeting-section" },
-  { name: "Bridesmaid & Groomsmen", href: "#people-section" },
   { name: "When & Where", href: "#when-where-section" },
   { name: "RSVP", href: "#rsvp-section" },
-  { name: "Gallery", href: "#gallery-section" },
 ];
 
 export default function Navbar() {
@@ -49,7 +49,7 @@ export default function Navbar() {
         </motion.a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden items-center md:flex space-x-6">
           {navItems.map((item, idx) => (
             <motion.a
               key={idx}
