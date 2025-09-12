@@ -9,6 +9,7 @@ import RSV from "@/components/RSV";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/Drawer";
 import Gift from "@/components/Gifticon";
+import { hero3, hero7 } from "@/assets";
 
 const Wedding = () => {
   const sectionVariants = {
@@ -75,7 +76,7 @@ const Wedding = () => {
             <BrideGroomProfile
               name="Rudolf Agustus"
               description="A passionate photographer and adventure seeker, Rudolf captures life's most precious moments through his lens. When he's not behind the camera, you'll find him exploring new places, brewing the perfect cup of coffee, or planning the next surprise for Jemima. His infectious smile and warm heart make everyone around him feel like family."
-              image="src/assets/hero7.jpeg"
+              image={hero7}
               isGroom={true}
               index={0}
             />
@@ -84,16 +85,13 @@ const Wedding = () => {
             <BrideGroomProfile
               name="Jemima Reyes"
               description="A talented artist and creative soul, Jemima brings beauty and inspiration to everything she touches. Whether she's painting a masterpiece, designing something magical, or dancing to her favorite song, her creativity knows no bounds. Her kindness, grace, and radiant spirit light up every room she enters, making the world a more beautiful place."
-              image="src/assets/hero3.jpeg"
+              image={hero3}
               isGroom={false}
               index={1}
             />
           </div>
         </div>
       </section>
-
-      
-   
 
       {/* When & Where Section */}
       <section id="when-where-section">
@@ -143,8 +141,6 @@ const Wedding = () => {
           </motion.div>
         </div>
       </motion.section>
-
-  
 
       {/* RSVP Section */}
       <section

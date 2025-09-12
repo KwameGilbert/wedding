@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { Button } from "./ui/button";
+import { hero3 } from "@/assets";
 
 interface RSVPFormProps {
   className?: string;
@@ -68,7 +69,7 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1 }}
           className="absolute inset-0 bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: `url("src/assets/wedding-bg.jpg")` }}
+          style={{ backgroundImage:`url(${hero3})`}}
         />
         <div className="absolute inset-0 bg-black/50" />
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { hero1, hero10, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9 } from "@/assets";
 
 interface WeddingHeroProps {
   images?: string[];
@@ -11,16 +12,16 @@ interface WeddingHeroProps {
 
 const WeddingHero = ({
   images = [
-    "src/assets/hero1.jpeg",
-    "src/assets/hero2.jpeg",
-    "src/assets/hero3.jpeg",
-     "src/assets/hero4.jpeg",
-    "src/assets/hero5.jpeg",
-    "src/assets/hero6.jpeg",
-    "src/assets/hero7.jpeg",
-    "src/assets/hero8.jpeg",
-    "src/assets/hero9.jpeg",
-    "src/assets/hero10.jpeg",
+    hero1,
+    hero2,
+    hero3,
+    hero4,
+    hero5,
+    hero6,
+    hero7,
+    hero8,
+    hero9,
+    hero10,
   ],
   groomName = "Rudolf",
   brideName = "Jemima",
