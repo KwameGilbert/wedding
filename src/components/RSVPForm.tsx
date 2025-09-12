@@ -109,7 +109,7 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="absolute inset-0 bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: `url("src/assets/hero3.jpeg")` }}
+        style={{ backgroundImage: `url(${hero3})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-wedding-terracotta-900/50 to-wedding-olive-700/40" />
 
