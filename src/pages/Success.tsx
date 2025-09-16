@@ -36,7 +36,7 @@ export default function Success() {
         transition={{ delay: 0.4, duration: 0.5 }}
         className="text-gray-700 text-lg max-w-md"
       >
-        Your generous contribution of <span className="font-semibold text-rose-600">€{amount}</span> has been received. 
+        Your generous contribution of <span className="font-semibold text-rose-600">£{amount}</span> has been received. 
         We are truly grateful for your love and support!
       </motion.p>
 

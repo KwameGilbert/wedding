@@ -67,7 +67,7 @@ const WeddingHero = ({
       <div className="relative z-10 h-full max-w-[1100px] mx-auto px-4 flex items-center justify-center">
         <div className="text-center">
           {/* Heart Icon */}
-          <motion.div
+          {/* <motion.div
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 1, ease: "backOut", delay: 0.3 }}
@@ -87,7 +87,7 @@ const WeddingHero = ({
                 ease: "easeInOut",
               }}
             />
-          </motion.div>
+          </motion.div> */}
 
           {/* Names */}
           <motion.h1
@@ -116,7 +116,7 @@ const WeddingHero = ({
       </div>
 
       {/* Floating Leaves */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
@@ -141,7 +141,7 @@ const WeddingHero = ({
             <span className="text-2xl">🍃</span>
           </motion.div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 };

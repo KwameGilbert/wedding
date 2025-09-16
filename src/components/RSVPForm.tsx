@@ -179,7 +179,7 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
               </label>
 
               {/* Partner */}
-              <div>
+              {/* <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Are you coming with a partner?
                 </label>
@@ -225,7 +225,7 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
                     className={inputClass}
                   />
                 </motion.div>
-              )}
+              )} */}
 
               <div className="pt-4">
                 <Button

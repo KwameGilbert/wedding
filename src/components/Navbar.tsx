@@ -11,6 +11,7 @@ const navItems = [
   { name: "Greetings", href: "#greeting-section" },
   { name: "When & Where", href: "#when-where-section" },
   { name: "RSVP", href: "#rsvp-section" },
+  { name: "Gift", href: "registry" },
 ];
 
 export default function Navbar() {
