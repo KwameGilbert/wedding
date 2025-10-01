@@ -177,56 +177,7 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
                   className={inputClass}
                 />
               </label>
-
-              {/* Partner */}
-              {/* <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Are you coming with a partner?
-                </label>
-                <div className="flex gap-6">
-                  <label className="flex items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      name="hasPartner"
-                      value="yes"
-                      checked={formData.hasPartner === "yes"}
-                      onChange={handleInputChange}
-                      className="mr-2 text-wedding-terracotta-500"
-                    />
-                    <span className="text-gray-700">Yes</span>
-                  </label>
-                  <label className="flex items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      name="hasPartner"
-                      value="no"
-                      checked={formData.hasPartner === "no"}
-                      onChange={handleInputChange}
-                      className="mr-2 text-wedding-terracotta-500"
-                    />
-                    <span className="text-gray-700">No</span>
-                  </label>
-                </div>
-              </div>
-
-              {formData.hasPartner === "yes" && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <input
-                    type="text"
-                    name="partnerName"
-                    placeholder="Partner's Full Name"
-                    value={formData.partnerName}
-                    onChange={handleInputChange}
-                    required
-                    className={inputClass}
-                  />
-                </motion.div>
-              )} */}
-
+              
               <div className="pt-4">
                 <Button
                   type="submit"

@@ -149,7 +149,7 @@ const Wedding = () => {
       {/* RSVP Section */}
       <section
         id="rsvp-section"
-        className="py-20 bg-gradient-to-r from-wedding-cream-100 via-purple-50 to-wedding-cream-100"
+        className=" bg-gradient-to-r from-wedding-cream-100 via-purple-50 to-wedding-cream-100"
       >
         <RSVPForm />
       </section>

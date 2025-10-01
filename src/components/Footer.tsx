@@ -24,7 +24,7 @@ const Footer = () => {
               Thank you for being part of our love story
             </p>
             <p className="text-sm text-gray-500">
-              June 15, 2024 • Garden Villa Resort
+              March 7, 2026 • Percy Community Centre
             </p>
           </motion.div>
         </div>
