@@ -45,7 +45,7 @@ export default function Navbar() {
         >
           <div className="flex items-center gap-2">
             <span className="text-3xl font-script">💍</span>
-            <span className="text-wedding-terracotta-600  font-rochester">R&J</span>
+            <span className="text-wedding-terracotta-600  font-rochester">RudiFindsJem</span>
           </div>
         </motion.a>
 

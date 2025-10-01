@@ -200,22 +200,22 @@ const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
           <div className="flex flex-wrap lg:flex-nowrap gap-8 lg:gap-4 justify-center">
             <EventDetails
               title="The Ceremony"
-              date="Saturday, June 15, 2024"
-              time="4:00 PM - 5:00 PM"
-              address="Garden Villa Resort, 123 Romantic Lane, Love City, CA 90210"
+              date="Saturday, March 7, 2026"
+              time="1:00 PM - 3:00 PM"
+              address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom"
               phone="+1 (555) 123-4567"
-              mapUrl="https://maps.google.com/?q=Garden+Villa+Resort+123+Romantic+Lane+Love+City+CA"
+              mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7?g_st=com.google.maps.preview.copy"
               icon="💒"
               index={0}
             />
 
             <EventDetails
               title="The Reception"
-              date="Saturday, June 15, 2024"
-              time="6:00 PM - 11:00 PM"
-              address="Garden Villa Resort, 123 Romantic Lane, Love City, CA 90210"
+              date="Saturday, March 7, 2026"
+              time="3:30 PM - 9:00 PM"
+              address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom"
               phone="+1 (555) 123-4567"
-              mapUrl="https://maps.google.com/?q=Garden+Villa+Resort+123+Romantic+Lane+Love+City+CA"
+              mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7?g_st=com.google.maps.preview.copy"
               icon="🍾"
               index={1}
             />
@@ -250,10 +250,10 @@ const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
             className="text-center mt-6 space-y-2"
           >
             <h4 className="text-lg font-semibold text-gray-800">
-              Garden Villa Resort
+              Percy Community Centre
             </h4>
             <p className="text-gray-600">
-              123 Romantic Lane, Love City, CA 90210
+              New King St, Bath BA1 2BN, United Kingdom
             </p>
             <div className="flex justify-center gap-4 text-sm text-gray-500">
               <span>Parking Available</span>
