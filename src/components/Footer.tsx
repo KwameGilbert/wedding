@@ -11,7 +11,11 @@ const Footer = () => {
             transition={{ duration: 0.8 }}
             className="space-y-4"
           >
-            <Heart className="w-8 h-8 text-wedding-terracotta-600 mx-auto" />
+            <img 
+              src="/src/assets/rudilogo.jpg" 
+              alt="Rudolf & Jemima Wedding Logo" 
+              className="w-16 h-16 object-contain mx-auto"
+            />
             <h3 className="text-2xl font-rochester text-pink-700">
               Rudolf &amp; Jemima
             </h3>

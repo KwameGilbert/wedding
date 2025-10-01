@@ -9,6 +9,7 @@ import RSV from "@/components/RSV";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/Drawer";
 import Gift from "@/components/Gifticon";
+import SparkleRain from "@/components/SparkleRain";
 import { hero3, hero7 } from "@/assets";
 
 const Wedding = () => {
@@ -26,6 +27,9 @@ const Wedding = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50">
+      {/* Sparkling Rain Animation */}
+      <SparkleRain />
+      
       {/* Wedding Navigation */}
       <WeddingNavigation />
 
