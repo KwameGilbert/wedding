@@ -33,7 +33,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-gold-400/30 shadow-md"
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <motion.a
           href="#home-section"
           className="text-gold-600 text-xl font-bold uppercase tracking-wider transition-colors duration-300 hover:text-gold-500 whitespace-nowrap"
