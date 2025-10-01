@@ -25,7 +25,7 @@ const RSV = (probs: any) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="py-20 bg-gradient-to-r from-pink-100 via-purple-50 to-pink-100"
+        className="py-20 bg-gradient-to-r from-pink-300 via-pink-200 to-purple-300"
       >
         <div className="max-w-4xl mx-auto text-center px-4">
           <motion.h2

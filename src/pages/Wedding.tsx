@@ -42,7 +42,7 @@ const Wedding = () => {
       </section>
 
       {/* Groom & Bride Section */}
-      <section id="groom-bride-section" className="pt-32 pb-20 px-4 bg-white">
+      <section id="groom-bride-section" className="pt-32 pb-20 px-4 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
         <div className="max-w-[1100px] mx-auto">
           {/* Section Header */}
           <motion.div
@@ -105,7 +105,7 @@ const Wedding = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="py-20 px-4 bg-white"
+        className="py-20 px-4 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2

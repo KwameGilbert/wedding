@@ -159,7 +159,7 @@ const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
   return (
     <div
       className={`py-12 px-4 ${className}`}
-      style={{ backgroundColor: "rgb(241, 243, 244)" }}
+      style={{ backgroundColor: "#D4B5A0" }}
     >
       <motion.div
         variants={containerVariants}
