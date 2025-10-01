@@ -66,23 +66,23 @@ const WeddingHero = ({
       {/* Content */}
       <div className="relative z-10 h-full max-w-[1100px] mx-auto px-4 flex items-center justify-center">
         <div className="text-center">
-          {/* Heart Icon */}
+          {/* Wedding Logo */}
           {/* <motion.div
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 1, ease: "backOut", delay: 0.3 }}
-            className="relative mx-auto mb-4 w-[120px] h-[120px]  rounded-full flex items-center justify-center"
+            className="relative mx-auto mb-8 w-[140px] h-[140px] rounded-full flex items-center justify-center"
           >
             <img
-              src="/logo.png"
-              alt="heart"
-              className="w-16 h-16 object-contain"
+              src="/src/assets/rudilogo.jpg"
+              alt="Rudolf & Jemima Wedding Logo"
+              className="w-28 h-28 object-contain relative z-10"
             />
             <motion.div
-              className="absolute inset-0 bg-wedding-terracotta-400/30 rounded-full"
-              animate={{ scale: [1, 1.1, 1] }}
+              className="absolute inset-0 bg-wedding-terracotta-400/20 rounded-full blur-xl"
+              animate={{ scale: [1, 1.15, 1] }}
               transition={{
-                duration: 2,
+                duration: 2.5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}

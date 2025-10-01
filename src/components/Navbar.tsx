@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import HeroCarousel from "@/components/Drawer";
+import { rudilogo } from "@/assets";
 
 
 
@@ -43,10 +44,11 @@ export default function Navbar() {
             handleNavClick("#home-section");
           }}
         >
-          <div className="flex items-center gap-2">
-            <span className="text-3xl font-script">💍</span>
-            <span className="text-wedding-terracotta-600  font-rochester">RudiFindsJem</span>
-          </div>
+          <img 
+            src={rudilogo}
+            alt="Rudolf & Jemima Wedding Logo" 
+            className="h-14 rounded-full bg-whit border-2 border-white w-14 object-contain"
+          />
         </motion.a>
 
         {/* Desktop Nav */}

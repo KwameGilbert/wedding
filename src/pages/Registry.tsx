@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Heart, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
-import WeddingGiftPage from "./Payments";
 import StripeGift from "./StripeGift";
-// import WeddingGiftPage from "./Trial";
 
 const Registry = () => {
   return (

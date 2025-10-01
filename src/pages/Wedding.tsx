@@ -9,6 +9,7 @@ import RSV from "@/components/RSV";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/Drawer";
 import Gift from "@/components/Gifticon";
+import SparkleRain from "@/components/SparkleRain";
 import { hero3, hero7 } from "@/assets";
 
 const Wedding = () => {
@@ -26,6 +27,9 @@ const Wedding = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50">
+      {/* Sparkling Rain Animation */}
+      <SparkleRain />
+      
       {/* Wedding Navigation */}
       <WeddingNavigation />
 
@@ -42,7 +46,7 @@ const Wedding = () => {
       </section>
 
       {/* Groom & Bride Section */}
-      <section id="groom-bride-section" className="pt-32 pb-20 px-4 bg-white">
+      <section id="groom-bride-section" className="pt-32 pb-20 px-4 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
         <div className="max-w-[1100px] mx-auto">
           {/* Section Header */}
           <motion.div
@@ -105,7 +109,7 @@ const Wedding = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="py-20 px-4 bg-white"
+        className="py-20 px-4 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300"
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2

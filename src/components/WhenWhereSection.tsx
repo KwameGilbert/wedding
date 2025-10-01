@@ -159,7 +159,7 @@ const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
   return (
     <div
       className={`py-12 px-4 ${className}`}
-      style={{ backgroundColor: "rgb(241, 243, 244)" }}
+      style={{ backgroundColor: "#D4B5A0" }}
     >
       <motion.div
         variants={containerVariants}
@@ -198,7 +198,7 @@ const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
         {/* Event Details */}
         <div className="w-full px-4">
           <div className="flex flex-wrap lg:flex-nowrap gap-8 lg:gap-4 justify-center">
-            <EventDetails
+            {/* <EventDetails
               title="The Ceremony"
               date="Saturday, March 7, 2026"
               time="1:00 PM - 3:00 PM"
@@ -207,14 +207,14 @@ const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
               mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7?g_st=com.google.maps.preview.copy"
               icon="💒"
               index={0}
-            />
+            /> */}
 
             <EventDetails
               title="The Reception"
               date="Saturday, March 7, 2026"
               time="3:30 PM - 9:00 PM"
               address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom"
-              phone="+1 (555) 123-4567"
+              phone="+44 (793)650-8904"
               mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7?g_st=com.google.maps.preview.copy"
               icon="🍾"
               index={1}
