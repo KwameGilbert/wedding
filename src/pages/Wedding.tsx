@@ -78,7 +78,7 @@ const Wedding = () => {
           <div className="space-y-12 lg:space-y-20">
             {/* Groom Profile */}
             <BrideGroomProfile
-              name="Rudolf Agustus"
+              name="Rudolf"
               description="A passionate photographer and adventure seeker, Rudolf captures life's most precious moments through his lens. When he's not behind the camera, you'll find him exploring new places, brewing the perfect cup of coffee, or planning the next surprise for Jemima. His infectious smile and warm heart make everyone around him feel like family."
               image={hero7}
               isGroom={true}
@@ -87,7 +87,7 @@ const Wedding = () => {
 
             {/* Bride Profile */}
             <BrideGroomProfile
-              name="Jemima Reyes"
+              name="Jemima"
               description="A talented artist and creative soul, Jemima brings beauty and inspiration to everything she touches. Whether she's painting a masterpiece, designing something magical, or dancing to her favorite song, her creativity knows no bounds. Her kindness, grace, and radiant spirit light up every room she enters, making the world a more beautiful place."
               image={hero3}
               isGroom={false}
