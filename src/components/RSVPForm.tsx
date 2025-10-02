@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { Button } from "./ui/button";
 import { hero3 } from "@/assets";
+import emailjs from "emailjs-com"; // ✅ Import emailjs
 
 interface RSVPFormProps {
   className?: string;
@@ -27,26 +28,51 @@ const RSVPForm = ({ className = "" }: RSVPFormProps) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    // Simple client validation
-    if (!formData.email.includes("@")) {
-      alert("Please enter a valid email.");
-      return;
-    }
+  if (!formData.email.includes("@")) {
+    alert("Please enter a valid email.");
+    return;
+  }
 
-    setIsSubmitting(true);
+  setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  try {
+    await emailjs.send(
+      "service_y2g2qwa",        
+      "template_c1kotls",       
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        hasPartner: formData.hasPartner,
+        partnerName: formData.partnerName,
+      },
+      "WKoNBQ1OVuVUkgbI2"      
+    );
+    await emailjs.send(
+      "service_y2g2qwa",     
+      "template_r1t0uh5", 
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        hasPartner: formData.hasPartner,
+        partnerName: formData.partnerName,
+      },
+      "WKoNBQ1OVuVUkgbI2"
+    );
 
     setIsSubmitted(true);
+  } catch (error) {
+    console.error("EmailJS Error:", error);
+    alert("Something went wrong. Please try again later.");
+  } finally {
     setIsSubmitting(false);
-
-    // Scroll to top after submit
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
+  }
+};
   const inputClass =
     "w-full h-12 px-3 py-2 border-b border-wedding-terracotta-400 focus:border-wedding-terracotta-600 bg-transparent text-gray-800 font-semibold focus:outline-none";
 

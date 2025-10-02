@@ -6,7 +6,6 @@ const StripeGift = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState("");
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [note, setNote] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +28,6 @@ const StripeGift = () => {
           body: JSON.stringify({
             amount: amountToPay,
             email,
-            name,
             note,
           }),
         }
@@ -90,14 +88,6 @@ const StripeGift = () => {
             setCustomAmount(e.target.value);
             setSelectedAmount(null);
           }}
-          className="w-full border rounded-md p-2 mb-3"
-        />
-
-        <input
-          type="text"
-          placeholder="Your Name (optional)"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
           className="w-full border rounded-md p-2 mb-3"
         />
         <input
