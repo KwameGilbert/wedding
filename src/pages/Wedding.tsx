@@ -5,6 +5,7 @@ import CountdownTimer from "../components/CountdownTimer";
 import BrideGroomProfile from "../components/BrideGroomProfile";
 import RSVPForm from "../components/RSVPForm";
 import WhenWhereSection from "../components/WhenWhereSection";
+import HotelsSection from "../components/HotelsSection";
 import RSV from "@/components/RSV";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/Drawer";
@@ -100,6 +101,11 @@ const Wedding = () => {
       {/* When & Where Section */}
       <section id="when-where-section">
         <WhenWhereSection />
+      </section>
+
+      {/* Hotels Section */}
+      <section id="hotels-section">
+        <HotelsSection />
       </section>
 
       {/* Greetings Section */}

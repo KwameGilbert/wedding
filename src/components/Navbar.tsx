@@ -11,6 +11,7 @@ const navItems = [
   { name: "Groom & Bride", href: "#groom-bride-section" },
   { name: "Greetings", href: "#greeting-section" },
   { name: "When & Where", href: "#when-where-section" },
+  { name: "Hotels", href: "#hotels-section" },
   { name: "RSVP", href: "#rsvp-section" },
   { name: "Gift", href: "registry" },
 ];
