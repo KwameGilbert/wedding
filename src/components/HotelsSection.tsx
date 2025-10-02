@@ -6,19 +6,19 @@ import { Card, CardContent } from "./ui/card";
 const hotels = [
   {
     id: 1,
-    name: "Hotel Accommodation 1",
+    name: "Travelodge Bath City Centre",
     description: "Comfortable stay with modern amenities. Book early to secure your room for the special weekend.",
     mapLink: "https://maps.app.goo.gl/cMsC5Rxaa5KjdivS6",
   },
   {
     id: 2,
-    name: "Hotel Accommodation 2",
+    name: "Hampton by Hilton Bath City",
     description: "Elegant rooms and excellent service. Perfect for wedding guests seeking a relaxing stay.",
     mapLink: "https://maps.app.goo.gl/fJ81eXWGonxK6Mji9",
   },
   {
     id: 3,
-    name: "Hotel Accommodation 3",
+    name: "Apex City of Bath Hotel",
     description: "Convenient location with great facilities. Ideal for families and groups attending the celebration.",
     mapLink: "https://maps.app.goo.gl/DcYd5R63V85D73Xn8",
   },
