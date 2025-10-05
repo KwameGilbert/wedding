@@ -9,6 +9,7 @@ import hero8 from './hero8.jpeg';
 import hero9 from './hero9.jpeg';
 import hero10 from './hero10.jpeg';
 import rudilogo from './rudilogo.png';
+import holidayInnBath from './holiday-inn-bath.jpg';
 
 export{
     hero1,
@@ -21,5 +22,6 @@ export{
     hero8,
     hero9,
     hero10,
-    rudilogo
+    rudilogo,
+    holidayInnBath
 }
