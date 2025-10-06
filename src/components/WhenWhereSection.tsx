@@ -198,16 +198,16 @@ const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
         {/* Event Details */}
         <div className="w-full px-4">
           <div className="flex flex-wrap lg:flex-nowrap gap-8 lg:gap-4 justify-center">
-            {/* <EventDetails
-              title="The Ceremony"
+            <EventDetails
+              title="Parking Location"
               date="Saturday, March 7, 2026"
               time="1:00 PM - 3:00 PM"
-              address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom"
-              phone="+1 (555) 123-4567"
-              mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7?g_st=com.google.maps.preview.copy"
-              icon="💒"
+              address="Charlotte Street Car Park, Charlotte St, Bath BA1 2NE, United Kingdom"
+              phone="+44 (793)650-8904"
+              mapUrl="https://maps.app.goo.gl/Ua2QC5WvXWQzkqen8?g_st=com.google.maps.preview.copy"
+              icon="🚗"
               index={0}
-            /> */}
+            /> 
 
             <EventDetails
               title="The Reception"
