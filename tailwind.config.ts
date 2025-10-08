@@ -81,17 +81,17 @@ export default {
             950: "#525252",
           },
           terracotta: {
-            50: "#f0f4ff",
-            100: "#e0e7ff",
-            200: "#c7d2fe",
-            300: "#a5b4fc", // Light navy
-            400: "#818cf8",
-            500: "#1e3a8a", // Primary navy blue
-            600: "#1e40af",
-            700: "#1d4ed8",
-            800: "#1e3a8a",
-            900: "#1e293b",
-            950: "#0f172a",
+            50: "#fdfbf7",   // Very light gold/champagne
+            100: "#faf6ed",  // Light gold
+            200: "#f5ecd3",  // Soft gold
+            300: "#ead9a8",  // Pale gold
+            400: "#dfc67d",  // Light gold accent
+            500: "#D4AF37",  // PRIMARY GOLD
+            600: "#b89530",  // Medium gold
+            700: "#9c7d28",  // Deep gold
+            800: "#7d6420",  // Dark gold
+            900: "#5e4a18",  // Very dark gold
+            950: "#3f3f10",  // Almost bronze
           },
           olive: {
             50: "#fffbeb",
