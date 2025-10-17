@@ -1,9 +1,11 @@
 interface IcsEvent {
   title: string;
   description?: string;
-  start: string; // human readable date string
+  start: string; // human readable date string or ISO
   end?: string; // optional
   location?: string;
+  // reminders in minutes before the event start (e.g. [1440, 60] for 1 day and 1 hour)
+  reminders?: number[];
 }
 
 function formatDateForICS(dateStr: string) {
@@ -20,7 +22,7 @@ export function generateICS({ title, description = "", start, end, location = ""
   const dtStart = formatDateForICS(start);
   const dtEnd = end ? formatDateForICS(end) : dtStart;
   const uid = `${Date.now()}@local`;
-  return [
+  const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
     "PRODID:-//equip-for-excellence//EN",
@@ -33,9 +35,25 @@ export function generateICS({ title, description = "", start, end, location = ""
     `SUMMARY:${title}`,
     `DESCRIPTION:${description}`,
     `LOCATION:${location}`,
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
+  ];
+
+  // If reminders were provided in the optional field reminders, add VALARM blocks
+  const anyArg = (arguments[0] as unknown) as IcsEvent;
+  const reminders = anyArg?.reminders ?? [];
+  if (Array.isArray(reminders) && reminders.length > 0) {
+    for (const mins of reminders) {
+      // VALARM with TRIGGER negative duration before the event
+      const trigger = `-PT${Math.abs(Math.round(mins))}M`;
+      lines.push("BEGIN:VALARM");
+      lines.push("ACTION:DISPLAY");
+      lines.push(`DESCRIPTION:Reminder for ${title}`);
+      lines.push(`TRIGGER:${trigger}`);
+      lines.push("END:VALARM");
+    }
+  }
+
+  lines.push("END:VEVENT", "END:VCALENDAR");
+  return lines.join("\r\n");
 }
 
 export default generateICS;

@@ -51,6 +51,8 @@ const EventDetails: React.FC<EventDetailsProps> = ({
         start: date,
         end: date,
         location: address,
+        // default reminders: 1 day (1440) and 1 hour (60) before
+        reminders: [1440, 60],
       });
       const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
       const url = URL.createObjectURL(blob);
@@ -65,6 +67,19 @@ const EventDetails: React.FC<EventDetailsProps> = ({
     } catch {
       toast({ title: "Download failed", description: "Could not create calendar file." });
     }
+  };
+
+  const googleCalendarUrl = () => {
+    // Google Calendar event URL builder
+    const startIso = new Date(date).toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    const endIso = startIso; // using same end as start; Google will allow editing
+    const details = new URLSearchParams({
+      text: title,
+      dates: `${startIso}/${endIso}`,
+      details: address,
+      location: address,
+    });
+    return `https://calendar.google.com/calendar/u/0/r/eventedit?${details.toString()}`;
   };
 
   return (
@@ -124,10 +139,17 @@ const EventDetails: React.FC<EventDetailsProps> = ({
             <span>Copy Address</span>
           </button>
 
-          <button onClick={handleAddToCalendar} className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
-            <Download className="w-4 h-4" />
-            <span>Add to Calendar</span>
-          </button>
+          <div className="flex gap-2 w-full sm:w-auto">
+            <button onClick={handleAddToCalendar} className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
+              <Download className="w-4 h-4" />
+              <span>Download .ics</span>
+            </button>
+
+            <a href={googleCalendarUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-terracotta-600 text-wedding-cream-500 rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
+              <Calendar className="w-4 h-4" />
+              <span>Add to Google Calendar</span>
+            </a>
+          </div>
         </motion.div>
       </div>
     </motion.div>
