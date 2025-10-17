@@ -1,14 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button"; // Make sure you have a UI button component or replace with <button>
+import { Button } from "@/components/ui/button";
 import SparkleRain from "@/components/SparkleRain";
+import { hero3, hero7, hero9 } from "@/assets"; // Importing three hero images
 
 const StripeGift = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState("");
   const [email, setEmail] = useState("");
   const [note, setNote] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [currentBgImage, setCurrentBgImage] = useState(0);
+  
+  const backgroundImages = [hero3, hero7, hero9];
+  
+  // Background image carousel effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgImage((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000); // Change image every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
 
   const amountToPay = selectedAmount || Number(customAmount);
 
@@ -17,8 +29,6 @@ const StripeGift = () => {
       alert("Please enter a valid amount and email.");
       return;
     }
-
-    setLoading(true);
 
     try {
       const response = await fetch(
@@ -42,15 +52,27 @@ const StripeGift = () => {
     } catch (err) {
       console.error(err);
       alert("Payment failed. Please try again.");
-    } finally {
-      setLoading(false);
     }
   };
 
   const presetAmounts = [25, 50, 75, 100, 150, 200];
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Background image carousel */}
+      <motion.div 
+        key={currentBgImage}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+        className="absolute inset-0 bg-cover bg-center bg-fixed" 
+        style={{ 
+          backgroundImage: `url(${backgroundImages[currentBgImage]})`, 
+          filter: 'brightness(0.5)' 
+        }}
+      />
+      
       {/* SparkleRain component for floating particles */}
       <div className="absolute inset-0 pointer-events-none">
         <SparkleRain zIndex={0} />
@@ -75,10 +97,10 @@ const StripeGift = () => {
                 setCustomAmount("");
               }}
               whileTap={{ scale: 0.95 }}
-              className={`py-2 rounded-md text-sm font-medium border ${
+              className={`py-3 rounded-md text-lg font-bold border shadow-lg ${
                 selectedAmount === amt
-                  ? "bg-gray-200 border-gray-500"
-                  : "bg-white border-gray-300"
+                  ? "bg-wedding-terracotta-500 text-white border-wedding-terracotta-600"
+                  : "bg-white text-black border-gray-300 hover:bg-gray-100"
               }`}
             >
               £{amt}
@@ -94,35 +116,34 @@ const StripeGift = () => {
             setCustomAmount(e.target.value);
             setSelectedAmount(null);
           }}
-          className="w-full border rounded-md p-2 mb-3"
+          className="w-full border rounded-md p-3 mb-3 text-lg font-medium bg-white shadow-lg"
         />
         <input
           type="email"
           placeholder="Your Email (required)"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border rounded-md p-2 mb-3"
+          className="w-full border rounded-md p-3 mb-3 text-lg font-medium bg-white shadow-lg"
         />
         <textarea
           placeholder="Leave a message (optional)"
           value={note}
           onChange={(e) => setNote(e.target.value)}
-          className="w-full border rounded-md p-2 mb-4 h-24"
+          className="w-full border rounded-md p-3 mb-4 h-24 text-lg font-medium bg-white shadow-lg"
         />
 
         <Button
-          disabled={loading}
           onClick={handlePayment}
-          className="w-full bg-black text-white font-semibold py-3 rounded-md hover:bg-gray-900 transition"
+          className="w-full bg-wedding-terracotta-500 text-white font-bold py-4 px-6 rounded-md hover:bg-wedding-terracotta-600 transition text-lg shadow-lg"
         >
-          {loading ? "Redirecting..." : `Pay £${amountToPay || ""}`}
+          Pay £{amountToPay || ""}
         </Button>
 
-        <p className="text-center text-xs text-gray-300 mt-3">
+        <p className="text-center text-sm text-white font-medium mt-3 bg-black/50 p-2 rounded-md">
           You'll be redirected to a secure Stripe page.
         </p>
 
-        <p className="text-white mt-12 text-sm leading-relaxed text-center">
+        <p className="text-white mt-12 text-base leading-relaxed text-center font-medium bg-black/50 p-3 rounded-md">
           Thank you for being part of our celebration. <br />
           We can't wait to share this new chapter with you!
         </p>
