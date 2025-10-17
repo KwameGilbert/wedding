@@ -50,7 +50,7 @@ const StripeGift = () => {
 
       window.location.href = data.data.url;
     } catch (err) {
-      console.error(err);
+      console.error("Payment error:", err);
       alert("Payment failed. Please try again.");
     }
   };
@@ -75,7 +75,7 @@ const StripeGift = () => {
       
       {/* SparkleRain component for floating particles */}
       <div className="absolute inset-0 pointer-events-none">
-        <SparkleRain zIndex={0} />
+        <SparkleRain zIndex={5} />
       </div>
       
       <motion.div

@@ -14,7 +14,7 @@ interface Sparkle {
   color: string;
 }
 
-const SparkleRain = ({ zIndex = 0 }: { zIndex?: number } = {}) => {
+const SparkleRain = ({ zIndex = 10 }: { zIndex?: number } = {}) => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
 
   // Specific colors for gift page
@@ -42,6 +42,36 @@ const SparkleRain = ({ zIndex = 0 }: { zIndex?: number } = {}) => {
     });
 
     setSparkles(newSparkles);
+    
+    // Force re-render on window resize to ensure particles are properly positioned
+    const handleResize = () => {
+      setSparkles([]);
+      setTimeout(() => {
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 25 : 40;
+        
+        const newSparkles: Sparkle[] = Array.from({ length: particleCount }, (_, i) => {
+          const size = 10 + Math.random() * 18; // 10-28px
+          return {
+            id: i,
+            x: Math.random() * 100, // percentage across screen
+            delay: Math.random() * 5,
+            duration: 8 + Math.random() * 8, // 8-16 seconds
+            size,
+            opacity: 0.6 + Math.random() * 0.4, // 0.6-1.0 for stronger visibility
+            drift: -20 + Math.random() * 40, // -20 to 20px horizontal drift
+            rotation: Math.random() * 360,
+            type: ["star", "sparkle", "diamond"][Math.floor(Math.random() * 3)] as "star" | "sparkle" | "diamond",
+            color: palette[Math.floor(Math.random() * palette.length)],
+          };
+        });
+        
+        setSparkles(newSparkles);
+      }, 100);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const getSparkleSvg = (type: string, size: number, color: string) => {
