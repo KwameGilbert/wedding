@@ -9,6 +9,8 @@ const hotel = {
   description: "Our recommended accommodation for wedding guests. Comfortable rooms with modern amenities, conveniently located in Bath. We encourage you to book early to secure your stay for our special weekend.",
   mapLink: "https://maps.app.goo.gl/f3nykhVeLm6uGASq8",
   image: holidayInnBath,
+  // added price for visibility
+  price: "£120",
 };
 
 const HotelsSection = () => {
@@ -45,6 +47,20 @@ const HotelsSection = () => {
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+              {/* Price badge - high contrast */}
+              <div
+                aria-hidden
+                className="absolute top-4 right-4 rounded-md shadow-lg"
+                style={{
+                  backgroundColor: "#D4AF37",
+                  color: "#F8F8F8",
+                  padding: "8px 12px",
+                  fontWeight: 700,
+                }}
+              >
+                <span className="text-sm">From</span>
+                <div className="text-lg leading-none">{hotel.price}<span className="text-xs">/night</span></div>
+              </div>
             </div>
             
             <CardContent className="p-8 space-y-6">
@@ -52,10 +68,10 @@ const HotelsSection = () => {
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground">
                   {hotel.name}
                 </h3>
-                
-                <p className="text-muted-foreground text-base leading-relaxed">
-                  {hotel.description}
-                </p>
+                <div className="flex items-center justify-center gap-4">
+                  <p className="text-wedding-cream-500 text-2xl font-extrabold">{hotel.price}</p>
+                  <p className="text-muted-foreground text-base leading-relaxed max-w-xl">{hotel.description}</p>
+                </div>
               </div>
               
               <Button
