@@ -95,3 +95,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Prevent horizontal overflow on mobile and ensure media scale correctly */
+html, body, #root {
+  overflow-x: hidden;
+}
+
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Make sure the header doesn't shift content when fixed */
+.site-content {
+  /* used as a wrapper where necessary to add top padding equal to header height */
+  padding-top: 72px; /* adjust if header height changes */
+}
