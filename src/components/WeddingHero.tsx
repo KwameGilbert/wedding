@@ -46,17 +46,21 @@ const WeddingHero = ({
       {/* Carousel Backgrounds */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <AnimatePresence mode="wait">
-          <motion.img
+          <motion.div
             key={currentIndex}
-            src={images[currentIndex]}
-            alt={`Hero ${currentIndex + 1}`}
-            className="absolute left-1/2 top-1/2 min-w-full min-h-full w-auto h-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-cover"
-            initial={{ opacity: 0, scale: 1.05 }}
+            className="absolute inset-0 w-full h-full"
+            initial={{ opacity: 0, scale: 1.03 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            style={{ pointerEvents: "none" }}
-          />
+          >
+            <img
+              src={images[currentIndex]}
+              alt={`Hero ${currentIndex + 1}`}
+              className="w-full h-full object-cover"
+              style={{ pointerEvents: "none" }}
+            />
+          </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-br from-black/55 via-wedding-terracotta-900/30 to-transparent" />
       </div>
