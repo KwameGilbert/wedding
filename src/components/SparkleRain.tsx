@@ -17,8 +17,8 @@ interface Sparkle {
 const SparkleRain = ({ zIndex = 0 }: { zIndex?: number } = {}) => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
 
-  // Deeper palette for clearer contrast
-  const palette = ["#D4AF37", "#FF8C00", "#FFFFFF"]; // deep gold, deep amber, bright white
+  // Specific colors for gift page
+  const palette = ["#FFD700", "#FFB400", "#FFFFFF"]; // gold, amber, white
 
   useEffect(() => {
     // Generate sparkles

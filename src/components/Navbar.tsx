@@ -13,7 +13,7 @@ const navItems = [
   { name: "When & Where", href: "#when-where-section" },
   { name: "Hotels", href: "#hotels-section" },
   { name: "RSVP", href: "#rsvp-section" },
-  { name: "Gift", href: "registry" },
+  { name: "Gift", href: "/registry" },
 ];
 
 export default function Navbar() {

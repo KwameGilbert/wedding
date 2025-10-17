@@ -3,10 +3,12 @@ import { ArrowLeft, Heart, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import StripeGift from "./StripeGift";
+import SparkleRain from "../components/SparkleRain";
 
 const Registry = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50">
+    <div className="min-h-screen bg-black relative">
+      <SparkleRain zIndex={0} />
       {/* Header */}
       <header className="bg-wedding-cream-100/80 backdrop-blur-sm border-b border-wedding-terracotta-200/30 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 py-4">
