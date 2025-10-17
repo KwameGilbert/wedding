@@ -98,10 +98,12 @@ const EventDetails: React.FC<EventDetailsProps> = ({
           initial={{ scale: 0, rotate: -180 }}
           whileInView={{ scale: 1, rotate: 0 }}
           transition={{ duration: 0.6, ease: "backOut", delay: index * 0.2 + 0.3 }}
-          className="w-[100px] h-[100px] bg-wedding-cream-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+          className="w-[110px] h-[110px] bg-wedding-cream-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
           style={{ boxShadow: "rgba(0, 0, 0, 0.75) 0px 10px 32px -30px" }}
         >
-          <span className="text-5xl leading-none">{icon}</span>
+          <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center overflow-hidden">
+            {icon}
+          </div>
         </motion.div>
 
         <motion.h3 className="text-2xl lg:text-[28px] leading-tight mb-2 text-wedding-terracotta-600 font-semibold" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}>
