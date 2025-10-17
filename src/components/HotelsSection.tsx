@@ -10,7 +10,7 @@ const hotel = {
   mapLink: "https://maps.app.goo.gl/f3nykhVeLm6uGASq8",
   image: holidayInnBath,
   // added price for visibility
-  price: "£120 per night",
+  price: "",
 };
 
 const HotelsSection = () => {

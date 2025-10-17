@@ -41,7 +41,7 @@ const WeddingHero = ({
   return (
     <section
       className={`relative h-screen bg-cover bg-center bg-no-repeat overflow-hidden ${className}`}
-      style={{ backgroundColor: "#f5f5f5" }}
+      style={{ backgroundColor: "#333333" }}
     >
       {/* Carousel Backgrounds */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
