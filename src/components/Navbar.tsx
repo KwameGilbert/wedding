@@ -32,12 +32,10 @@ export default function Navbar() {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-gold-400/30 shadow-md"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/30 backdrop-blur-md border-b border-sidebar-border/30 shadow-md"
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        <motion.a
-          href="#home-section"
-          className="text-gold-600 text-xl font-bold uppercase tracking-wider transition-colors duration-300 hover:text-gold-500 whitespace-nowrap"
+        <motion.a href="#home-section" className="text-wedding-terracotta-500 text-xl font-bold uppercase tracking-wider transition-colors duration-300 hover:text-wedding-terracotta-600 whitespace-nowrap"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           onClick={(e) => {
@@ -45,11 +43,7 @@ export default function Navbar() {
             handleNavClick("#home-section");
           }}
         >
-          <img 
-            src={rudilogo}
-            alt="Rudolf & Jemima Wedding Logo" 
-            className="h-14 rounded-full bg-whit border-2 border-white w-14 object-contain"
-          />
+          <img src={rudilogo} alt="Rudolf & Jemima Wedding Logo" className="h-14 rounded-full bg-wedding-cream-100 border-2 border-wedding-cream-100 w-14 object-contain" />
         </motion.a>
 
         {/* Desktop Nav */}
@@ -60,7 +54,7 @@ export default function Navbar() {
               href={item.href}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="relative block text-sm font-semibold text-wedding-terracotta-600  uppercase transition-colors duration-300 hover:hover:text-wedding-olive-600"
+              className="relative block text-sm font-semibold text-wedding-cream-500  uppercase transition-colors duration-300 hover:text-wedding-terracotta-500"
             >
               {item.name}
             </motion.a>
@@ -68,7 +62,7 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Toggle Button */}
-        <div className="md:hidden text-wedding-terracotta-600 ">
+        <div className="md:hidden text-wedding-cream-500 ">
           {open ? (
             <X size={24} onClick={() => setOpen(false)} />
           ) : (
@@ -80,21 +74,9 @@ export default function Navbar() {
       {/* Mobile Nav Menu */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white text-wedding-terracotta-600  flex flex-col items-center space-y-5 py-6"
-          >
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }} className="md:hidden bg-background text-wedding-cream-500 flex flex-col items-center space-y-5 py-6">
             {navItems.map((item, idx) => (
-              <motion.a
-                key={idx}
-                href={item.href}
-                whileHover={{ scale: 1.05 }}
-                onClick={() => handleNavClick(item.href)}
-                className="font-medium hover:text-wedding-olive-600 transition"
-              >
+              <motion.a key={idx} href={item.href} whileHover={{ scale: 1.05 }} onClick={() => handleNavClick(item.href)} className="font-medium hover:text-wedding-olive-600 transition">
                 {item.name}
               </motion.a>
             ))}

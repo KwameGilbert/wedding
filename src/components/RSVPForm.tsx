@@ -151,19 +151,15 @@ const handleSubmit = async (e: React.FormEvent) => {
           <div className="w-full lg:w-6/12 px-4">
             {/* Header */}
             <motion.div variants={itemVariants} className="mb-6 text-center lg:text-left">
-              <span className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-wedding-cream-100 border-wedding-terracotta-300">
-                Invitation
-              </span>
-              <h2 className="font-rochester text-4xl lg:text-6xl leading-tight mb-4 text-wedding-cream-100">
-                Will You Attend?
-              </h2>
+              <span className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-wedding-cream-500 border-wedding-terracotta-300">Invitation</span>
+              <h2 className="font-rochester text-4xl lg:text-6xl leading-tight mb-4 text-wedding-cream-500">Will You Attend?</h2>
             </motion.div>
 
             {/* Form */}
             <motion.form
               variants={itemVariants}
               onSubmit={handleSubmit}
-              className="space-y-4 bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg"
+              className="space-y-4 bg-wedding-cream-100/90 backdrop-blur-sm rounded-lg p-6 shadow-lg"
             >
               <label>
                 <span className="sr-only">Full Name</span>

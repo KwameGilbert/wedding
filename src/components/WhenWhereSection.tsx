@@ -1,9 +1,12 @@
+import * as React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Calendar, Clock } from "lucide-react";
+import { MapPin, Phone, Calendar, Clock, Copy, Download } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+import generateICS from "@/lib/calendar";
 
 interface EventDetailsProps {
   title: string;
-  date: string;
+  date: string; // ISO date/time
   time: string;
   address: string;
   phone: string;
@@ -12,7 +15,7 @@ interface EventDetailsProps {
   index: number;
 }
 
-const EventDetails = ({
+const EventDetails: React.FC<EventDetailsProps> = ({
   title,
   date,
   time,
@@ -21,25 +24,52 @@ const EventDetails = ({
   mapUrl,
   icon,
   index,
-}: EventDetailsProps) => {
+}) => {
   const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-    },
-    visible: {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i = 0) => ({
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        delay: index * 0.2,
-      },
-    },
+      transition: { duration: 0.8, ease: "easeOut", delay: i * 0.2 },
+    }),
+  } as const;
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(address);
+      toast({ title: "Address copied", description: "Event address copied to clipboard." });
+    } catch {
+      toast({ title: "Copy failed", description: "Could not copy address to clipboard." });
+    }
+  };
+
+  const handleAddToCalendar = () => {
+    try {
+      const ics = generateICS({
+        title,
+        description: address,
+        start: date,
+        end: date,
+        location: address,
+      });
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${title.replace(/\s+/g, "_")}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      toast({ title: "Calendar saved", description: "An .ics file was downloaded." });
+    } catch {
+      toast({ title: "Download failed", description: "Could not create calendar file." });
+    }
   };
 
   return (
     <motion.div
+      custom={index}
       variants={itemVariants}
       initial="hidden"
       whileInView="visible"
@@ -47,44 +77,24 @@ const EventDetails = ({
       className="flex justify-center w-full lg:w-1/2 px-4"
     >
       <div className="text-center max-w-sm">
-        {/* Icon Circle */}
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           whileInView={{ scale: 1, rotate: 0 }}
-          transition={{
-            duration: 0.6,
-            ease: "backOut",
-            delay: index * 0.2 + 0.3,
-          }}
-          className="w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
-          style={{
-            boxShadow: "rgba(0, 0, 0, 0.75) 0px 10px 32px -30px",
-            color: "rgb(210, 145, 188)",
-          }}
+          transition={{ duration: 0.6, ease: "backOut", delay: index * 0.2 + 0.3 }}
+          className="w-[100px] h-[100px] bg-wedding-cream-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+          style={{ boxShadow: "rgba(0, 0, 0, 0.75) 0px 10px 32px -30px" }}
         >
           <span className="text-5xl leading-none">{icon}</span>
         </motion.div>
 
-        {/* Title */}
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
-          className="text-2xl lg:text-[28px] leading-tight mb-2 text-gray-900 font-semibold"
-        >
+        <motion.h3 className="text-2xl lg:text-[28px] leading-tight mb-2 text-wedding-terracotta-600 font-semibold" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}>
           {title}
         </motion.h3>
 
-        {/* Date & Time */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.2 + 0.6 }}
-          className="mb-4 text-gray-700"
-        >
+        <motion.div className="mb-4 text-wedding-cream-500" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 + 0.6 }}>
           <div className="flex items-center justify-center gap-2 mb-1">
             <Calendar className="w-4 h-4" />
-            <span>{date}</span>
+            <span>{new Date(date).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })}</span>
           </div>
           <div className="flex items-center justify-center gap-2">
             <Clock className="w-4 h-4" />
@@ -92,49 +102,33 @@ const EventDetails = ({
           </div>
         </motion.div>
 
-        {/* Address */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.2 + 0.7 }}
-          className="mb-4 text-gray-600 leading-relaxed"
-        >
+        <motion.p className="mb-4 text-wedding-cream-500 leading-relaxed" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 + 0.7 }}>
           <MapPin className="w-4 h-4 inline mr-1" />
           {address}
         </motion.p>
 
-        {/* Phone */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.2 + 0.8 }}
-          className="mb-4"
-        >
-          <a
-            href={`tel:${phone}`}
-            className="transition-colors duration-300 hover:opacity-80 text-wedding-terracotta-600"
-          >
+        <motion.p className="mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 + 0.8 }}>
+          <a href={`tel:${phone}`} className="transition-colors duration-300 hover:opacity-80 text-wedding-terracotta-600">
             <Phone className="w-4 h-4 inline mr-1" />
             {phone}
           </a>
         </motion.p>
 
-        {/* See Map Button */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.2 + 0.9 }}
-          className="mb-4"
-        >
-          <a
-            href={mapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:opacity-80 text-wedding-terracotta-600 border-b border-wedding-terracotta-300"
-          >
-            See Map
+        <motion.div className="flex items-center justify-center gap-3" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 + 0.9 }}>
+          <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:opacity-80 text-wedding-terracotta-600 border-b border-wedding-terracotta-300">
+            <span>See Map</span>
           </a>
-        </motion.p>
+
+          <button onClick={handleCopy} className="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90">
+            <Copy className="w-4 h-4" />
+            <span>Copy Address</span>
+          </button>
+
+          <button onClick={handleAddToCalendar} className="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90">
+            <Download className="w-4 h-4" />
+            <span>Add to Calendar</span>
+          </button>
+        </motion.div>
       </div>
     </motion.div>
   );
@@ -144,124 +138,25 @@ interface WhenWhereSectionProps {
   className?: string;
 }
 
-const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2,
-      },
-    },
-  };
+const WhenWhereSection: React.FC<WhenWhereSectionProps> = ({ className = "" }) => {
+  const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.8, staggerChildren: 0.2 } } } as const;
 
   return (
-    <div
-      className={`py-12 px-4 ${className}`}
-      style={{ backgroundColor: "#D4B5A0" }}
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="flex flex-wrap -mx-4"
-      >
-        {/* Section Header */}
-        <div className="w-full px-4 mb-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-8"
-          >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-wedding-terracotta-600 border-wedding-terracotta-400"
-            >
-              Planning
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight text-wedding-terracotta-500"
-            >
-              When &amp; Where
-            </motion.h2>
-          </motion.div>
+    <div className={`py-12 px-4 ${className}`} style={{ backgroundColor: "#333333" }}>
+      <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="flex flex-wrap -mx-4">
+        <div className="w-full px-4 mb-6 text-center">
+          <motion.span initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-wedding-terracotta-500 border-wedding-terracotta-300">Planning</motion.span>
+          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight text-wedding-cream-500">When &amp; Where</motion.h2>
         </div>
 
-        {/* Event Details */}
-        <div className="w-full px-4">
-          <div className="flex flex-wrap lg:flex-nowrap gap-8 lg:gap-4 justify-center">
-            <EventDetails
-              title="Parking Location"
-              date="Saturday, March 7, 2026"
-              time="1:00 PM - 3:00 PM"
-              address="Charlotte Street Car Park, Charlotte St, Bath BA1 2NE, United Kingdom"
-              phone="+44 (793)650-8904"
-              mapUrl="https://maps.app.goo.gl/Ua2QC5WvXWQzkqen8?g_st=com.google.maps.preview.copy"
-              icon="🚗"
-              index={0}
-            /> 
-
-            <EventDetails
-              title="The Reception"
-              date="Saturday, March 7, 2026"
-              time="3:30 PM - 9:00 PM"
-              address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom"
-              phone="+44 (793)650-8904"
-              mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7?g_st=com.google.maps.preview.copy"
-              icon="🍾"
-              index={1}
-            />
-          </div>
+        <div className="flex flex-wrap lg:flex-nowrap gap-8 lg:gap-4 justify-center w-full px-4">
+          <EventDetails title="Parking Location" date="2026-03-07T13:00:00" time="1:00 PM - 3:00 PM" address="Charlotte Street Car Park, Charlotte St, Bath BA1 2NE, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/Ua2QC5WvXWQzkqen8" icon={"🚗"} index={0} />
+          <EventDetails title="The Reception" date="2026-03-07T15:30:00" time="3:30 PM - 9:00 PM" address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7" icon={"🍾"} index={1} />
         </div>
 
-        {/* Google Map */}
         <div className="w-full px-4 mt-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-white rounded-lg shadow-lg overflow-hidden"
-          >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.765892!2d-118.2576!3d34.0522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAzJzA4LjAiTiAxMTjCsDE1JzI3LjQiVw!5e0!3m2!1sen!2sus!4v1234567890"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Wedding Venue Location"
-            />
-          </motion.div>
-
-          {/* Map Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center mt-6 space-y-2"
-          >
-            <h4 className="text-lg font-semibold text-gray-800">
-              Percy Community Centre
-            </h4>
-            <p className="text-gray-600">
-              New King St, Bath BA1 2BN, United Kingdom
-            </p>
-            <div className="flex justify-center gap-4 text-sm text-gray-500">
-              <span>Parking Available</span>
-              <span>•</span>
-              <span>Wheelchair Accessible</span>
-              <span>•</span>
-              <span>Garden Setting</span>
-            </div>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="bg-wedding-cream-100 rounded-lg shadow-lg overflow-hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="400" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Wedding Venue Location" />
           </motion.div>
         </div>
       </motion.div>
@@ -270,3 +165,4 @@ const WhenWhereSection = ({ className = "" }: WhenWhereSectionProps) => {
 };
 
 export default WhenWhereSection;
+              <span>Garden Setting</span>

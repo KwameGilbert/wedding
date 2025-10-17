@@ -58,9 +58,8 @@ const WeddingHero = ({
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           />
-        </AnimatePresence>
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-wedding-terracotta-900/40 to-wedding-olive-500/60" />
+  </AnimatePresence>
+  <div className="absolute inset-0 bg-gradient-to-br from-black/45 via-wedding-terracotta-900/30 to-transparent" />
       </div>
 
       {/* Content */}
@@ -94,7 +93,7 @@ const WeddingHero = ({
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-            className="text-wedding-terracotta-500 font-rochester text-6xl sm:text-7xl md:text-8xl lg:text-[102.4px] mb-2"
+            className="text-wedding-cream-500 font-rochester text-6xl sm:text-7xl md:text-8xl lg:text-[102.4px] mb-2"
             style={{
               fontFamily: "Rochester, cursive",
               lineHeight: "1.5",
@@ -108,7 +107,7 @@ const WeddingHero = ({
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
-            className="inline-block bg-wedding-cream-100 text-wedding-terracotta-600 px-4 py-2 rounded-sm text-sm font-black tracking-[7px] uppercase"
+            className="inline-block bg-wedding-cream-100 text-wedding-terracotta-500 px-4 py-2 rounded-sm text-sm font-black tracking-[7px] uppercase"
           >
             {subtitle}
           </motion.span>

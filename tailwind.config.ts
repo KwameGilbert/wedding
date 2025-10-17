@@ -67,13 +67,13 @@ export default {
         },
         // Wedding Brand Colors - Earthy Natural Palette
       wedding: {
-          cream: {
-            50: "#ffffff",
-            100: "#fefefe",
-            200: "#fdfdfd", // Light white background
-            300: "#fafafa",
-            400: "#f5f5f5",
-            500: "#f0f0f0", // Primary white
+        cream: {
+          50: "#ffffff",
+          100: "#fbfbfb",
+          200: "#fafafa",
+          300: "#f9f9f9",
+          400: "#f8f8f8",
+          500: "#F8F8F8", // Ivory White requested
             600: "#e5e5e5",
             700: "#d4d4d4",
             800: "#a3a3a3",
@@ -86,7 +86,7 @@ export default {
             200: "#f5ecd3",  // Soft gold
             300: "#ead9a8",  // Pale gold
             400: "#dfc67d",  // Light gold accent
-            500: "#D4AF37",  // PRIMARY GOLD
+          500: "#D4AF37",  // PRIMARY GOLD (user requested)
             600: "#b89530",  // Medium gold
             700: "#9c7d28",  // Deep gold
             800: "#7d6420",  // Dark gold
