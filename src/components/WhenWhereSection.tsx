@@ -14,10 +14,11 @@ interface EventDetailsProps {
   phone: string;
   mapUrl: string;
   icon: React.ReactNode;
+  noBg?: boolean;
   index: number;
 }
 
-const EventDetails: React.FC<EventDetailsProps> = ({
+  const EventDetails: React.FC<EventDetailsProps> = ({
   title,
   date,
   time,
@@ -25,6 +26,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({
   phone,
   mapUrl,
   icon,
+  noBg = false,
   index,
 }) => {
   const itemVariants = {
@@ -98,7 +100,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({
           initial={{ scale: 0, rotate: -180 }}
           whileInView={{ scale: 1, rotate: 0 }}
           transition={{ duration: 0.6, ease: "backOut", delay: index * 0.2 + 0.3 }}
-          className="w-[110px] h-[110px] bg-wedding-cream-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
+          className={`${noBg ? "" : "bg-wedding-cream-100"} w-[110px] h-[110px] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg`}
           style={{ boxShadow: "rgba(0, 0, 0, 0.75) 0px 10px 32px -30px" }}
         >
           <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center overflow-hidden">
@@ -176,7 +178,7 @@ const WhenWhereSection: React.FC<WhenWhereSectionProps> = ({ className = "" }) =
         </div>
 
         <div className="flex flex-wrap lg:flex-nowrap gap-8 lg:gap-4 justify-center w-full px-4">
-          <EventDetails title="Parking Location" date="2026-03-07T13:00:00" time="1:00 PM - 3:00 PM" address="Charlotte Street Car Park, Charlotte St, Bath BA1 2NE, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/Ua2QC5WvXWQzkqen8" icon={<img src={weddingCar} alt="Wedding Car" className="w-20 h-20 object-cover" />} index={0} />
+          <EventDetails title="Parking Location" date="2026-03-07T13:00:00" time="1:00 PM - 3:00 PM" address="Charlotte Street Car Park, Charlotte St, Bath BA1 2NE, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/Ua2QC5WvXWQzkqen8" icon={<img src={weddingCar} alt="Wedding Car" className="w-20 h-20 object-cover" />} noBg index={0} />
           <EventDetails title="The Reception" date="2026-03-07T15:30:00" time="3:30 PM - 9:00 PM" address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7" icon={<img src={champagne} alt="Champagne" className="w-20 h-20 object-cover" />} index={1} />
         </div>
 
