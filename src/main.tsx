@@ -5,17 +5,39 @@ import Preloader from "./components/Preloader";
 import React, { useEffect, useState } from "react";
 
 const Root = () => {
-	const [loaded, setLoaded] = useState(false);
+	const [showPreloader, setShowPreloader] = useState(true);
 	useEffect(() => {
-		const onLoad = () => setLoaded(true);
-		if (document.readyState === "complete") setLoaded(true);
-		else window.addEventListener("load", onLoad);
-		return () => window.removeEventListener("load", onLoad);
+		let loadFired = false;
+		let minMsPassed = false;
+
+		const onLoad = () => {
+			loadFired = true;
+			if (minMsPassed) setShowPreloader(false);
+		};
+
+		const timer = setTimeout(() => {
+			minMsPassed = true;
+			if (loadFired) setShowPreloader(false);
+		}, 6000); // minimum 6 seconds
+
+		if (document.readyState === "complete") {
+			loadFired = true;
+		} else {
+			window.addEventListener("load", onLoad);
+		}
+
+		// if both already satisfied
+		if (loadFired && minMsPassed) setShowPreloader(false);
+
+		return () => {
+			clearTimeout(timer);
+			window.removeEventListener("load", onLoad);
+		};
 	}, []);
 
 	return (
 		<>
-			{!loaded && <Preloader />}
+			{showPreloader && <Preloader />}
 			<App />
 		</>
 	);
