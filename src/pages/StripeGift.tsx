@@ -58,7 +58,7 @@ const StripeGift = () => {
   const presetAmounts = [25, 50, 75, 100, 150, 200];
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 relative overflow-hidden">
       {/* Background image carousel */}
       <motion.div 
         key={currentBgImage}
@@ -66,7 +66,7 @@ const StripeGift = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
-        className="absolute inset-0 bg-cover bg-center bg-fixed" 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
         style={{ 
           backgroundImage: `url(${backgroundImages[currentBgImage]})`, 
           filter: 'brightness(0.5)' 
@@ -77,7 +77,7 @@ const StripeGift = () => {
       <SparkleRain zIndex={5} showBackground={false} />
       
       <motion.div
-        className="max-w-md w-full text-center relative z-10"
+        className="max-w-md w-full bg-black/30 p-6 rounded-lg backdrop-blur-sm text-center relative z-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -114,34 +114,35 @@ const StripeGift = () => {
             setCustomAmount(e.target.value);
             setSelectedAmount(null);
           }}
-          className="w-full border rounded-md p-3 mb-3 text-lg font-medium bg-white shadow-lg"
+          className="w-full border rounded-md p-3 mb-4 text-lg font-medium bg-white shadow-lg"
         />
         <input
           type="email"
           placeholder="Your Email (required)"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border rounded-md p-3 mb-3 text-lg font-medium bg-white shadow-lg"
+          className="w-full border rounded-md p-3 mb-4 text-lg font-medium bg-white shadow-lg"
         />
         <textarea
           placeholder="Leave a message (optional)"
           value={note}
           onChange={(e) => setNote(e.target.value)}
-          className="w-full border rounded-md p-3 mb-4 h-24 text-lg font-medium bg-white shadow-lg"
+          className="w-full border rounded-md p-3 mb-5 h-24 text-lg font-medium bg-white shadow-lg resize-none"
         />
 
         <Button
           onClick={handlePayment}
           className="w-full bg-wedding-terracotta-500 text-white font-bold py-4 px-6 rounded-md hover:bg-wedding-terracotta-600 transition text-lg shadow-lg"
+          disabled={!amountToPay || !email}
         >
           Pay £{amountToPay || ""}
         </Button>
 
-        <p className="text-center text-sm text-white font-medium mt-3 bg-black/50 p-2 rounded-md">
+        <p className="text-center text-sm text-white font-medium mt-3 p-2 rounded-md">
           You'll be redirected to a secure Stripe page.
         </p>
 
-        <p className="text-white mt-12 text-base leading-relaxed text-center font-medium bg-black/50 p-3 rounded-md">
+        <p className="text-white mt-8 text-base leading-relaxed text-center font-medium p-3 rounded-md">
           Thank you for being part of our celebration. <br />
           We can't wait to share this new chapter with you!
         </p>
