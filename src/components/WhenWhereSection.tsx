@@ -140,13 +140,13 @@ interface EventDetailsProps {
             <span>See Map</span>
           </a>
 
-          <button onClick={handleCopy} className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
+          <button onClick={handleCopy} className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-yellow-500 text-white rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
             <Copy className="w-4 h-4" />
             <span>Copy Address</span>
           </button>
 
           <div className="flex gap-2 w-full sm:w-auto">
-            <button onClick={handleAddToCalendar} className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
+            <button onClick={handleAddToCalendar} className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-yellow-500 text-white rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
               <Download className="w-4 h-4" />
               <span>Download .ics</span>
             </button>
