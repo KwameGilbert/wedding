@@ -10,7 +10,7 @@ const hotel = {
   mapLink: "https://maps.app.goo.gl/f3nykhVeLm6uGASq8",
   image: holidayInnBath,
   // added price for visibility
-  price: "£120",
+  price: "£120 per night",
 };
 
 const HotelsSection = () => {
@@ -59,7 +59,7 @@ const HotelsSection = () => {
                 }}
               >
                 <span className="text-sm">From</span>
-                <div className="text-lg leading-none">{hotel.price}<span className="text-xs">/night</span></div>
+                <div className="text-lg leading-none">{hotel.price}</div>
               </div>
             </div>
             
