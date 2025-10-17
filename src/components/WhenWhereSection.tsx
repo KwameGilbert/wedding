@@ -76,7 +76,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       className="flex justify-center w-full lg:w-1/2 px-4"
     >
-      <div className="text-center max-w-sm">
+  <div className="text-center max-w-xs sm:max-w-sm">
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           whileInView={{ scale: 1, rotate: 0 }}
@@ -114,17 +114,17 @@ const EventDetails: React.FC<EventDetailsProps> = ({
           </a>
         </motion.p>
 
-        <motion.div className="flex items-center justify-center gap-3" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 + 0.9 }}>
-          <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:opacity-80 text-wedding-terracotta-600 border-b border-wedding-terracotta-300">
+        <motion.div className="flex flex-col sm:flex-row items-center justify-center gap-3" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.2 + 0.9 }}>
+          <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:opacity-80 text-wedding-terracotta-600 border-b border-wedding-terracotta-300 w-full sm:w-auto">
             <span>See Map</span>
           </a>
 
-          <button onClick={handleCopy} className="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90">
+          <button onClick={handleCopy} className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
             <Copy className="w-4 h-4" />
             <span>Copy Address</span>
           </button>
 
-          <button onClick={handleAddToCalendar} className="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90">
+          <button onClick={handleAddToCalendar} className="inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider bg-wedding-cream-100 rounded shadow-sm hover:opacity-90 w-full sm:w-auto">
             <Download className="w-4 h-4" />
             <span>Add to Calendar</span>
           </button>
@@ -156,16 +156,7 @@ const WhenWhereSection: React.FC<WhenWhereSectionProps> = ({ className = "" }) =
 
         <div className="w-full px-4 mt-12">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="bg-wedding-cream-100 rounded-lg shadow-lg overflow-hidden">
-              <iframe
-                width="100%"
-                height="400"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Percy Community Centre, Bath"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2506.216240197166!2d-2.3595092844524716!3d51.38130997962559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718f0f3c5b1f3d%3A0x2f3f6f6c5e0a1a6b!2sPercy%20Community%20Centre%2C%20New%20King%20St%2C%20Bath%20BA1%202BN%2C%20UK!5e0!3m2!1sen!2sus!4v1697625600000"
-              />
+            <iframe className="w-full h-64 sm:h-96" style={{ border: 0 }} loading="lazy" allowFullScreen referrerPolicy="no-referrer-when-downgrade" title="Percy Community Centre, Bath" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2506.216240197166!2d-2.3595092844524716!3d51.38130997962559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718f0f3c5b1f3d%3A0x2f3f6f6c5e0a1a6b!2sPercy%20Community%20Centre%2C%20New%20King%20St%2C%20Bath%20BA1%202BN%2C%20UK!5e0!3m2!1sen!2sus!4v1697625600000" />
           </motion.div>
         </div>
       </motion.div>
