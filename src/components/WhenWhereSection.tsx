@@ -156,7 +156,16 @@ const WhenWhereSection: React.FC<WhenWhereSectionProps> = ({ className = "" }) =
 
         <div className="w-full px-4 mt-12">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="bg-wedding-cream-100 rounded-lg shadow-lg overflow-hidden">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="400" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Wedding Venue Location" />
+              <iframe
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Percy Community Centre, Bath"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2506.216240197166!2d-2.3595092844524716!3d51.38130997962559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718f0f3c5b1f3d%3A0x2f3f6f6c5e0a1a6b!2sPercy%20Community%20Centre%2C%20New%20King%20St%2C%20Bath%20BA1%202BN%2C%20UK!5e0!3m2!1sen!2sus!4v1697625600000"
+              />
           </motion.div>
         </div>
       </motion.div>
