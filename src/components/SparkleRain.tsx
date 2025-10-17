@@ -14,7 +14,7 @@ interface Sparkle {
   color: string;
 }
 
-const SparkleRain = () => {
+const SparkleRain = ({ zIndex = 5 }: { zIndex?: number } = {}) => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
 
   // Deeper palette for clearer contrast
@@ -70,7 +70,7 @@ const SparkleRain = () => {
   };
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[5]">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex }}>
       {sparkles.map((sparkle) => (
         <motion.div
           key={sparkle.id}
