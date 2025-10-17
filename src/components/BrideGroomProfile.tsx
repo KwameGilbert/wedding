@@ -84,7 +84,7 @@ const BrideGroomProfile = ({
         >
           <span
             className="text-[100px] leading-none font-bold"
-            style={{ color: "rgb(210, 145, 188)" }}
+            style={{ color: "rgba(0,0,0,0.12)" }}
           >
             {isGroom ? "G" : "B"}
           </span>
@@ -97,7 +97,7 @@ const BrideGroomProfile = ({
           transition={{ duration: 0.6, delay: index * 0.3 + 0.4 }}
           className={`font-rochester text-3xl lg:text-5xl leading-tight mb-4 ${
             isGroom ? "lg:text-right" : "lg:text-left"
-          } text-center lg:text-left text-wedding-terracotta-600`}
+          } text-center lg:text-left text-gray-900`}
         >
           {name}
         </motion.h2>
@@ -126,7 +126,7 @@ const BrideGroomProfile = ({
                 delay: index * 0.3 + 0.8 + i * 0.1,
                 ease: "backOut",
               }}
-              className="w-2 h-2 rounded-full bg-wedding-olive-500"
+              className="w-2 h-2 rounded-full bg-gray-500"
             />
           ))}
         </div>

@@ -61,7 +61,7 @@ const Wedding = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-wedding-terracotta-600 border-wedding-terracotta-400"
+              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-gray-700 border-gray-300"
             >
               About Bride &amp; Groom
             </motion.span>
@@ -69,7 +69,7 @@ const Wedding = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight text-wedding-terracotta-500"
+              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight text-gray-900"
             >
               Bride &amp; Groom
             </motion.h2>
@@ -155,7 +155,7 @@ const Wedding = () => {
       {/* RSVP Section */}
       <section
         id="rsvp-section"
-        className=" bg-gradient-to-r from-wedding-cream-100 via-purple-50 to-wedding-cream-100"
+        className="bg-gradient-to-r from-black via-gray-800 to-gray-700"
       >
         <RSVPForm />
       </section>
