@@ -57,16 +57,17 @@ const BrideGroomProfile = ({
       {/* Profile Image */}
       <motion.div
         variants={imageVariants}
-        className={`w-full lg:w-[400px] h-[300px] lg:h-[400px] bg-cover bg-center bg-no-repeat ${
+        className={`w-full lg:w-[400px] h-[300px] lg:h-[400px] relative overflow-hidden ${
           isGroom
             ? "lg:order-2 lg:ml-12 lg:mr-auto"
             : "lg:order-1 lg:mr-12 lg:ml-auto"
         }`}
-        style={{
-          backgroundImage: `url("${image}")`,
-          borderBottom: "14.6667px solid rgb(240, 217, 232)",
-        }}
-      />
+      >
+        {/* Photo */}
+        <img src={image} alt={name} className="w-full h-full object-cover block" style={{ filter: "grayscale(100%) brightness(40%)" }} />
+        {/* Black -> grey gradient overlay to tint image */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.85), rgba(128,128,128,0.55))" }} />
+      </motion.div>
 
       {/* Content Area */}
       <motion.div

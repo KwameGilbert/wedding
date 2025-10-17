@@ -39,7 +39,7 @@ const HotelsSection = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] bg-card/50 backdrop-blur-sm border-primary/10">
+          <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] bg-[rgba(0,0,0,0.55)] backdrop-blur-sm border-primary/10">
             <div className="relative aspect-[16/9] overflow-hidden">
               <img
                 src={hotel.image}
@@ -65,32 +65,22 @@ const HotelsSection = () => {
             
             <CardContent className="p-8 space-y-6">
               <div className="text-center space-y-3">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                <h3 className="text-2xl md:text-3xl font-bold text-wedding-cream-500">
                   {hotel.name}
                 </h3>
                 <div className="flex items-center justify-center gap-4">
                   <p className="text-wedding-cream-500 text-2xl font-extrabold">{hotel.price}</p>
-                  <p className="text-muted-foreground text-base leading-relaxed max-w-xl">{hotel.description}</p>
+                  <p className="text-wedding-cream-200 text-base leading-relaxed max-w-xl">{hotel.description}</p>
                 </div>
               </div>
               
-              <Button
-                asChild
-                className="w-full group text-base h-12"
-                variant="default"
-                size="lg"
-              >
-                <a
-                  href={hotel.mapLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
-                >
+              <div className="pt-4">
+                <a href={hotel.mapLink} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 bg-[#D4AF37] text-[#0b0b0b] px-6 py-3 rounded-lg shadow-md hover:opacity-90 transition">
                   <MapPin className="w-5 h-5" />
                   View Location & Book
                   <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
-              </Button>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
