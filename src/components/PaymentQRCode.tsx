@@ -9,20 +9,25 @@ interface PaymentQRCodeProps {
 }
 
 const PaymentQRCode: React.FC<PaymentQRCodeProps> = ({
-  paymentLink = "https://buy.stripe.com/test_28o5mz0Wd0Hl2CQ000",
+  paymentLink = "https://buy.stripe.com/00g5lL0Wd0Hl2CQ144",
   title = "Scan to Make Payment",
   description = "Scan this QR code with your phone's camera to make a secure payment"
 }) => {
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
   // Direct payment link that will work reliably
-  const directPaymentLink = "https://buy.stripe.com/test_28o5mz0Wd0Hl2CQ000";
+  const directPaymentLink = "https://buy.stripe.com/00g5lL0Wd0Hl2CQ144";
   
   // Use the provided link or fallback to the direct link if there's an error
   const finalPaymentLink = isError ? directPaymentLink : paymentLink;
   
+  // Handle QR code loading and errors
+  const handleQRCodeLoad = () => {
+    setIsLoading(false);
+  };
+  
   const handlePaymentClick = () => {
-    // Open the payment link in a new tab
     window.open(directPaymentLink, '_blank');
   };
 
@@ -37,30 +42,40 @@ const PaymentQRCode: React.FC<PaymentQRCodeProps> = ({
       <p className="text-gray-700 text-center mb-4">{description}</p>
       
       <div className="bg-white p-3 rounded-lg shadow-inner border-2 border-wedding-terracotta-100">
+        {isLoading && <div className="h-[200px] w-[200px] flex items-center justify-center bg-gray-100">Loading...</div>}
         <QRCode 
           value={finalPaymentLink}
           size={200}
-          style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+          style={{ height: "auto", maxWidth: "100%", width: "100%", display: isLoading ? 'none' : 'block' }}
           viewBox={`0 0 256 256`}
           fgColor="#9D4E3C" // Wedding terracotta color for QR code
           onError={() => setIsError(true)}
+          onLoad={handleQRCodeLoad}
         />
       </div>
       
-      <div className="mt-4 text-center">
+      <div className="mt-4 text-center space-y-3">
         <button 
           onClick={handlePaymentClick}
-          className="inline-block px-4 py-2 bg-wedding-terracotta-500 text-white rounded-md hover:bg-wedding-terracotta-600 transition-colors text-sm mt-2"
+          className="inline-block w-full px-4 py-2 bg-wedding-terracotta-500 text-white rounded-md hover:bg-wedding-terracotta-600 transition-colors text-sm"
         >
           Click here to make payment
         </button>
+        
+        <div className="border-t border-gray-300 pt-3">
+          <h4 className="font-medium text-wedding-terracotta-800 mb-1">Bank Transfer Option</h4>
+          <div className="bg-gray-100 p-3 rounded text-left">
+            <p className="text-sm mb-1"><span className="font-semibold">Bank:</span> Barclays</p>
+            <p className="text-sm mb-1"><span className="font-semibold">Account Name:</span> Wedding Fund</p>
+            <p className="text-sm mb-1"><span className="font-semibold">Account Number:</span> 12345678</p>
+            <p className="text-sm"><span className="font-semibold">Sort Code:</span> 12-34-56</p>
+          </div>
+        </div>
       </div>
       
-      {isError && (
-        <p className="text-red-500 text-sm mt-2">
-          QR code not working? Use the button above to make your payment.
-        </p>
-      )}
+      <p className="text-gray-600 text-sm mt-3">
+        If you have any issues with payment, please contact us directly.
+      </p>
     </motion.div>
   );
 };
