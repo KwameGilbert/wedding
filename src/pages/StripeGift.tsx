@@ -58,30 +58,33 @@ const StripeGift = () => {
   const presetAmounts = [25, 50, 75, 100, 150, 200];
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8 relative overflow-hidden">
-      {/* Background image carousel */}
-      <motion.div 
-        key={currentBgImage}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-        style={{ 
-          backgroundImage: `url(${backgroundImages[currentBgImage]})`, 
-          filter: 'brightness(0.5)' 
-        }}
-      />
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 relative overflow-y-auto">
+      {/* Background image carousel - fixed position */}
+      <div className="fixed inset-0 z-0">
+        <motion.div 
+          key={currentBgImage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+          style={{ 
+            backgroundImage: `url(${backgroundImages[currentBgImage]})`, 
+            filter: 'brightness(0.5)' 
+          }}
+        />
+      </div>
       
       {/* SparkleRain component for floating particles */}
       <SparkleRain zIndex={5} showBackground={false} />
       
-      <motion.div
-        className="max-w-md w-full bg-black/30 p-6 rounded-lg backdrop-blur-sm text-center relative z-10"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="w-full max-w-md my-8 relative z-10">
+        <motion.div
+          className="w-full bg-black/60 p-6 rounded-lg backdrop-blur-sm text-center shadow-xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
         <h2 className="text-center text-2xl font-bold mb-3 text-white">
           Contribute to Our Wedding Gift 💝
         </h2>
@@ -201,9 +204,8 @@ const StripeGift = () => {
         </motion.div>
       ))}
     </div> */}
-      </motion.div>
-
-      
+        </motion.div>
+      </div>
     </div>
   );
 };
