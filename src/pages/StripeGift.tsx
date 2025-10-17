@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button"; // Make sure you have a UI button component or replace with <button>
+import SparkleRain from "@/components/SparkleRain";
 
 const StripeGift = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
@@ -49,14 +50,19 @@ const StripeGift = () => {
   const presetAmounts = [25, 50, 75, 100, 150, 200];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#fffdf8] to-[#f7f5ee] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-black flex items-center justify-center px-4 relative overflow-hidden">
+      {/* SparkleRain component for floating particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        <SparkleRain zIndex={0} />
+      </div>
+      
       <motion.div
-        className="max-w-md w-full text-center relative"
+        className="max-w-md w-full text-center relative z-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-center text-2xl font-bold mb-6 text-gray-700">
+        <h2 className="text-center text-2xl font-bold mb-6 text-white">
           Send a Wedding Gift 💝
         </h2>
 
@@ -112,13 +118,13 @@ const StripeGift = () => {
           {loading ? "Redirecting..." : `Pay £${amountToPay || ""}`}
         </Button>
 
-        <p className="text-center text-xs text-gray-500 mt-3">
-          You’ll be redirected to a secure Stripe page.
+        <p className="text-center text-xs text-gray-300 mt-3">
+          You'll be redirected to a secure Stripe page.
         </p>
 
-        <p className="text-[#2e2e2e] mt-12 text-sm leading-relaxed text-center">
+        <p className="text-white mt-12 text-sm leading-relaxed text-center">
           Thank you for being part of our celebration. <br />
-          We can’t wait to share this new chapter with you!
+          We can't wait to share this new chapter with you!
         </p>
 
         {/* Floating animation (optional) */}

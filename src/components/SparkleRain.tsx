@@ -80,8 +80,8 @@ const SparkleRain = ({ zIndex = 0 }: { zIndex?: number } = {}) => {
             top: "-50px",
             fontSize: `${sparkle.size}px`,
             opacity: sparkle.opacity,
-            // stronger glow using svg color and blur
-            filter: `drop-shadow(0 0 ${Math.max(4, sparkle.size / 6)}px rgba(255, 215, 0, 0.9))`,
+            // Enhanced glow effect based on particle color
+            filter: `drop-shadow(0 0 ${Math.max(5, sparkle.size / 4)}px ${sparkle.color})`,
             willChange: "transform",
           }}
           initial={{
@@ -90,9 +90,10 @@ const SparkleRain = ({ zIndex = 0 }: { zIndex?: number } = {}) => {
             rotate: sparkle.rotation,
           }}
           animate={{
-            y: "120vh",
-            x: sparkle.drift,
+            y: ["120vh", "100vh", "120vh"],
+            x: [sparkle.drift, sparkle.drift * -0.5, sparkle.drift],
             rotate: sparkle.rotation + 360,
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: sparkle.duration,
