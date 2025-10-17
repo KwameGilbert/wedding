@@ -29,7 +29,7 @@ const Wedding = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-wedding-cream-200 via-wedding-cream-100 to-wedding-cream-50">
       {/* Sparkling Rain Animation */}
-      <SparkleRain />
+      <SparkleRain showBackground={false} />
       
       {/* Wedding Navigation */}
       <WeddingNavigation />

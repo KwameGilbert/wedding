@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import SparkleRain from "@/components/SparkleRain";
+import PaymentQRCode from "@/components/PaymentQRCode";
 import { hero3, hero7, hero9 } from "@/assets"; // Importing three hero images
 
 const StripeGift = () => {
@@ -74,9 +75,7 @@ const StripeGift = () => {
       />
       
       {/* SparkleRain component for floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        <SparkleRain zIndex={5} />
-      </div>
+      <SparkleRain zIndex={5} showBackground={false} />
       
       <motion.div
         className="max-w-md w-full text-center relative z-10"
@@ -87,6 +86,24 @@ const StripeGift = () => {
         <h2 className="text-center text-2xl font-bold mb-6 text-white">
           Send a Wedding Gift 💝
         </h2>
+
+        {/* QR Code Payment Option */}
+        <div className="mb-6">
+          <motion.button
+            onClick={() => setSelectedAmount(null)}
+            whileTap={{ scale: 0.95 }}
+            className="w-full py-3 px-4 rounded-md text-lg font-bold bg-wedding-terracotta-500 text-white border border-wedding-terracotta-600 shadow-lg hover:bg-wedding-terracotta-600 mb-4"
+          >
+            Scan QR Code to Pay
+          </motion.button>
+          
+          {selectedAmount === null && customAmount === "" && (
+            <PaymentQRCode 
+              title="Quick Payment"
+              description="Scan this QR code with your phone camera to make a secure gift payment"
+            />
+          )}
+        </div>
 
         <div className="grid grid-cols-3 gap-2 mb-4">
           {presetAmounts.map((amt) => (

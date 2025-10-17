@@ -7,13 +7,6 @@ import React, { useEffect, useState } from "react";
 const Root = () => {
 	const [showPreloader, setShowPreloader] = useState(true);
 	useEffect(() => {
-		// Check if current path is registry page - disable preloader if true
-		const isRegistryPage = window.location.pathname.includes('/registry');
-		if (isRegistryPage) {
-			setShowPreloader(false);
-			return;
-		}
-
 		let loadFired = false;
 		let minMsPassed = false;
 

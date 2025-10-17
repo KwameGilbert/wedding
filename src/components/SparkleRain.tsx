@@ -14,60 +14,45 @@ interface Sparkle {
   color: string;
 }
 
-const SparkleRain = ({ zIndex = 10 }: { zIndex?: number } = {}) => {
+const SparkleRain = ({ zIndex = 10, showBackground = true }: { zIndex?: number, showBackground?: boolean } = {}) => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
 
-  // Specific colors for gift page
+  // Color palette as specified
   const palette = ["#FFD700", "#FFB400", "#FFFFFF"]; // gold, amber, white
+  const backgroundColor = "#000000"; // Black background
 
   useEffect(() => {
     // Generate sparkles
-    const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 25 : 40;
-    
-    const newSparkles: Sparkle[] = Array.from({ length: particleCount }, (_, i) => {
-      const size = 10 + Math.random() * 18; // 10-28px
-      return {
-        id: i,
-        x: Math.random() * 100, // percentage across screen
-        delay: Math.random() * 5,
-        duration: 8 + Math.random() * 8, // 8-16 seconds
-        size,
-        opacity: 0.6 + Math.random() * 0.4, // 0.6-1.0 for stronger visibility
-        drift: -20 + Math.random() * 40, // -20 to 20px horizontal drift
-        rotation: Math.random() * 360,
-        type: ["star", "sparkle", "diamond"][Math.floor(Math.random() * 3)] as "star" | "sparkle" | "diamond",
-        color: palette[Math.floor(Math.random() * palette.length)],
-      };
-    });
+    const generateSparkles = () => {
+      const isMobile = window.innerWidth < 768;
+      const particleCount = isMobile ? 25 : 40;
+      
+      const newSparkles: Sparkle[] = Array.from({ length: particleCount }, (_, i) => {
+        const size = 10 + Math.random() * 18; // 10-28px
+        return {
+          id: i,
+          x: Math.random() * 100, // percentage across screen
+          delay: Math.random() * 5,
+          duration: 8 + Math.random() * 8, // 8-16 seconds
+          size,
+          opacity: 0.6 + Math.random() * 0.4, // 0.6-1.0 for stronger visibility
+          drift: -20 + Math.random() * 40, // -20 to 20px horizontal drift
+          rotation: Math.random() * 360,
+          type: ["star", "sparkle", "diamond"][Math.floor(Math.random() * 3)] as "star" | "sparkle" | "diamond",
+          color: palette[Math.floor(Math.random() * palette.length)],
+        };
+      });
+      
+      setSparkles(newSparkles);
+    };
 
-    setSparkles(newSparkles);
+    // Initial generation
+    generateSparkles();
     
     // Force re-render on window resize to ensure particles are properly positioned
     const handleResize = () => {
       setSparkles([]);
-      setTimeout(() => {
-        const isMobile = window.innerWidth < 768;
-        const particleCount = isMobile ? 25 : 40;
-        
-        const newSparkles: Sparkle[] = Array.from({ length: particleCount }, (_, i) => {
-          const size = 10 + Math.random() * 18; // 10-28px
-          return {
-            id: i,
-            x: Math.random() * 100, // percentage across screen
-            delay: Math.random() * 5,
-            duration: 8 + Math.random() * 8, // 8-16 seconds
-            size,
-            opacity: 0.6 + Math.random() * 0.4, // 0.6-1.0 for stronger visibility
-            drift: -20 + Math.random() * 40, // -20 to 20px horizontal drift
-            rotation: Math.random() * 360,
-            type: ["star", "sparkle", "diamond"][Math.floor(Math.random() * 3)] as "star" | "sparkle" | "diamond",
-            color: palette[Math.floor(Math.random() * palette.length)],
-          };
-        });
-        
-        setSparkles(newSparkles);
-      }, 100);
+      setTimeout(generateSparkles, 100);
     };
     
     window.addEventListener('resize', handleResize);
@@ -99,8 +84,15 @@ const SparkleRain = ({ zIndex = 10 }: { zIndex?: number } = {}) => {
     }
   };
 
+  if (sparkles.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex }}>
+    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ 
+      zIndex,
+      backgroundColor: showBackground ? backgroundColor : 'transparent'
+    }}>
       {sparkles.map((sparkle) => (
         <motion.div
           key={sparkle.id}
@@ -120,9 +112,9 @@ const SparkleRain = ({ zIndex = 10 }: { zIndex?: number } = {}) => {
             rotate: sparkle.rotation,
           }}
           animate={{
-            y: ["120vh", "100vh", "120vh"],
-            x: [sparkle.drift, sparkle.drift * -0.5, sparkle.drift],
-            rotate: sparkle.rotation + 360,
+            y: ["0vh", "100vh"],
+            x: [0, sparkle.drift],
+            rotate: [0, sparkle.rotation + 360],
             scale: [1, 1.1, 1],
           }}
           transition={{
@@ -145,11 +137,11 @@ const SparkleRain = ({ zIndex = 10 }: { zIndex?: number } = {}) => {
             }}
           >
             {/* glow layer (blurred, behind) */}
-            <span style={{ display: "inline-block", transform: "translateZ(0)", filter: `blur(${Math.max(6, sparkle.size / 5)}px)`, opacity: 0.85 }} aria-hidden>
+            <span style={{ display: "inline-block", transform: "translateZ(0)", filter: `blur(${Math.max(6, sparkle.size / 5)}px)`, opacity: 0.85 }} aria-hidden="true">
               {getSparkleSvg(sparkle.type, Math.round(sparkle.size * 1.3), sparkle.color)}
             </span>
             {/* crisp foreground */}
-            <span style={{ display: "inline-block", position: "relative", top: 0, left: 0 }}>
+            <span style={{ display: "inline-block", position: "absolute", top: 0, left: 0 }}>
               {getSparkleSvg(sparkle.type, sparkle.size, sparkle.color)}
             </span>
           </motion.span>
