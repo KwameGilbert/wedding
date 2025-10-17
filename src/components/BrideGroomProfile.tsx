@@ -64,9 +64,9 @@ const BrideGroomProfile = ({
         }`}
       >
         {/* Photo */}
-        <img src={image} alt={name} className="w-full h-full object-cover block" style={{ filter: "grayscale(100%) brightness(40%)" }} />
-        {/* Black -> grey gradient overlay to tint image */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.85), rgba(128,128,128,0.55))" }} />
+        <img src={image} alt={name} className="w-full h-full object-cover block" />
+        {/* Black with grey gradient overlay */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.7), rgba(128,128,128,0.4))" }} />
       </motion.div>
 
       {/* Content Area */}

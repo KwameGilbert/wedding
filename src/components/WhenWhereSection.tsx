@@ -4,7 +4,7 @@ import { MapPin, Phone, Calendar, Clock, Copy, Download } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import generateICS from "@/lib/calendar";
 import champagne from "@/assets/champagne.jpg";
-import weddingCar from "@/assets/wedding car.webp";
+import car from "@/assets/car.jpg";
 
 interface EventDetailsProps {
   title: string;
@@ -178,8 +178,8 @@ const WhenWhereSection: React.FC<WhenWhereSectionProps> = ({ className = "" }) =
         </div>
 
         <div className="flex flex-wrap lg:flex-nowrap gap-8 lg:gap-4 justify-center w-full px-4">
-          <EventDetails title="Parking Location" date="2026-03-07T13:00:00" time="1:00 PM - 3:00 PM" address="Charlotte Street Car Park, Charlotte St, Bath BA1 2NE, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/Ua2QC5WvXWQzkqen8" icon={<img src={weddingCar} alt="Wedding Car" className="w-20 h-20 object-cover" />} noBg index={0} />
-          <EventDetails title="The Reception" date="2026-03-07T15:30:00" time="3:30 PM - 9:00 PM" address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7" icon={<img src={champagne} alt="Champagne" className="w-20 h-20 object-cover" />} index={1} />
+          <EventDetails title="Parking Location" date="2026-03-07T13:00:00" time="1:00 PM - 3:00 PM" address="Charlotte Street Car Park, Charlotte St, Bath BA1 2NE, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/Ua2QC5WvXWQzkqen8" icon={<img src={car} alt="Parking Car" className="w-full h-full object-cover rounded-full" />} index={0} />
+          <EventDetails title="The Reception" date="2026-03-07T15:30:00" time="3:30 PM - 9:00 PM" address="Percy Community Centre, New King St, Bath BA1 2BN, United Kingdom" phone="+44 (793)650-8904" mapUrl="https://maps.app.goo.gl/nDgwxcxTP9i5JkEi7" icon={<img src={champagne} alt="Champagne" className="w-full h-full object-cover rounded-full" />} index={1} />
         </div>
 
         <div className="w-full px-4 mt-12">

@@ -90,7 +90,7 @@ const HotelsSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center text-muted-foreground mt-12 text-sm max-w-2xl mx-auto"
+          className="text-center text-wedding-terracotta-500 font-semibold mt-12 text-base max-w-2xl mx-auto bg-wedding-cream-100 p-4 rounded-lg shadow-sm border border-wedding-terracotta-200"
         >
           This is our recommended hotel for all wedding guests. Please book early to secure your room for our special celebration.
         </motion.p>

@@ -25,20 +25,20 @@ const RSV = (probs: any) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="py-20 bg-gradient-to-r from-pink-300 via-pink-200 to-purple-300"
+        className="py-20 bg-gradient-to-r from-black via-gray-800 to-gray-700"
       >
         <div className="max-w-4xl mx-auto text-center px-4">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-rochester text-4xl md:text-5xl leading-tight text-wedding-terracotta-500"
+            className="font-rochester text-4xl md:text-5xl leading-tight text-pink-300"
           >
             Will You Join Us?
           </motion.h2>
 
           <motion.p
-            className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto"
+            className="text-xl text-gray-200 mb-12 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}

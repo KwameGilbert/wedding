@@ -14,7 +14,7 @@ interface Sparkle {
   color: string;
 }
 
-const SparkleRain = ({ zIndex = 5 }: { zIndex?: number } = {}) => {
+const SparkleRain = ({ zIndex = 0 }: { zIndex?: number } = {}) => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
 
   // Deeper palette for clearer contrast
