@@ -82,9 +82,12 @@ const StripeGift = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-center text-2xl font-bold mb-6 text-white">
-          Send a Wedding Gift 💝
+        <h2 className="text-center text-2xl font-bold mb-3 text-white">
+          Contribute to Our Wedding Gift 💝
         </h2>
+        <p className="text-white mb-6 text-base">
+          Your contribution will help us start our new journey together
+        </p>
 
         <div className="grid grid-cols-3 gap-2 mb-4">
           {presetAmounts.map((amt) => (
@@ -142,10 +145,27 @@ const StripeGift = () => {
           You'll be redirected to a secure Stripe page.
         </p>
 
-        <p className="text-white mt-8 text-base leading-relaxed text-center font-medium p-3 rounded-md">
-          Thank you for being part of our celebration. <br />
-          We can't wait to share this new chapter with you!
-        </p>
+        <div className="mt-6 bg-black/40 p-4 rounded-lg">
+          <h3 className="text-white font-bold text-lg mb-2">Bank Transfer Option</h3>
+          <p className="text-white text-sm mb-2">
+            You can also make a direct bank transfer to:
+          </p>
+          <div className="bg-white/10 p-3 rounded text-white text-left">
+            <p><span className="font-semibold">Account Name:</span> Rudi & Darlington</p>
+            <p><span className="font-semibold">Account Number:</span> 12345678</p>
+            <p><span className="font-semibold">Sort Code:</span> 12-34-56</p>
+            <p><span className="font-semibold">Bank:</span> Example Bank</p>
+            <p className="text-xs mt-2 italic">Please include your name as reference</p>
+          </div>
+        </div>
+
+        <div className="bg-black/40 mt-8 p-4 rounded-lg">
+          <p className="text-white text-base leading-relaxed text-center font-medium">
+            Thank you for being part of our celebration. <br />
+            We can't wait to share this new chapter with you! <br />
+            <span className="text-wedding-terracotta-300 font-bold">Rudi & Darlington</span>
+          </p>
+        </div>
 
         {/* Floating animation (optional) */}
         {/* <motion.div
