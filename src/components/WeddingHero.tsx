@@ -44,27 +44,25 @@ const WeddingHero = ({
       style={{ backgroundColor: "#333333" }}
     >
       {/* Carousel Backgrounds */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <AnimatePresence mode="wait">
-          <motion.div
+          <motion.img
             key={currentIndex}
-            className="absolute inset-0 w-full h-full"
-            style={{
-              backgroundImage: `url(${images[currentIndex]})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            initial={{ opacity: 0, scale: 1.1 }}
+            src={images[currentIndex]}
+            alt={`Hero ${currentIndex + 1}`}
+            className="absolute left-1/2 top-1/2 min-w-full min-h-full w-auto h-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-cover"
+            initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
+            exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ pointerEvents: "none" }}
           />
-  </AnimatePresence>
-  <div className="absolute inset-0 bg-gradient-to-br from-black/45 via-wedding-terracotta-900/30 to-transparent" />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/55 via-wedding-terracotta-900/30 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full max-w-[1100px] mx-auto px-4 flex items-center justify-center">
+      <div className="relative z-10 h-full max-w-[1100px] mx-auto px-4 sm:px-6 flex items-center justify-center">
         <div className="text-center">
           {/* Wedding Logo */}
           {/* <motion.div
@@ -94,7 +92,7 @@ const WeddingHero = ({
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-            className="text-wedding-cream-500 font-rochester text-6xl sm:text-7xl md:text-8xl lg:text-[102.4px] mb-2"
+            className="text-wedding-cream-500 font-rochester text-5xl sm:text-6xl md:text-7xl lg:text-[102.4px] mb-2 break-words"
             style={{
               fontFamily: "Rochester, cursive",
               lineHeight: "1.5",
