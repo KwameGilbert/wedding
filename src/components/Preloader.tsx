@@ -16,8 +16,8 @@ const Preloader: React.FC = () => {
 
   return (
     <motion.div 
-      className="fixed inset-0 flex items-center justify-center" 
-      style={{ background: "#000000", zIndex: 9999 }}
+      className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800" 
+      style={{ zIndex: 9999 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -31,10 +31,8 @@ const Preloader: React.FC = () => {
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <motion.img 
-          src={rudilogo} 
-          alt="logo" 
-          className="w-28 h-28 rounded-full mb-4 z-[9999]" 
+        <motion.div
+          className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mb-6 shadow-2xl"
           animate={{ 
             scale: [1, 1.05, 1],
             rotate: [0, 5, 0, -5, 0]
@@ -44,7 +42,47 @@ const Preloader: React.FC = () => {
             repeat: Infinity,
             repeatType: "reverse" 
           }}
-        />
+        >
+          <img 
+            src={rudilogo} 
+            alt="Rudolf & Jemima Wedding Logo" 
+            className="w-24 h-24 rounded-full object-contain" 
+          />
+        </motion.div>
+        
+        <motion.h1
+          className="text-3xl font-rochester text-white mb-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          Rudolf & Jemima
+        </motion.h1>
+        
+        <motion.p
+          className="text-gray-300 text-lg"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+        >
+          Wedding Celebration
+        </motion.p>
+        
+        <motion.div
+          className="mt-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+        >
+          <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full">
+            <motion.div
+              className="h-full bg-white rounded-full"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 2, delay: 1.2, ease: "easeInOut" }}
+            />
+          </div>
+        </motion.div>
       </motion.div>
     </motion.div>
   );
