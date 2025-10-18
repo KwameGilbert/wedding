@@ -65,8 +65,8 @@ const BrideGroomProfile = ({
       >
         {/* Photo */}
         <img src={image} alt={name} className="w-full h-full object-cover block" />
-        {/* Black with grey gradient overlay */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.7), rgba(128,128,128,0.4))" }} />
+        {/* Subtle overlay for better text readability */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1))" }} />
       </motion.div>
 
       {/* Content Area */}
@@ -98,7 +98,7 @@ const BrideGroomProfile = ({
           transition={{ duration: 0.6, delay: index * 0.3 + 0.4 }}
           className={`font-rochester text-3xl lg:text-5xl leading-tight mb-4 ${
             isGroom ? "lg:text-right" : "lg:text-left"
-          } text-center lg:text-left text-gray-900`}
+          } text-center lg:text-left text-white`}
         >
           {name}
         </motion.h2>
@@ -108,7 +108,7 @@ const BrideGroomProfile = ({
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: index * 0.3 + 0.6 }}
-          className={`text-gray-600 leading-relaxed mb-4 ${
+          className={`text-gray-300 leading-relaxed mb-4 ${
             isGroom ? "lg:text-right" : "lg:text-left"
           } text-center lg:text-left`}
         >

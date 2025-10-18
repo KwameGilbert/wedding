@@ -23,11 +23,11 @@ const App = () => {
     const hasVisited = sessionStorage.getItem('hasVisited');
     
     if (!hasVisited) {
-      // First visit - show preloader for 3 seconds
+      // First visit - show preloader for 5 seconds
       const timer = setTimeout(() => {
         setIsLoading(false);
         sessionStorage.setItem('hasVisited', 'true');
-      }, 3000);
+      }, 5000);
       
       return () => clearTimeout(timer);
     } else {

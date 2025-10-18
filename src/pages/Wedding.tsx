@@ -47,7 +47,7 @@ const Wedding = () => {
       </section>
 
       {/* Groom & Bride Section */}
-      <section id="groom-bride-section" className="pt-32 pb-20 px-4 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
+      <section id="groom-bride-section" className="pt-32 pb-20 px-4" style={{ backgroundColor: "#333333" }}>
         <div className="max-w-[1100px] mx-auto">
           {/* Section Header */}
           <motion.div
@@ -61,7 +61,7 @@ const Wedding = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-gray-700 border-gray-300"
+              className="inline-block text-sm font-black uppercase tracking-wider mb-2 px-2 border-b border-dashed text-gray-300 border-gray-500"
             >
               About Bride &amp; Groom
             </motion.span>
@@ -69,7 +69,7 @@ const Wedding = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight text-gray-900"
+              className="font-rochester text-4xl lg:text-6xl xl:text-[80px] leading-tight text-white"
             >
               Bride &amp; Groom
             </motion.h2>

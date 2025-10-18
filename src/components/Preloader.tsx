@@ -31,8 +31,10 @@ const Preloader: React.FC = () => {
         exit={{ scale: 0.8, opacity: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <motion.div
-          className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mb-6 shadow-2xl"
+        <motion.img 
+          src={rudilogo} 
+          alt="Rudolf & Jemima Wedding Logo" 
+          className="w-28 h-28 rounded-full mb-6 shadow-2xl z-[9999]" 
           animate={{ 
             scale: [1, 1.05, 1],
             rotate: [0, 5, 0, -5, 0]
@@ -42,13 +44,7 @@ const Preloader: React.FC = () => {
             repeat: Infinity,
             repeatType: "reverse" 
           }}
-        >
-          <img 
-            src={rudilogo} 
-            alt="Rudolf & Jemima Wedding Logo" 
-            className="w-24 h-24 rounded-full object-contain" 
-          />
-        </motion.div>
+        />
         
         <motion.h1
           className="text-3xl font-rochester text-white mb-2"
