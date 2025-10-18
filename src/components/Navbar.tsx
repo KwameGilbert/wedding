@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import HeroCarousel from "@/components/Drawer";
 import { rudilogo } from "@/assets";
 
@@ -13,7 +14,7 @@ const navItems = [
   { name: "When & Where", href: "#when-where-section" },
   { name: "Hotels", href: "#hotels-section" },
   { name: "RSVP", href: "#rsvp-section" },
-  { name: "Gift", href: "/registry" },
+  { name: "Gift", href: "/gift" },
 ];
 
 export default function Navbar() {
@@ -21,9 +22,15 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // Check if it's a route (starts with /) or a section (starts with #)
+    if (href.startsWith('/')) {
+      // This will be handled by Link component
+      return;
+    } else if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -49,15 +56,31 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden items-center md:flex space-x-6">
           {navItems.map((item, idx) => (
-            <motion.a
-              key={idx}
-              href={item.href}
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="relative block text-sm font-semibold text-wedding-cream-500  uppercase transition-colors duration-300 hover:text-wedding-terracotta-500"
-            >
-              {item.name}
-            </motion.a>
+            item.href.startsWith('/') ? (
+              <Link key={idx} to={item.href}>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="relative block text-sm font-semibold text-wedding-cream-500 uppercase transition-colors duration-300 hover:text-wedding-terracotta-500 cursor-pointer"
+                >
+                  {item.name}
+                </motion.div>
+              </Link>
+            ) : (
+              <motion.a
+                key={idx}
+                href={item.href}
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative block text-sm font-semibold text-wedding-cream-500 uppercase transition-colors duration-300 hover:text-wedding-terracotta-500"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
+              >
+                {item.name}
+              </motion.a>
+            )
           ))}
         </nav>
 
@@ -76,9 +99,17 @@ export default function Navbar() {
         {open && (
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }} className="md:hidden bg-background text-wedding-cream-500 flex flex-col items-center space-y-5 py-6">
             {navItems.map((item, idx) => (
-              <motion.a key={idx} href={item.href} whileHover={{ scale: 1.05 }} onClick={() => handleNavClick(item.href)} className="font-medium hover:text-wedding-olive-600 transition">
-                {item.name}
-              </motion.a>
+              item.href.startsWith('/') ? (
+                <Link key={idx} to={item.href} onClick={() => setOpen(false)}>
+                  <motion.div whileHover={{ scale: 1.05 }} className="font-medium hover:text-wedding-olive-600 transition cursor-pointer">
+                    {item.name}
+                  </motion.div>
+                </Link>
+              ) : (
+                <motion.a key={idx} href={item.href} whileHover={{ scale: 1.05 }} onClick={() => handleNavClick(item.href)} className="font-medium hover:text-wedding-olive-600 transition">
+                  {item.name}
+                </motion.a>
+              )
             ))}
           </motion.div>
         )}
