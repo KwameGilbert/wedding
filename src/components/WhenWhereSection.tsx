@@ -95,6 +95,7 @@ interface EventDetailsProps {
       viewport={{ once: true, margin: "-100px" }}
       className="flex justify-center w-full lg:w-1/2 px-4"
     >
+      
   <div className="text-center max-w-xs sm:max-w-sm">
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
