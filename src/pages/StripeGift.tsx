@@ -54,7 +54,7 @@ const StripeGift = () => {
     
     try {
       const response = await fetch(
-        "https://stripe-payment-t4f2.onrender.com/api/create-checkout-session/",
+        "https://stripe-payment-3okv.onrender.com/api/create-checkout-session/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
