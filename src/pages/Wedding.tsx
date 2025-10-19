@@ -146,7 +146,7 @@ const Wedding = () => {
             <p className="text-wedding-olive-600 font-semibold">
               With all our love,
               <br />
-              Rudulf & Jemima
+              Rudolf & Jemima
             </p>
           </motion.div>
         </div>
