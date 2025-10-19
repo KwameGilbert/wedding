@@ -273,10 +273,10 @@ const StripeGift = () => {
             </p>
             <div className="bg-gray-800 p-4 rounded-xl border border-yellow-500">
               <div className="space-y-2 text-sm">
-                <p><span className="font-semibold text-yellow-400">Account Name:</span> <span className="text-white">Rudolf & Jemima</span></p>
-                <p><span className="font-semibold text-yellow-400">Account Number:</span> <span className="text-white">12345678</span></p>
-                <p><span className="font-semibold text-yellow-400">Sort Code:</span> <span className="text-white">12-34-56</span></p>
-                <p><span className="font-semibold text-yellow-400">Bank:</span> <span className="text-white">Example Bank</span></p>
+                <p><span className="font-semibold text-yellow-400">Account Name:</span> <span className="text-white">Rudolf Ehumah</span></p>
+                <p><span className="font-semibold text-yellow-400">Account Number:</span> <span className="text-white">05430972</span></p>
+                <p><span className="font-semibold text-yellow-400">Sort Code:</span> <span className="text-white">07-13-06</span></p>
+                <p><span className="font-semibold text-yellow-400">Bank:</span> <span className="text-white"></span></p>
                 <p className="text-xs text-gray-400 mt-3 italic">Please include your name as reference</p>
               </div>
             </div>
