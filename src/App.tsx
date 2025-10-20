@@ -8,6 +8,11 @@ import { AnimatePresence } from "framer-motion";
 import Wedding from "./pages/Wedding";
 import Registry from "./pages/Registry";
 import StripeGift from "./pages/StripeGift";
+import GroomBride from "./pages/GroomBride";
+import Greetings from "./pages/Greetings";
+import WhenWhere from "./pages/WhenWhere";
+import Hotels from "./pages/Hotels";
+import RSVP from "./pages/RSVP";
 import NotFound from "./pages/NotFound";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
@@ -52,6 +57,11 @@ const App = () => {
             <BrowserRouter key="app">
               <Routes>
                 <Route path="/" element={<Wedding />} />
+                <Route path="/groom-bride" element={<GroomBride />} />
+                <Route path="/greetings" element={<Greetings />} />
+                <Route path="/when-where" element={<WhenWhere />} />
+                <Route path="/hotels" element={<Hotels />} />
+                <Route path="/rsvp" element={<RSVP />} />
                 <Route path="/registry" element={<Registry />} />
                 <Route path="/gift" element={<StripeGift />} />
                 <Route path="/success" element={<Success />} />

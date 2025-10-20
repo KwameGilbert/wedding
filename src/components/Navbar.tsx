@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import HeroCarousel from "@/components/Drawer";
 import { rudilogo } from "@/assets";
 
 
 
 const navItems = [
-  { name: "Home", href: "#home-section" },
-  { name: "Groom & Bride", href: "#groom-bride-section" },
-  { name: "Greetings", href: "#greeting-section" },
-  { name: "When & Where", href: "#when-where-section" },
-  { name: "Hotels", href: "#hotels-section" },
-  { name: "RSVP", href: "#rsvp-section" },
+  { name: "Home", href: "/" },
+  { name: "Groom & Bride", href: "/groom-bride" },
+  { name: "Greetings", href: "/greetings" },
+  { name: "When & Where", href: "/when-where" },
+  { name: "Hotels", href: "/hotels" },
+  { name: "RSVP", href: "/rsvp" },
+  { name: "Registry", href: "/registry" },
   { name: "Gift", href: "/gift" },
 ];
 
@@ -42,16 +43,15 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 bg-background/30 backdrop-blur-md border-b border-sidebar-border/30 shadow-md"
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        <motion.a href="#home-section" className="text-wedding-terracotta-500 text-xl font-bold uppercase tracking-wider transition-colors duration-300 hover:text-wedding-terracotta-600 whitespace-nowrap"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick("#home-section");
-          }}
-        >
-          <img src={rudilogo} alt="Rudolf & Jemima Wedding Logo" className="h-14 rounded-full bg-wedding-cream-100 border-2 border-wedding-cream-100 w-14 object-contain" />
-        </motion.a>
+        <Link to="/">
+          <motion.div
+            className="text-wedding-terracotta-500 text-xl font-bold uppercase tracking-wider transition-colors duration-300 hover:text-wedding-terracotta-600 whitespace-nowrap"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <img src={rudilogo} alt="Rudolf & Jemima Wedding Logo" className="h-14 rounded-full bg-wedding-cream-100 border-2 border-wedding-cream-100 w-14 object-contain" />
+          </motion.div>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden items-center md:flex space-x-6">
