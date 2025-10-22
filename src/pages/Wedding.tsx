@@ -21,7 +21,6 @@ const Wedding = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
       },
     },
   };
@@ -80,7 +79,7 @@ const Wedding = () => {
             {/* Groom Profile */}
             <BrideGroomProfile
               name="Rudolf"
-              description="A passionate photographer and adventure seeker, Rudolf captures life's most precious moments through his lens. When he's not behind the camera, you'll find him exploring new places, brewing the perfect cup of coffee, or planning the next surprise for Jemima. His infectious smile and warm heart make everyone around him feel like family."
+              description="Rudolf’s the kind of guy who brings a calm, steady vibe wherever he goes. He genuinely cares, gets involved, and is always ready to jump in and help out. When he commits to something or someone he’s all in, no hesitation. He shows his love through actions more than words, always showing up and following through. He’s the type who plans ahead, stays wise, and somehow still cracks a good joke when you need it. Rudolf’s also smart, the kind of intelligent that earns real respect—but he never brags about it. He’s humble about his accomplishments and always quick to lift others up instead of talking about himself. He’s got big dreams but stays grounded, never forgetting what really matters. And at the heart of it all is his strong Christian faith—you can feel it in everything he does: how he loves, leads, and lives."
               image={hero7}
               isGroom={true}
               index={0}
@@ -89,7 +88,7 @@ const Wedding = () => {
             {/* Bride Profile */}
             <BrideGroomProfile
               name="Jemima"
-              description="A talented artist and creative soul, Jemima brings beauty and inspiration to everything she touches. Whether she's painting a masterpiece, designing something magical, or dancing to her favorite song, her creativity knows no bounds. Her kindness, grace, and radiant spirit light up every room she enters, making the world a more beautiful place."
+              description="She’s incredibly loving and caring—always checking in and making sure the people around her feel welcomed, supported, and valued. She’s the kind of person you can count on for a warm hug, a listening ear, or a good laugh when you need it most. Friendly and down-to-earth, she makes everyone feel like they’ve known her forever. She’s smart, thoughtful, artistic, quick-witted, and full of great ideas. Above all, her love for God shines through—in the way she loves with grace, kindness, and quiet strength. Being around her is easy, comforting, and inspiring all at once. And a tip for visitors: bring her flowers and a box of chocolates—you’ll be in her good books."
               image={hero3}
               isGroom={false}
               index={1}
