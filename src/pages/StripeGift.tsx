@@ -12,9 +12,12 @@ const StripeGift = () => {
   const [customAmount, setCustomAmount] = useState("");
   const [email, setEmail] = useState("");
   const [note, setNote] = useState("");
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [phone, setPhone] = useState("");
   const [currentBgImage, setCurrentBgImage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState<{email?: string; amount?: string}>({});
+  const [errors, setErrors] = useState<{email?: string; amount?: string; name?: string; location?: string; phone?: string}>({});
   const [showSuccess, setShowSuccess] = useState(false);
   
   const backgroundImages = [hero3, hero7, hero9];
@@ -31,7 +34,7 @@ const StripeGift = () => {
   const amountToPay = selectedAmount || Number(customAmount);
 
   const validateForm = () => {
-    const newErrors: {email?: string; amount?: string} = {};
+    const newErrors: {email?: string; amount?: string; name?: string; location?: string; phone?: string} = {};
     
     if (!email) {
       newErrors.email = "Email is required";
@@ -42,6 +45,9 @@ const StripeGift = () => {
     if (!amountToPay || amountToPay <= 0) {
       newErrors.amount = "Please select or enter a valid amount";
     }
+    if (!name.trim()) newErrors.name = "Name is required";
+    if (!location.trim()) newErrors.location = "Location is required";
+    if (!phone.trim()) newErrors.phone = "Phone number is required";
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -62,6 +68,9 @@ const StripeGift = () => {
             amount: amountToPay,
             email,
             note,
+            name,
+            location,
+            phone,
           }),
         }
       );
@@ -210,6 +219,88 @@ const StripeGift = () => {
               )}
             </div>
 
+            {/* Donor Details */}
+            <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-white mb-2">
+                  Name *
+                </label>
+                <motion.input
+                  type="text"
+                  placeholder="Your name"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    setErrors(prev => ({ ...prev, name: undefined }));
+                  }}
+                  className="w-full border-2 border-yellow-500 rounded-xl p-4 text-lg font-medium bg-gray-800 text-white shadow-md focus:border-yellow-400 focus:outline-none transition-all duration-300 placeholder-gray-400"
+                  whileFocus={{ scale: 1.02 }}
+                />
+                {errors.name && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-500 text-sm mt-2 flex items-center"
+                  >
+                    <AlertCircle className="w-4 h-4 mr-1" />
+                    {errors.name}
+                  </motion.p>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-white mb-2">
+                  Location *
+                </label>
+                <motion.input
+                  type="text"
+                  placeholder="City, Country"
+                  value={location}
+                  onChange={(e) => {
+                    setLocation(e.target.value);
+                    setErrors(prev => ({ ...prev, location: undefined }));
+                  }}
+                  className="w-full border-2 border-yellow-500 rounded-xl p-4 text-lg font-medium bg-gray-800 text-white shadow-md focus:border-yellow-400 focus:outline-none transition-all duration-300 placeholder-gray-400"
+                  whileFocus={{ scale: 1.02 }}
+                />
+                {errors.location && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-500 text-sm mt-2 flex items-center"
+                  >
+                    <AlertCircle className="w-4 h-4 mr-1" />
+                    {errors.location}
+                  </motion.p>
+                )}
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block text-sm font-semibold text-white mb-2">
+                  Phone Number *
+                </label>
+                <motion.input
+                  type="tel"
+                  placeholder="e.g., +44 7123 456789"
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setErrors(prev => ({ ...prev, phone: undefined }));
+                  }}
+                  className="w-full border-2 border-yellow-500 rounded-xl p-4 text-lg font-medium bg-gray-800 text-white shadow-md focus:border-yellow-400 focus:outline-none transition-all duration-300 placeholder-gray-400"
+                  whileFocus={{ scale: 1.02 }}
+                />
+                {errors.phone && (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-500 text-sm mt-2 flex items-center"
+                  >
+                    <AlertCircle className="w-4 h-4 mr-1" />
+                    {errors.phone}
+                  </motion.p>
+                )}
+              </div>
+            </div>
+
             {/* Message Input */}
             <div className="mb-6">
               <label className="block text-sm font-semibold text-white mb-2">
@@ -231,7 +322,14 @@ const StripeGift = () => {
             >
               <Button
                 onClick={handlePayment}
-                disabled={isLoading || !amountToPay || !email}
+                disabled={
+                  isLoading ||
+                  !amountToPay ||
+                  !email ||
+                  !name.trim() ||
+                  !location.trim() ||
+                  !phone.trim()
+                }
                 className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
@@ -300,9 +398,12 @@ const StripeGift = () => {
               <Heart className="w-8 h-8 text-black fill-black" />
             </motion.div>
             
-            <h3 className="text-2xl font-rochester text-white mb-4">
-              Thank You!
+            <h3 className="text-2xl font-rochester text-white mb-2">
+              Thank You{ name ? `, ${name}` : "" }!
             </h3>
+            {name && (
+              <p className="text-gray-300 text-sm mb-2">We truly appreciate your generosity.</p>
+            )}
             
             <p className="text-gray-300 text-base leading-relaxed mb-6">
               Thank you for being part of our celebration. <br />
